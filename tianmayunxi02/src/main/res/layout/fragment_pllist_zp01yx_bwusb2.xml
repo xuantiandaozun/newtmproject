@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.system.uilibrary.views.titlebar.TitleBarView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="?attr/primary"
+        app:title_actionTextColor="@color/white"
+        app:title_dividerColor="?attr/primary"
+        app:title_leftTextColor="@color/white"
+        app:title_rightTextColor="@color/white"
+        app:title_titleMainTextColor="@color/white"
+        app:title_titleSubTextColor="@color/white" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view1"
+        android:layout_below="@+id/titleBar"
+        android:layout_marginTop="@dimen/material_10"
+        android:background="@color/white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/material_1"
+        android:layout_above="@+id/re_bottom"
+        android:background="@color/line01" />
+
+    <LinearLayout
+        android:id="@+id/re_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:padding="@dimen/material_10">
+
+        <com.aries.ui.view.radius.RadiusEditText
+            android:id="@+id/ed_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/material_10"
+            android:layout_weight="1"
+            android:hint="写评论~"
+            android:paddingLeft="18dp"
+            android:paddingTop="5dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/textcolor01"
+            rv:rv_backgroundColor="@color/background011"
+            rv:rv_radius="10dp"
+            rv:rv_radiusHalfHeightEnable="true"
+            rv:rv_strokeColor="@color/line02"
+            rv:rv_strokeWidth="0.5dp"
+            rv:rv_textColor="@color/textcolor01" />
+
+        <com.aries.ui.view.radius.RadiusTextView
+            android:id="@+id/btn_pl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_time"
+            android:layout_marginRight="@dimen/material_5"
+            android:layout_toLeftOf="@+id/btn_jubao"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="18dp"
+            android:paddingTop="5dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="5dp"
+            android:text="发布"
+            rv:rv_backgroundColor="@color/blue_primary"
+            rv:rv_radiusHalfHeightEnable="true"
+            rv:rv_rippleEnable="true"
+            rv:rv_strokeColor="@color/line02"
+            rv:rv_strokeWidth="0.5dp"
+            rv:rv_textColor="@color/white" />
+    </LinearLayout>
+</RelativeLayout>

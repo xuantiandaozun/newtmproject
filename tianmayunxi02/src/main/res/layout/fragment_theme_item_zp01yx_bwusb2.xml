@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="@dimen/dp_10"
+    android:elevation="@dimen/material_5"
+    xmlns:rv="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_head"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        fresco:roundAsCircle="true"/>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/material_font_13"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textcolor02"
+        android:layout_marginTop="@dimen/material_5"
+     />
+    <com.aries.ui.view.radius.RadiusTextView
+        android:id="@+id/tv_statue"
+        android:layout_width="@dimen/material_70"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:paddingLeft="@dimen/material_8"
+        android:paddingRight="@dimen/material_8"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_4"
+        android:textSize="@dimen/material_font_12"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        rv:rv_radiusHalfHeightEnable="true"
+
+        rv:rv_backgroundColor="@color/blue_primary"
+
+
+        rv:rv_leftSelectedDrawable="#ff0900"
+
+        rv:rv_textColor="@color/white"
+
+        />
+</LinearLayout>

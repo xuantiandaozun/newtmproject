@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.system.uilibrary.views.titlebar.TitleBarView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="?attr/primary"
+        app:title_actionTextColor="@color/white"
+        app:title_dividerColor="?attr/primary"
+        app:title_leftTextColor="@color/white"
+        app:title_rightTextColor="@color/white"
+        app:title_titleMainTextColor="@color/white"
+        app:title_titleSubTextColor="@color/white" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/background02_zp01yx_bwusb"
+    android:layout_height="match_parent">
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+   >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <TextView
+        android:id="@+id/iv_jf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img_tip_jf"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/dp_10"
+        android:textSize="@dimen/material_font_13"
+        android:paddingLeft="@dimen/material_30"
+        android:text="领取积分"
+        android:layout_marginBottom="@dimen/material_40"/>
+</RelativeLayout>

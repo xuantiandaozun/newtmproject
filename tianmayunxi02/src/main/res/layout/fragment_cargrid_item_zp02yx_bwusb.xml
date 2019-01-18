@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><!--com.runsoft.android.core.views.SquareLayout-->
+<com.zhihu.matisse.internal.ui.widget.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/item_fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_icon_iv"
+            android:layout_width="@dimen/material_48"
+            android:layout_height="@dimen/material_48"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/item_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/material_4"
+            android:gravity="center"
+            android:textColor="?attr/secondary_text"
+            android:textSize="@dimen/material_font_12" />
+
+
+    </LinearLayout>
+</com.zhihu.matisse.internal.ui.widget.SquareFrameLayout>

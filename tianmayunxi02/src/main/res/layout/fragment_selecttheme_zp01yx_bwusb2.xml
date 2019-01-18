@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.system.uilibrary.views.titlebar.TitleBarView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="?attr/primary"
+        app:title_actionTextColor="@color/white"
+        app:title_dividerColor="?attr/primary"
+        app:title_leftTextColor="@color/white"
+        app:title_rightTextColor="@color/white"
+        app:title_titleMainTextColor="@color/white"
+        app:title_titleSubTextColor="@color/white" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/material_10"
+        android:padding="@dimen/material_10">
+        <View
+            android:layout_width="@dimen/material_2"
+            android:layout_height="@dimen/material_15"
+            android:layout_gravity="center_vertical"
+            android:background="@color/blue"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/textcolor02"
+            android:layout_marginLeft="@dimen/material_10"
+            android:text="请选择所属主题"
+            />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

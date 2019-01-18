@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.system.tianmayunxi.zp02yx_xzmbh" >
+    <application>
+        <activity android:name="com.system.tianmayunxi.zp02yx_xzmbh.ui.main.MainActivity"/>
+        <activity android:name="com.system.tianmayunxi.zp02yx_xzmbh.ui.FragmentActivity"/>
+        <provider
+            android:authorities="com.system.tianmayunxi.zp02yx_xzmbh.provider.Yunxiprovider"
+            android:name="com.system.tianmayunxi.zp02yx_xzmbh.provider.Yunxiprovider"
+            android:exported="false"/>
+    </application>
+</manifest>
