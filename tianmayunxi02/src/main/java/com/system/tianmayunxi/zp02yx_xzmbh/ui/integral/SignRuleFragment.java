@@ -16,7 +16,7 @@ import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX_SIGNRULE)
+@Route(path = TmyxRouterConfig.TMYX02_SIGNRULE)
 public class SignRuleFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;

@@ -36,9 +36,7 @@ android {
         versionName "云息-高级"
         resValue "string", "app_name", "云息-高级"
         manifestPlaceholders = [
-                APP_KEY : "tmyx",
-                RY_KEY  : "8w7jv4qb82try",
-                RY_APPID: "com.system.tmyx"
+                APP_KEY : "tmyxgj",
         ]
         multiDexEnabled true
     }

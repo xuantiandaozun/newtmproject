@@ -73,13 +73,13 @@ public class AppRootFragment extends MVPBaseFragment {
 
     @Override
     protected void initDatas() {
-        TMBaseFragment fragment01 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_GFTJ)
+        TMBaseFragment fragment01 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_GFTJ)
                 .navigation();
-        TMBaseFragment fragment02 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_WDDY)
+        TMBaseFragment fragment02 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDDY)
                 .navigation();
-        TMBaseFragment fragment03 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_QBZT)
+        TMBaseFragment fragment03 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_QBZT)
                 .navigation();
-        TMBaseFragment fragment04 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_WDFB)
+        TMBaseFragment fragment04 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDFB)
                 .navigation();
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());

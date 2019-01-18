@@ -17,7 +17,7 @@ import com.system.uilibrary.views.titlebar.TitleBarView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = TmyxRouterConfig.LQJF_INFO)
+@Route(path = TmyxRouterConfig.TMYX02_INFO)
 public class UserInfoFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;

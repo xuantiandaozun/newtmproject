@@ -44,7 +44,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX_CKIMAGE)
+@Route(path = TmyxRouterConfig.TMYX02_CKIMAGE)
 public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, OfficPresenter>
         implements OfficContract.View{
     @BindView(R2.id.ultra_viewpager)
@@ -190,7 +190,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         if(id==R.id.iv_pl){
             HashMap<String, String> param = new HashMap<>();
             param.put("id",beans.getId()+"");
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_PLLIST)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_PLIST)
                     .withString("params",GsonUtil.GsonString(param))
                     .navigation();
             start(fragment);

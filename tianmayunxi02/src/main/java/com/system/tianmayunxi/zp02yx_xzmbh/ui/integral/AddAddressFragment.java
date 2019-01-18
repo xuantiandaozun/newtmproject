@@ -30,7 +30,7 @@ import java.util.Set;
 import butterknife.BindView;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.LQJF_ADDADDRESS)
+@Route(path = TmyxRouterConfig.TMYX02_ADDADDRESS)
 public class AddAddressFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -153,7 +153,7 @@ public class AddAddressFragment extends MVPBaseFragment<OfficContract.View, Offi
                     Object object = eventData.get(next);
                     switch (next) {
                         case "exchangeGoods":
-                            TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_DHJG)
+                            TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_DHJG)
                                     .navigation();
                             start(fragment);
                             break;

@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.MAIN_FRAGMENT)
+@Route(path = TmyxRouterConfig.MAIN02_FRAGMENT)
 public class FragmentActivity extends MVPBaseActivity {
     @BindView(R2.id.main)
     FrameLayout main;

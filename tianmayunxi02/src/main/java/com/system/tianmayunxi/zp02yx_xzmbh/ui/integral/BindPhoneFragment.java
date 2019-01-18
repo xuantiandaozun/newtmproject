@@ -12,7 +12,7 @@ import com.system.uilibrary.views.titlebar.TitleBarView;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.LQJF_BINDPHONE)
+@Route(path = TmyxRouterConfig.TMYX02_BINDPHONE)
 public class BindPhoneFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;

@@ -14,7 +14,7 @@ import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX_DHJG)
+@Route(path = TmyxRouterConfig.TMYX02_DHJG)
 public class ExChangeResoultFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;

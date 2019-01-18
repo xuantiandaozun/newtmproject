@@ -30,7 +30,7 @@ import java.util.Set;
 import butterknife.BindView;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX_QBZT)
+@Route(path = TmyxRouterConfig.TMYX02_QBZT)
 public class AllThemeFragment extends BaseFragment<AllThemeContract.View, AllThemePresenter>
         implements AllThemeContract.View {
     @BindView(R2.id.mlist)
@@ -70,10 +70,10 @@ public class AllThemeFragment extends BaseFragment<AllThemeContract.View, AllThe
                 HashMap<String, String> param = new HashMap<>();
                 param.put("detail",GsonUtil.GsonString(item));
 
-                main.put("fragment",TmyxRouterConfig.TMYX_THEMEDETAIL);
+                main.put("fragment",TmyxRouterConfig.TMYX02_THEMEDETAIL);
                 main.put("params",new Gson().toJson(param));
 
-                ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                         .withString("params",GsonUtil.GsonString(main))
                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                         .navigation();

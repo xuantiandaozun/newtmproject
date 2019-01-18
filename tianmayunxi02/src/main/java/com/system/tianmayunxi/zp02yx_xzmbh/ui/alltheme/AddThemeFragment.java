@@ -51,7 +51,7 @@ import okhttp3.RequestBody;
 
 import static com.system.myproject.utils.GsonUtil.GsonString;
 
-@Route(path = TmyxRouterConfig.TMYX_ADDZT)
+@Route(path = TmyxRouterConfig.TMYX02_ADDZT)
 public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, AllThemePresenter>
         implements AllThemeContract.View {
     @BindView(R2.id.titleBar)

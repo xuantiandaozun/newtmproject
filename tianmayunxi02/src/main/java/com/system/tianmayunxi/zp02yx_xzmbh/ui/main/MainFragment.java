@@ -77,13 +77,13 @@ public class MainFragment extends TMFragment {
         magicIndicator.setBackgroundColor(themeColor);
 
 
-        BaseFragment fragment01 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_GFTJ)
+        BaseFragment fragment01 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_GFTJ)
                 .navigation();
-        BaseFragment fragment02 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_WDDY)
+        BaseFragment fragment02 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDDY)
                 .navigation();
-        BaseFragment fragment03 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_QBZT)
+        BaseFragment fragment03 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_QBZT)
                 .navigation();
-        BaseFragment fragment04 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_WDFB)
+        BaseFragment fragment04 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDFB)
                 .navigation();
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());

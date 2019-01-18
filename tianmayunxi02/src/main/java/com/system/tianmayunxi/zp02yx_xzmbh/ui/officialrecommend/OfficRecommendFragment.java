@@ -52,7 +52,7 @@ import static com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.o
 /**
  * 官方推荐
  */
-@Route(path = TmyxRouterConfig.TMYX_GFTJ)
+@Route(path = TmyxRouterConfig.TMYX02_GFTJ)
 public class OfficRecommendFragment extends BaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener
 {
@@ -106,10 +106,10 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                         param.put("id",item2.getId()+"");
                         param.put("detail",new Gson().toJson(item2) );
 
-                        main.put("fragment",TmyxRouterConfig.TMYX_TIDETAIL);
+                        main.put("fragment",TmyxRouterConfig.TMYX02_TIDETAIL);
                         main.put("params",new Gson().toJson(param));
 
-                        ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                        ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                                 .withString("params",GsonUtil.GsonString(main))
                                 .navigation();
 
@@ -137,9 +137,9 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                             if(!TextUtils.isEmpty(tmToken)){
                                 HashMap<String, String> main = new HashMap<>();
                                 HashMap<String, String> param = new HashMap<>();
-                                main.put("fragment",TmyxRouterConfig.TMYX_XZZT);
+                                main.put("fragment",TmyxRouterConfig.TMYX02_XZZT);
                                 main.put("params",new Gson().toJson(param));
-                                ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                                ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                                         .withString("params",GsonUtil.GsonString(main))
                                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                                         .navigation();
@@ -159,10 +159,10 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                             HashMap<String, String> param = new HashMap<>();
                             param.put("detail",GsonUtil.GsonString(item2));
 
-                            main.put("fragment",TmyxRouterConfig.TMYX_CKIMAGE);
+                            main.put("fragment",TmyxRouterConfig.TMYX02_CKIMAGE);
                             main.put("params",new Gson().toJson(param));
 
-                            ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                            ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                                     .withString("params",GsonUtil.GsonString(main))
                                     .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                                     .navigation();
@@ -226,9 +226,9 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
             if(!TextUtils.isEmpty(tmToken)){
                 HashMap<String, String> main = new HashMap<>();
                 HashMap<String, String> param = new HashMap<>();
-                main.put("fragment",TmyxRouterConfig.TMYX_LQJF);
+                main.put("fragment",TmyxRouterConfig.TMYX02_LQJF);
                 main.put("params",new Gson().toJson(param));
-                ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                         .withString("params",GsonUtil.GsonString(main))
                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                         .navigation();

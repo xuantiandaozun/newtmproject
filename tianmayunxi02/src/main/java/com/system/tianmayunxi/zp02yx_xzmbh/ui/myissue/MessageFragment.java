@@ -36,7 +36,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.WDFB_MESSAGE)
+@Route(path = TmyxRouterConfig.WDFB02_MESSAGE)
 public class MessageFragment extends BaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.mlist)
@@ -86,10 +86,10 @@ public class MessageFragment extends BaseFragment<OfficContract.View, OfficPrese
                             HashMap<String, String> param = new HashMap<>();
                             param.put("id",item.getAid()+"");
 
-                            main.put("fragment",TmyxRouterConfig.TMYX_TIDETAIL);
+                            main.put("fragment",TmyxRouterConfig.TMYX02_TIDETAIL);
                             main.put("params",new Gson().toJson(param));
 
-                            ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                            ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                                     .withString("params",GsonUtil.GsonString(main))
                                     .navigation();
 

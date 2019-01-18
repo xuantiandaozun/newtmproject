@@ -45,7 +45,7 @@ import butterknife.OnClick;
 import okhttp3.RequestBody;
 
 
-@Route(path = TmyxRouterConfig.TMYX_PLLIST)
+@Route(path = TmyxRouterConfig.TMYX02_PLIST)
 public class PinLunListFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.titleBar)
@@ -115,7 +115,7 @@ public class PinLunListFragment extends MVPBaseFragment<OfficContract.View, Offi
                     }else {
                         HashMap<String, String> param = new HashMap<>();
                         param.put("id",  item.getId()+"");
-                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_REPORT)
+                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_REPORT)
                                 .withString("params", GsonUtil.GsonString(param))
                                 .navigation();
                         start(fragment);

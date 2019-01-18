@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
-@Route(path = TmyxRouterConfig.LQJF_ACCOUNT)
+@Route(path = TmyxRouterConfig.TMYX02_ACCOUNT)
 public class AccountFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;
@@ -51,7 +51,7 @@ public class AccountFragment extends MVPBaseFragment {
         SupportFragment fragment=null;
         switch (view.getId()){
             case R2.id.re_phone:
-                fragment = (SupportFragment) ARouter.getInstance().build(TmyxRouterConfig.LQJF_BINDPHONE)
+                fragment = (SupportFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_BINDPHONE)
                         .navigation();
                 start(fragment);
                 break;

@@ -49,7 +49,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX_PLALL)
+@Route(path = TmyxRouterConfig.TMYX02_PLALL)
 public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.titleBar)
@@ -149,7 +149,7 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
                     }else {
                         HashMap<String, String> param = new HashMap<>();
                         param.put("id",  item.getId()+"");
-                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_REPORT)
+                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_REPORT)
                                 .withString("params", GsonUtil.GsonString(param))
                                 .navigation();
                         start(fragment);
@@ -217,7 +217,7 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
             }else {
                 HashMap<String, String> param = new HashMap<>();
                 param.put("id",  beans.getId()+"");
-                TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_REPORT)
+                TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_REPORT)
                         .withString("params", GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);

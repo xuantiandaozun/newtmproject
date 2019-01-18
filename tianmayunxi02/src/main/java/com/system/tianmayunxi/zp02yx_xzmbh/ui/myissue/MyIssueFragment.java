@@ -19,7 +19,7 @@ import butterknife.OnClick;
 /**
  * 我的发布
  */
-@Route(path = TmyxRouterConfig.TMYX_WDFB)
+@Route(path = TmyxRouterConfig.TMYX02_WDFB)
 public class MyIssueFragment extends BaseFragment {
     @BindView(R2.id.viewpager)
     ViewPager mViewpager;
@@ -85,11 +85,11 @@ public class MyIssueFragment extends BaseFragment {
 
         fragment01 = (BaseFragment) ARouter
                 .getInstance()
-                .build(TmyxRouterConfig.WDFB_DYNAMIC)
+                .build(TmyxRouterConfig.WDFB02_DYNAMIC)
                 .navigation();
         fragment02 = (BaseFragment) ARouter
                 .getInstance()
-                .build(TmyxRouterConfig.WDFB_MESSAGE).navigation();
+                .build(TmyxRouterConfig.WDFB02_MESSAGE).navigation();
 
         adapter.addFrag(fragment01, "动态");
         adapter.addFrag(fragment02, "消息");

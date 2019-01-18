@@ -35,7 +35,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX_REPORT)
+@Route(path = TmyxRouterConfig.TMYX02_REPORT)
 public class ReportFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)

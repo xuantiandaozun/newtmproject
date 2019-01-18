@@ -50,7 +50,7 @@ import static com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.o
 /**
  * 动态
  */
-@Route(path = TmyxRouterConfig.WDFB_DYNAMIC)
+@Route(path = TmyxRouterConfig.WDFB02_DYNAMIC)
 public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.mlist)
@@ -97,10 +97,10 @@ public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPrese
                         HashMap<String, String> param = new HashMap<>();
                         param.put("id",item2.getId()+"");
 
-                        main.put("fragment",TmyxRouterConfig.TMYX_TIDETAIL);
+                        main.put("fragment",TmyxRouterConfig.TMYX02_TIDETAIL);
                         main.put("params",new Gson().toJson(param));
 
-                        ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                        ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                                 .withString("params",GsonUtil.GsonString(main))
                                 .navigation();
                         break;
@@ -117,7 +117,7 @@ public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPrese
                 switch (item.getItemType()){
                     case DATA_TYPE1:
                         if(view.getId()==R.id.tv_fb){
-                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_XZZT)
+                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_XZZT)
                                     .navigation();
                             parentFragment = (TMBaseFragment) getParentFragment().getParentFragment();
                             parentFragment.start(fragment);
@@ -128,7 +128,7 @@ public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPrese
                         if(view.getId()==R.id.ll_iv){
                             HashMap<String, String> param = new HashMap<>();
                             param.put("detail",GsonUtil.GsonString(item2));
-                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_CKIMAGE)
+                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_CKIMAGE)
                                     .withString("params",GsonUtil.GsonString(param))
                                     .navigation();
                             parentFragment = (TMBaseFragment) getParentFragment().getParentFragment();
@@ -170,9 +170,9 @@ public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPrese
             if(!TextUtils.isEmpty(tmToken)){
                 HashMap<String, String> main = new HashMap<>();
                 HashMap<String, String> param = new HashMap<>();
-                main.put("fragment",TmyxRouterConfig.TMYX_LQJF);
+                main.put("fragment",TmyxRouterConfig.TMYX02_LQJF);
                 main.put("params",new Gson().toJson(param));
-                ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
                         .withString("params",GsonUtil.GsonString(main))
                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                         .navigation();

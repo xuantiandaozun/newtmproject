@@ -33,7 +33,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX_XZZT)
+@Route(path = TmyxRouterConfig.TMYX02_XZZT)
 public class SelectThemeFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -91,7 +91,7 @@ public class SelectThemeFragment extends MVPBaseFragment<OfficContract.View, Off
                 param.put("detail",GsonUtil.GsonString(item));
 
                 fragment = (TMBaseFragment) ARouter.getInstance()
-                        .build(TmyxRouterConfig.TMYX_ADDZT)
+                        .build(TmyxRouterConfig.TMYX02_ADDZT)
                         .withString("params",GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);

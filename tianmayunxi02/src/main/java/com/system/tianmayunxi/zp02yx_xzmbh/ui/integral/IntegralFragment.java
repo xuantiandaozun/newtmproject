@@ -54,7 +54,7 @@ import okhttp3.RequestBody;
 /**
  * 领取积分
  */
-@Route(path = TmyxRouterConfig.TMYX_LQJF)
+@Route(path = TmyxRouterConfig.TMYX02_LQJF)
 public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -124,7 +124,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             @Override
             public void onClick(View v) {
                 TMBaseFragment fragment = null;
-                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.LQJF_JFSHOP)
+                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_JFSHOP)
                         .navigation();
                 start(fragment);
             }
@@ -258,7 +258,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 startActivity(intent);
             }
         } else if (view.getId() == R.id.tv_signrule) {
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_SIGNRULE)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_SIGNRULE)
                     .navigation();
             start(fragment);
         } else if (view.getId() == R.id.tv_sign) {

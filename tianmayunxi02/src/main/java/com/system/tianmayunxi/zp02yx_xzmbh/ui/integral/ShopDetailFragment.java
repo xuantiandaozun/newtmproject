@@ -39,7 +39,7 @@ import java.util.Set;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = TmyxRouterConfig.LQJF_SHOPDETAIL)
+@Route(path = TmyxRouterConfig.TMYX02_SHOPDETAIL)
 public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -104,7 +104,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         if(id==R.id.tv_next){
             HashMap<String, String> param = new HashMap<>();
             param.put("detail",GsonUtil.GsonString(beans));
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.LQJF_ADDADDRESS)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_ADDADDRESS)
                     .withString("params",GsonUtil.GsonString(param))
                     .navigation();
             start(fragment);
