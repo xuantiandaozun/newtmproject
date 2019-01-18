@@ -22,7 +22,7 @@ import com.system.myproject.utils.GsonUtil;
 import com.system.myproject.utils.ToastUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.adapter.AddImagePhotoAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.TMBaseResoultEntity;
@@ -51,7 +51,7 @@ import okhttp3.RequestBody;
 
 import static com.system.myproject.utils.GsonUtil.GsonString;
 
-@Route(path = TmyxRouterConfig.TMYX02_ADDZT)
+@Route(path = Tmyx02RouterConfig.TMYX02_ADDZT)
 public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, AllThemePresenter>
         implements AllThemeContract.View {
     @BindView(R2.id.titleBar)

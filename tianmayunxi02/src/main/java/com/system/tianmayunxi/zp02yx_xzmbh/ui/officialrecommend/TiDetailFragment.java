@@ -28,7 +28,7 @@ import com.system.myproject.utils.ToastUtil;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.PlAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.TieIvAdapter;
@@ -54,7 +54,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX02_TIDETAIL)
+@Route(path = Tmyx02RouterConfig.TMYX02_TIDETAIL)
 public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.head)
@@ -150,7 +150,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
 
                 param.put("detail", detail);
 
-                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_CKIMAGE)
+                fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_CKIMAGE)
                         .withString("params", GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);
@@ -175,7 +175,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 param.put("detail", GsonUtil.GsonString(item));
                 param.put("id", id);
                 if (view.getId() == R.id.btn_pl) {
-                    fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_PLALL)
+                    fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_PLALL)
                             .withString("params", GsonUtil.GsonString(param))
                             .navigation();
                     start(fragment);
@@ -186,7 +186,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                         delMsg(item);
                     } else {
                         param.put("id",  item.getId()+"");
-                        fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_REPORT)
+                        fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_REPORT)
                                 .withString("params", GsonUtil.GsonString(param))
                                 .navigation();
                         start(fragment);
@@ -242,7 +242,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         param.put("id",id);
         param.put("detail",new Gson().toJson(detail));
 
-        main.put("fragment",TmyxRouterConfig.TMYX02_TIDETAIL);
+        main.put("fragment", Tmyx02RouterConfig.TMYX02_TIDETAIL);
         main.put("params",new Gson().toJson(param));
 
 
@@ -323,7 +323,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         if (view.getId() == R.id.iv_pl||view.getId()==R.id.ret_circle) {
             HashMap<String, String> param = new HashMap<>();
             param.put("id", id);
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_PLIST)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_PLIST)
                     .withString("params", GsonUtil.GsonString(param))
                     .navigation();
             start(fragment);
@@ -340,7 +340,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_dy) {
             addSubscription(tid);
         } else if (view.getId() == R.id.iv_jf) {
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_LQJF)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_LQJF)
                     .navigation();
             TMBaseFragment parentFragment = (TMBaseFragment) getParentFragment();
           start(fragment);

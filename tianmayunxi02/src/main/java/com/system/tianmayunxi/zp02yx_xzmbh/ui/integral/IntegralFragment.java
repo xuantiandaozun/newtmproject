@@ -29,7 +29,7 @@ import com.system.myproject.utils.SPUtils;
 import com.system.myproject.utils.ToastUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.integral.adapter.QdAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.ListSignBean;
@@ -54,7 +54,7 @@ import okhttp3.RequestBody;
 /**
  * 领取积分
  */
-@Route(path = TmyxRouterConfig.TMYX02_LQJF)
+@Route(path = Tmyx02RouterConfig.TMYX02_LQJF)
 public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -124,7 +124,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             @Override
             public void onClick(View v) {
                 TMBaseFragment fragment = null;
-                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_JFSHOP)
+                fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_JFSHOP)
                         .navigation();
                 start(fragment);
             }
@@ -258,7 +258,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 startActivity(intent);
             }
         } else if (view.getId() == R.id.tv_signrule) {
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_SIGNRULE)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_SIGNRULE)
                     .navigation();
             start(fragment);
         } else if (view.getId() == R.id.tv_sign) {

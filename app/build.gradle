@@ -26,6 +26,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.1-t5'
     implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.1-t5'
-    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.1-t5'
+    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.1-t6'
 
 }

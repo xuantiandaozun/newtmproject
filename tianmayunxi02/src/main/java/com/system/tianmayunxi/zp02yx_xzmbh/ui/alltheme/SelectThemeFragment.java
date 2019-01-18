@@ -16,7 +16,7 @@ import com.system.myproject.utils.ToastUtil;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.adapter.ThemeListAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.CommonSeeBean;
@@ -33,7 +33,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX02_XZZT)
+@Route(path = Tmyx02RouterConfig.TMYX02_XZZT)
 public class SelectThemeFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -91,7 +91,7 @@ public class SelectThemeFragment extends MVPBaseFragment<OfficContract.View, Off
                 param.put("detail",GsonUtil.GsonString(item));
 
                 fragment = (TMBaseFragment) ARouter.getInstance()
-                        .build(TmyxRouterConfig.TMYX02_ADDZT)
+                        .build(Tmyx02RouterConfig.TMYX02_ADDZT)
                         .withString("params",GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);

@@ -14,7 +14,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.system.myproject.base.BaseFragment;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.adapter.ViewPagerAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.views.ScaleTransitionPagerTitleView;
 import com.tenma.ventures.base.TMFragment;
@@ -77,13 +77,13 @@ public class MainFragment extends TMFragment {
         magicIndicator.setBackgroundColor(themeColor);
 
 
-        BaseFragment fragment01 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_GFTJ)
+        BaseFragment fragment01 = (BaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_GFTJ)
                 .navigation();
-        BaseFragment fragment02 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDDY)
+        BaseFragment fragment02 = (BaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_WDDY)
                 .navigation();
-        BaseFragment fragment03 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_QBZT)
+        BaseFragment fragment03 = (BaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_QBZT)
                 .navigation();
-        BaseFragment fragment04 = (BaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDFB)
+        BaseFragment fragment04 = (BaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_WDFB)
                 .navigation();
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());

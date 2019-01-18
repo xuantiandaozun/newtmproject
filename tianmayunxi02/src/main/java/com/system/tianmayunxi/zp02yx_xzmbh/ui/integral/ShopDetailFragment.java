@@ -16,7 +16,7 @@ import com.system.myproject.utils.GsonUtil;
 import com.system.myproject.utils.ToastUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.integral.adapter.ShopDetailAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.GoodsDetailBean;
@@ -39,7 +39,7 @@ import java.util.Set;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = TmyxRouterConfig.TMYX02_SHOPDETAIL)
+@Route(path = Tmyx02RouterConfig.TMYX02_SHOPDETAIL)
 public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View {
     @BindView(R2.id.titleBar)
@@ -104,7 +104,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         if(id==R.id.tv_next){
             HashMap<String, String> param = new HashMap<>();
             param.put("detail",GsonUtil.GsonString(beans));
-            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_ADDADDRESS)
+            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_ADDADDRESS)
                     .withString("params",GsonUtil.GsonString(param))
                     .navigation();
             start(fragment);

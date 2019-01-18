@@ -8,14 +8,14 @@ import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.MVPBasePresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.uilibrary.views.titlebar.TitleBarView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.yokeyword.fragmentation.SupportFragment;
 
-@Route(path = TmyxRouterConfig.TMYX02_ACCOUNT)
+@Route(path = Tmyx02RouterConfig.TMYX02_ACCOUNT)
 public class AccountFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;
@@ -51,7 +51,7 @@ public class AccountFragment extends MVPBaseFragment {
         SupportFragment fragment=null;
         switch (view.getId()){
             case R2.id.re_phone:
-                fragment = (SupportFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_BINDPHONE)
+                fragment = (SupportFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_BINDPHONE)
                         .navigation();
                 start(fragment);
                 break;

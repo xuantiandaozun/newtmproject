@@ -10,7 +10,7 @@ import com.system.myproject.base.BaseFragment;
 import com.system.myproject.base.MVPBasePresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.adapter.ViewPagerAdapter;
 
 import butterknife.BindView;
@@ -19,7 +19,7 @@ import butterknife.OnClick;
 /**
  * 我的发布
  */
-@Route(path = TmyxRouterConfig.TMYX02_WDFB)
+@Route(path = Tmyx02RouterConfig.TMYX02_WDFB)
 public class MyIssueFragment extends BaseFragment {
     @BindView(R2.id.viewpager)
     ViewPager mViewpager;
@@ -85,11 +85,11 @@ public class MyIssueFragment extends BaseFragment {
 
         fragment01 = (BaseFragment) ARouter
                 .getInstance()
-                .build(TmyxRouterConfig.WDFB02_DYNAMIC)
+                .build(Tmyx02RouterConfig.WDFB02_DYNAMIC)
                 .navigation();
         fragment02 = (BaseFragment) ARouter
                 .getInstance()
-                .build(TmyxRouterConfig.WDFB02_MESSAGE).navigation();
+                .build(Tmyx02RouterConfig.WDFB02_MESSAGE).navigation();
 
         adapter.addFrag(fragment01, "动态");
         adapter.addFrag(fragment02, "消息");

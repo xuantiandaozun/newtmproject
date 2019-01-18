@@ -14,7 +14,7 @@ import com.system.myproject.utils.GsonUtil;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.adapter.ThemeAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.bean.AllThemBean;
@@ -30,7 +30,7 @@ import java.util.Set;
 import butterknife.BindView;
 import okhttp3.RequestBody;
 
-@Route(path = TmyxRouterConfig.TMYX02_QBZT)
+@Route(path = Tmyx02RouterConfig.TMYX02_QBZT)
 public class AllThemeFragment extends BaseFragment<AllThemeContract.View, AllThemePresenter>
         implements AllThemeContract.View {
     @BindView(R2.id.mlist)
@@ -70,10 +70,10 @@ public class AllThemeFragment extends BaseFragment<AllThemeContract.View, AllThe
                 HashMap<String, String> param = new HashMap<>();
                 param.put("detail",GsonUtil.GsonString(item));
 
-                main.put("fragment",TmyxRouterConfig.TMYX02_THEMEDETAIL);
+                main.put("fragment", Tmyx02RouterConfig.TMYX02_THEMEDETAIL);
                 main.put("params",new Gson().toJson(param));
 
-                ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
+                ARouter.getInstance().build(Tmyx02RouterConfig.MAIN02_FRAGMENT)
                         .withString("params",GsonUtil.GsonString(main))
                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                         .navigation();

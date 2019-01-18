@@ -9,7 +9,7 @@ import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.MVPBasePresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.uilibrary.dialog.DialogsTools;
 import com.system.uilibrary.views.titlebar.TitleBarView;
 
@@ -17,7 +17,7 @@ import com.system.uilibrary.views.titlebar.TitleBarView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = TmyxRouterConfig.TMYX02_INFO)
+@Route(path = Tmyx02RouterConfig.TMYX02_INFO)
 public class UserInfoFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;

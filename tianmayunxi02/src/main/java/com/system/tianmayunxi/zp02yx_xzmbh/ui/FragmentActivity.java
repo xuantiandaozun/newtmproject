@@ -16,13 +16,13 @@ import com.system.myproject.base.MVPBasePresenter;
 import com.system.myproject.base.TMBaseFragment;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 
 import java.util.HashMap;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.MAIN02_FRAGMENT)
+@Route(path = Tmyx02RouterConfig.MAIN02_FRAGMENT)
 public class FragmentActivity extends MVPBaseActivity {
     @BindView(R2.id.main)
     FrameLayout main;

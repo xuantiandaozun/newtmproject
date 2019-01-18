@@ -25,7 +25,7 @@ import com.system.myproject.utils.ToastUtil;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.adapter.ThemeDetailAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.bean.AllThemBean;
@@ -52,7 +52,7 @@ import okhttp3.RequestBody;
 import static com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.officAdapter.DATA_TYPE1;
 import static com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.officAdapter.DATA_TYPE2;
 
-@Route(path = TmyxRouterConfig.TMYX02_THEMEDETAIL)
+@Route(path = Tmyx02RouterConfig.TMYX02_THEMEDETAIL)
 public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.titleBar)
@@ -131,7 +131,7 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                         TieZiBean item2 = (TieZiBean) item;
                         HashMap<String, String> param = new HashMap<>();
                         param.put("id",item2.getId()+"");
-                        fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_TIDETAIL)
+                        fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_TIDETAIL)
                                 .withString("params",GsonUtil.GsonString(param))
                                 .navigation();
                         parentFragment = (TMBaseFragment) getParentFragment();
@@ -150,7 +150,7 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                 switch (item.getItemType()){
                     case DATA_TYPE1:
                         if(view.getId()==R.id.tv_fb){
-                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_XZZT)
+                            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_XZZT)
                                     .navigation();
                             parentFragment = (TMBaseFragment) getParentFragment();
                         start(fragment);
@@ -161,7 +161,7 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                         if(view.getId()==R.id.ll_iv){
                             HashMap<String, String> param = new HashMap<>();
                             param.put("detail",GsonUtil.GsonString(item2));
-                            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_CKIMAGE)
+                            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_CKIMAGE)
                                     .withString("params",GsonUtil.GsonString(param))
                                     .navigation();
                             parentFragment = (TMBaseFragment) getParentFragment();

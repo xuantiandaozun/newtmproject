@@ -13,7 +13,7 @@ import com.system.myproject.base.MVPBasePresenter;
 import com.system.myproject.base.TMBaseFragment;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.adapter.ViewPagerAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.views.ScaleTransitionPagerTitleView;
 
@@ -73,13 +73,13 @@ public class AppRootFragment extends MVPBaseFragment {
 
     @Override
     protected void initDatas() {
-        TMBaseFragment fragment01 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_GFTJ)
+        TMBaseFragment fragment01 = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_GFTJ)
                 .navigation();
-        TMBaseFragment fragment02 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDDY)
+        TMBaseFragment fragment02 = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_WDDY)
                 .navigation();
-        TMBaseFragment fragment03 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_QBZT)
+        TMBaseFragment fragment03 = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_QBZT)
                 .navigation();
-        TMBaseFragment fragment04 = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_WDFB)
+        TMBaseFragment fragment04 = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_WDFB)
                 .navigation();
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());

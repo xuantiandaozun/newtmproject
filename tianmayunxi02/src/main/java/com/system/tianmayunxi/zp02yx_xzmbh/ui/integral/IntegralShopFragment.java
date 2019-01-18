@@ -17,7 +17,7 @@ import com.system.myproject.utils.ToastUtil;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.integral.adapter.IntegralShopAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.GoodsListBean;
@@ -35,7 +35,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX02_JFSHOP)
+@Route(path = Tmyx02RouterConfig.TMYX02_JFSHOP)
 public class IntegralShopFragment extends MVPBaseFragment <OfficContract.View, OfficPresenter>
         implements OfficContract.View{
     @BindView(R2.id.titleBar)
@@ -88,7 +88,7 @@ public class IntegralShopFragment extends MVPBaseFragment <OfficContract.View, O
                 TMBaseFragment fragment=null;
                 HashMap<String, String> param = new HashMap<>();
                 param.put("detail",GsonUtil.GsonString(item));
-                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_SHOPDETAIL)
+                fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_SHOPDETAIL)
                         .withString("params",GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);

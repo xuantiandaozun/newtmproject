@@ -21,7 +21,7 @@ import com.system.myproject.base.TMBaseFragment;
 import com.system.myproject.utils.GsonUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.myissue.adapter.MessageAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.MessageBean;
@@ -36,7 +36,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.WDFB02_MESSAGE)
+@Route(path = Tmyx02RouterConfig.WDFB02_MESSAGE)
 public class MessageFragment extends BaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.mlist)
@@ -86,10 +86,10 @@ public class MessageFragment extends BaseFragment<OfficContract.View, OfficPrese
                             HashMap<String, String> param = new HashMap<>();
                             param.put("id",item.getAid()+"");
 
-                            main.put("fragment",TmyxRouterConfig.TMYX02_TIDETAIL);
+                            main.put("fragment", Tmyx02RouterConfig.TMYX02_TIDETAIL);
                             main.put("params",new Gson().toJson(param));
 
-                            ARouter.getInstance().build(TmyxRouterConfig.MAIN02_FRAGMENT)
+                            ARouter.getInstance().build(Tmyx02RouterConfig.MAIN02_FRAGMENT)
                                     .withString("params",GsonUtil.GsonString(main))
                                     .navigation();
 

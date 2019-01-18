@@ -25,7 +25,7 @@ import com.system.myproject.utils.GsonUtil;
 import com.system.myproject.utils.ToastUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.PlListAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.ArticMsgBean;
@@ -45,7 +45,7 @@ import butterknife.OnClick;
 import okhttp3.RequestBody;
 
 
-@Route(path = TmyxRouterConfig.TMYX02_PLIST)
+@Route(path = Tmyx02RouterConfig.TMYX02_PLIST)
 public class PinLunListFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
     @BindView(R2.id.titleBar)
@@ -115,7 +115,7 @@ public class PinLunListFragment extends MVPBaseFragment<OfficContract.View, Offi
                     }else {
                         HashMap<String, String> param = new HashMap<>();
                         param.put("id",  item.getId()+"");
-                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX02_REPORT)
+                        TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_REPORT)
                                 .withString("params", GsonUtil.GsonString(param))
                                 .navigation();
                         start(fragment);

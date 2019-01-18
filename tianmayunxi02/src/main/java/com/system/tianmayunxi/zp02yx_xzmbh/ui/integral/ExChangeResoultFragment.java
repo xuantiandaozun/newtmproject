@@ -8,13 +8,13 @@ import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.MVPBasePresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
-import com.system.tianmayunxi.zp02yx_xzmbh.TmyxRouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
 import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import butterknife.BindView;
 
-@Route(path = TmyxRouterConfig.TMYX02_DHJG)
+@Route(path = Tmyx02RouterConfig.TMYX02_DHJG)
 public class ExChangeResoultFragment extends MVPBaseFragment {
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;
