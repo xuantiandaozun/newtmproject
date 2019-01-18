@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hxdl_background01">#FED403</color>
+    <color name="hxdl_background02">#010101</color>
+    <color name="hxdl_background03">#E6E6E6</color>
+
+    <color name="zp01hxdl_vjflt_textcolor01">#333333</color>
+    <color name="zp01hxdl_vjflt_textcolor02">#999999</color>
+    <color name="zp01hxdl_vjflt_textcolor03">#5C4F0F</color>
+    <color name="zp01hxdl_vjflt_textcolor04">#FF4242</color>
+    <color name="zp01hxdl_vjflt_zp01hxdl_vjflttextcolor05">#362E09</color>
+
+</resources>
