@@ -24,9 +24,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-   // implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.1-t8'
-    //implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.1-t5'
-   // implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.1-t8'
-     implementation project(':tianmayunxi02')
-    implementation project(':tianmayunxi')
+    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.1-t9'
+    implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.1-t9'
+    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.1-t9'
+    // implementation project(':tianmayunxi02')
+   // implementation project(':tianmayunxi')
 }

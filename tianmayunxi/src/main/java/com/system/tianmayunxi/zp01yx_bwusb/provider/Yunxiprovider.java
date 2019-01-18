@@ -47,6 +47,8 @@ public class Yunxiprovider extends ContentProvider {
     @Override
     public boolean onCreate() {
         try {
+            ARouter.openLog();
+            ARouter.openDebug();
             ARouter.init((Application) getContext());
             FrescoImageLoader.init(getContext());
             Fresco.initialize(getContext());
