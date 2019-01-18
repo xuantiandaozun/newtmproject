@@ -19,7 +19,6 @@ import com.system.tianmayunxi.zp02yx_xzmbh.R2;
 
 import butterknife.BindView;
 
-@Route(path = "/main/activity")
 public class MainActivity extends MVPBaseActivity {
     @BindView(R2.id.fragment_main)
     FrameLayout layout;

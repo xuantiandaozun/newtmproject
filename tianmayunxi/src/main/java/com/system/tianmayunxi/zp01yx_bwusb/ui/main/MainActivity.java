@@ -34,7 +34,6 @@ import butterknife.BindView;
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.SupportFragment;
 
-@Route(path = "/main/activity")
 public class MainActivity extends MVPBaseActivity {
     @BindView(R2.id.fragment_main)
     FrameLayout layout;

@@ -37,7 +37,6 @@ import butterknife.BindView;
  * 创建人： zhoudingwen
  * 创建时间：2018/4/3
  */
-@Route(path = "/main/root")
 public class AppRootFragment extends MVPBaseFragment {
     @BindView(R2.id.magic_indicator5)
     MagicIndicator magicIndicator;
