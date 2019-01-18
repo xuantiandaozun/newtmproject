@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.system.tianmayunxi.zp01yx_bwusb" >
+    <application>
+        <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.FragmentActivity"/>
+        <provider
+            android:authorities="com.system.tianmayunxi.zp01yx_bwusb.provider.Yunxiprovider"
+            android:name=".provider.Yunxiprovider"
+            android:exported="false"/>
+    </application>
+</manifest>

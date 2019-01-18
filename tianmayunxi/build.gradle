@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+
+    }
+}
+ext {
+    configuration = [
+            buildToolsVersion: "26.0.2",
+            compileSdkVersion: 26,
+            minSdkVersion    : 21,
+            targetSdk        : 26,
+            versionCode      : 1,
+            versionName      : "0.0.1",
+    ]
+}
+android {
+    compileSdkVersion configuration.compileSdkVersion
+    defaultConfig {
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdk
+        versionCode configuration.versionCode
+        versionName configuration.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        buildConfigField "String", "API_URL", '"http://tm.tz-fashion.com/"'
+        versionName "云息-标准"
+        resValue "string", "app_name", "云息-标准"
+        manifestPlaceholders = [
+                APP_KEY : "tmyx",
+                RY_KEY  : "8w7jv4qb82try",
+                RY_APPID: "com.system.tmyx"
+        ]
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.github.xuantiandaozun:baselibrary:0.04'
+    implementation 'com.github.xuantiandaozun:uilibrary:0.01'
+
+    // fresco 图片加载框架
+    implementation 'com.facebook.fresco:fresco:1.5.0'
+    implementation 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //轮播图
+    implementation 'com.bigkoo:ConvenientBanner:2.1.4'
+    //arouter 路由跳转框架
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    implementation 'com.github.1002326270xc:LayoutManager-FlowLayout:v1.4'
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+    implementation 'com.qiniu:qiniu-android-sdk:7.3.+'
+    implementation 'com.zxy.android:tiny:0.0.6'
+    implementation 'com.github.xuantiandaozun:uilibrary:0.01'
+    implementation 'com.zxy.android:tiny:0.0.6'
+    implementation 'com.yuyh.bubble:library:1.0.0'
+    implementation 'com.youth.banner:banner:1.4.10'
+
+}
+

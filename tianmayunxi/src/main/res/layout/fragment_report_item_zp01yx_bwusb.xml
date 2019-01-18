@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:padding="@dimen/material_10"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/textcolor02"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/material_10"
+        android:layout_height="wrap_content" />
+    <com.system.uilibrary.views.CheckBoxSample
+        android:id="@+id/check"
+        android:layout_width="@dimen/material_25"
+        android:layout_height="@dimen/material_25"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/material_10"/>
+
+</RelativeLayout>
