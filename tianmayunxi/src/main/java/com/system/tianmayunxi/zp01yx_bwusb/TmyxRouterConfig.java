@@ -2,7 +2,6 @@ package com.system.tianmayunxi.zp01yx_bwusb;
 
 public class TmyxRouterConfig {
     public static final String MAIN_FRAGMENT = "/tmyx/fragment";
-
     public static final String TMYX_GFTJ="/tmyx/gftj";
     public static final String TMYX_TIDETAIL="/tmyx/tidetail";
     public static final String TMYX_REPORT="/tmyx/report";
@@ -24,6 +23,6 @@ public class TmyxRouterConfig {
     public static final String LQJF_JFSHOP="/tmyx/jfshop";
     public static final String LQJF_ADDADDRESS="/tmyx/addaddress";
     public static final String LQJF_SHOPDETAIL="/tmyx/shopdetail";
-    public static final String WDFB_DYNAMIC="/wdfb/dynamic";
-    public static final String WDFB_MESSAGE="/wdfb/message";
+    public static final String WDFB_DYNAMIC="/tmyx/dynamic";
+    public static final String WDFB_MESSAGE="/tmyx/message";
 }
