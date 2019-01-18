@@ -1,7 +1,7 @@
 package com.system.tianmayunxi.zp01yx_bwusb;
 
 public class TmyxRouterConfig {
-    public static final String MAIN_FRAGMENT = "/main/fragment";
+    public static final String MAIN_FRAGMENT = "/tmyx/fragment";
 
     public static final String TMYX_GFTJ="/tmyx/gftj";
     public static final String TMYX_TIDETAIL="/tmyx/tidetail";
