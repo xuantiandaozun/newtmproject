@@ -1,0 +1,102 @@
+{
+	"domain": "http://tm.tz-fashion.com/",
+	"siteCode": "00000000000000000000000000000000",
+	"appIdentifier": "com.sobey.tmtest",
+	"appPackageName": "com.tenma.ventures.tianmagongchang",
+	"appDisplayName": "天马测试",
+	"appProductName": "天马测试",
+	"appVersion": "1.0",
+	"appBuildVersion": "1",
+	"icon": {
+		"40": "40px.png”,”60”:”60px.png"
+	},
+	"launch": {
+		"hdpi": "960x540.png",
+		"xhdpi": "1280x720.png",
+		"xxhdpi": "1920x1280.png"
+	},
+	"jpush": {
+		"appkey": "bac58f0338995e8ccc755ba0",
+		"channel": "test"
+	},
+	"umeng": {
+		"iOS": {
+			"appkey": "5a72d738a40fa32a1f000016",
+			"channel": "AppStore"
+		},
+		"Android": {
+			"appkey": "5a5c7e1b8f4a9d4fbe0000a6",
+			"channel": "tenma-ventures"
+		}
+	},
+	"sharesdk": {
+		"iOS": {
+			"appkey": "24321bc4242a8",
+			"appsecret": "752fc391e9d188683e4b9f404daac25c"
+		},
+		"Android": {
+			"appkey": "274dbbc27e7d4",
+			"appsecret": "0d71d2ecb66e248fb93ac8edabf1e0a2"
+		}
+	},
+	"thirdPlatform": {
+		"iOS": {
+			"SinaWeibo": {
+				"AppKey": "1751601645",
+				"AppSecret": "76df002ea88778ac85061daf852ff8d1",
+				"RedirectUrl": "http://www.sharesdk.cn"
+			},
+			"Wechat": {
+				"AppId": "wx0c9349ea924befa1",
+				"AppSecret": "f575cdad24cf5d9938a806e71fc40418",
+				"UserName": "gh_afb25ac019c9",
+				"Path": "pages/index/index.html?id=1"
+			},
+			"WechatMoments": {
+				"AppId": "wx0c9349ea924befa1",
+				"AppSecret": "f575cdad24cf5d9938a806e71fc40418"
+			},
+			"WechatFavorite": {
+				"AppId": "wx0c9349ea924befa1",
+				"AppSecret": "f575cdad24cf5d9938a806e71fc40418"
+			},
+			"QQ": {
+				"AppId": "100371282",
+				"AppKey": "aed9b0303e3ed1e27bae87c33761161d"
+			},
+			"QZone": {
+				"AppId": "1106656525",
+				"AppKey": "inhrTudmqLmJH8TX"
+			}
+		},
+		"Android": {
+			"SinaWeibo": {
+				"AppKey": "150751361",
+				"AppSecret": "26b5ae6c6564f11002a76f51a2711912",
+				"RedirectUrl": "http://api.weibo.com/oauth2/default.html"
+			},
+			"Wechat": {
+				"AppId": "wxf5434529e3d5f55c",
+			    "AppSecret": "ec8f016cb6b72c7414226c045d3a1af0",
+				"UserName": "天马工厂",
+				"Path": "pages/index/index.html?id=1"
+			},
+			"WechatMoments": {
+				"AppId": "wxf5434529e3d5f55c",
+				"AppSecret": "ec8f016cb6b72c7414226c045d3a1af0"
+			},
+			"WechatFavorite": {
+				"AppId": "wxf5434529e3d5f55c",
+				"AppSecret": "ec8f016cb6b72c7414226c045d3a1af0"
+			},
+			"QQ": {
+				"AppId": "1107399735",
+				"AppKey": "bsdrblSkPxwLSD4w"
+			},
+			"QZone": {
+				"AppId": "1107399735",
+				"AppKey": "bsdrblSkPxwLSD4w"
+			}
+		}
+	}
+}

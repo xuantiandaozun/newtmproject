@@ -63,6 +63,12 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     RecyclerView mlist;
     @BindView(R2.id.tv_mypoint)
     TextView tv_mypoint;
+    @BindView(R2.id.tv2)
+    TextView tv2;
+    @BindView(R2.id.tv4)
+    TextView tv4;
+    @BindView(R2.id.tv3)
+    TextView tv3;
     @BindView(R2.id.switchview)
     SwitchView switchView;
     @BindView(R2.id.tv_sign)
@@ -160,29 +166,14 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mlist.setLayoutManager(layout);
         adapter = new QdAdapter(new ArrayList<>());
         mlist.setAdapter(adapter);
-        RadiusTextViewDelegate delegate = tv_account.getDelegate();
-        if(TextUtils.isEmpty(tmUser.getMobile())){
-            delegate.setBackgroundColor(getResources().getColor(R.color.white));
-            delegate.setTextColor(getResources().getColor(R.color.blue_primary));
-            tv_account.setText("去绑定");
-        }else {
-            delegate.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-            delegate.setTextColor(getResources().getColor(R.color.white));
-            tv_account.setText("已绑定");
-        }
+
         String sex = tmUser.getSex();
         String birthday = tmUser.getBirthday();
         String mobile = tmUser.getMobile();
         String wb = tmUser.getWb();
         String wx = tmUser.getWx();
         String qq = tmUser.getQq();
-        RadiusTextViewDelegate delegate1 = tv_userinfo.getDelegate();
-        boolean b = !TextUtils.isEmpty(sex) && !TextUtils.isEmpty(birthday) && !TextUtils.isEmpty(mobile) && !TextUtils.isEmpty(wb) && !TextUtils.isEmpty(wx) && !TextUtils.isEmpty(qq);
-        if(b){
-            delegate1.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-            delegate1.setTextColor(getResources().getColor(R.color.white));
-            tv_account.setText("已完成");
-        }
+
         String tmToken = TMSharedPUtil.getTMToken(getContext());
         RadiusTextViewDelegate delegate2 = tv_login.getDelegate();
 
@@ -209,6 +200,30 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         getMyPoint();
         isSign();
         isRemind();
+        AllBindService();
+        BindScore();
+        loginscore();
+    }
+
+    private void loginscore() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.loginscore(body);
+    }
+
+    private void BindScore() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.BindScore(body);
+    }
+
+    private void AllBindService() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.AllBindService(body);
     }
     private void isRemind() {
         HashMap<String, Object> parms = new HashMap<>();
@@ -324,6 +339,42 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                                 tv_sign.setClickable(false);
                             }
 
+                            break;
+                        case "AllBindService":
+                            JsonObject jsonObject3 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
+                            double all_score = jsonObject3.get("all_score").getAsDouble();
+                            tv2.setText("+"+all_score+"");
+                            RadiusTextViewDelegate delegate1 = tv_userinfo.getDelegate();
+                            if(is_allbind){
+                                delegate1.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate1.setTextColor(getResources().getColor(R.color.white));
+                                tv_userinfo.setText("已领取");
+                            }
+                            break;
+                        case "BindScore":
+                            JsonObject jsonObject4 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_bind = jsonObject4.get("is_bind").getAsBoolean();
+                            String scores = jsonObject4.get("score").getAsString();
+                            tv3.setText("+"+scores);
+                            RadiusTextViewDelegate delegate = tv_account.getDelegate();
+                            if(is_bind){
+                                delegate.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate.setTextColor(getResources().getColor(R.color.white));
+                                tv_account.setText("已领取");
+                            }
+                            break;
+                        case "loginscore":
+                            JsonObject jsonObject5 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
+                            int scoreslogin = jsonObject5.get("score").getAsInt();
+                            tv4.setText("+"+scoreslogin);
+                            RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
+                            if(is_bindlogin){
+                                delegate3.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate3.setTextColor(getResources().getColor(R.color.white));
+                                tv_account.setText("已领取");
+                            }
                             break;
                         case "Sign":
                             initList();

@@ -65,6 +65,12 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     TextView tv_mypoint;
     @BindView(R2.id.switchview)
     SwitchView switchView;
+    @BindView(R2.id.tv2)
+    TextView tv2;
+    @BindView(R2.id.tv4)
+    TextView tv4;
+    @BindView(R2.id.tv3)
+    TextView tv3;
     @BindView(R2.id.tv_sign)
     RadiusTextView tv_sign;
     @BindView(R2.id.tv_account)
@@ -213,6 +219,29 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         getMyPoint();
         isSign();
         isRemind();
+        AllBindService();
+        BindScore();
+        loginscore();
+    }
+    private void loginscore() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.loginscore(body);
+    }
+
+    private void BindScore() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.BindScore(body);
+    }
+
+    private void AllBindService() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.AllBindService(body);
     }
 
     private void isRemind() {
@@ -330,6 +359,42 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                                 tv_sign.setClickable(false);
                             }
 
+                            break;
+                        case "AllBindService":
+                            JsonObject jsonObject3 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
+                            double all_score = jsonObject3.get("all_score").getAsDouble();
+                            tv2.setText("+"+all_score+"");
+                            RadiusTextViewDelegate delegate1 = tv_userinfo.getDelegate();
+                            if(is_allbind){
+                                delegate1.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate1.setTextColor(getResources().getColor(R.color.white));
+                                tv_userinfo.setText("已领取");
+                            }
+                            break;
+                        case "BindScore":
+                            JsonObject jsonObject4 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_bind = jsonObject4.get("is_bind").getAsBoolean();
+                            String scores = jsonObject4.get("score").getAsString();
+                            tv3.setText("+"+scores);
+                            RadiusTextViewDelegate delegate = tv_account.getDelegate();
+                            if(is_bind){
+                                delegate.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate.setTextColor(getResources().getColor(R.color.white));
+                                tv_account.setText("已领取");
+                            }
+                            break;
+                        case "loginscore":
+                            JsonObject jsonObject5 = GsonUtil.GsonToBean(object, JsonObject.class);
+                            boolean is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
+                            int scoreslogin = jsonObject5.get("score").getAsInt();
+                            tv4.setText("+"+scoreslogin);
+                            RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
+                            if(is_bindlogin){
+                                delegate3.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate3.setTextColor(getResources().getColor(R.color.white));
+                                tv_account.setText("已领取");
+                            }
                             break;
                         case "Sign":
                             initList();

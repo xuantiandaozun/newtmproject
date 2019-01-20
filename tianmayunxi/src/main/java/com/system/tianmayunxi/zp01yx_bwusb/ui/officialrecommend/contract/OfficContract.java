@@ -35,6 +35,9 @@ public interface OfficContract {
         void deleteStar(RequestBody body);
         void isRemind(RequestBody body);
         void remind(RequestBody body);
+        void AllBindService(RequestBody body);
+        void BindScore(RequestBody body);
+        void loginscore(RequestBody body);
 
         void exchangeGoods(RequestBody body);
         void getMyMessage(HashMap<String,Object> body);
@@ -72,6 +75,9 @@ public interface OfficContract {
         Observable<TMBaseResoultEntity<Object>> deleteStar(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> isRemind(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> remind(RequestBody body);
+        Observable<TMBaseResoultEntity<Object>> AllBindService(RequestBody body);
+        Observable<TMBaseResoultEntity<Object>> BindScore(RequestBody body);
+        Observable<TMBaseResoultEntity<Object>> loginscore(RequestBody body);
 
 
         Observable<TMBaseResoultEntity<Object>> getMyMessage(HashMap<String,Object> body);
