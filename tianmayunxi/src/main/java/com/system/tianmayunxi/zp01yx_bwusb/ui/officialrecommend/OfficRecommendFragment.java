@@ -27,6 +27,7 @@ import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp01yx_bwusb.BuildConfig;
 import com.system.tianmayunxi.zp01yx_bwusb.R;
 import com.system.tianmayunxi.zp01yx_bwusb.R2;
+import com.system.tianmayunxi.zp01yx_bwusb.TmyxConstant;
 import com.system.tianmayunxi.zp01yx_bwusb.TmyxRouterConfig;
 import com.system.tianmayunxi.zp01yx_bwusb.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.adapter.officAdapter;
@@ -183,7 +184,9 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                             linkShare.setDescription(item2.getContent());
                             linkShare.setThumb(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+item2.getTheme_image());
                             linkShare.setTitle(item2.getTitle());
-                            linkShare.setUrl(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+item2.getImage().get(0));
+                            String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
+
+                            linkShare.setUrl(domain + TmyxConstant.shareUrl+item2.getId());
                             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
                         }
                         break;

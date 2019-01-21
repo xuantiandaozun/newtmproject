@@ -29,6 +29,7 @@ import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
 import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.TmyxConstant;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.PlAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.TieIvAdapter;
@@ -333,7 +334,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
             linkShare.setDescription(articleDetail.getContent());
             linkShare.setThumb(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+articleDetail.getTheme_image());
             linkShare.setTitle(articleDetail.getTitle());
-            linkShare.setUrl(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+articleDetail.getImages().get(0).getImage());
+            String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
+
+            linkShare.setUrl(domain + TmyxConstant.shareUrl+id);
             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
         } else if (view.getId() == R.id.tv_up) {
             articUp();

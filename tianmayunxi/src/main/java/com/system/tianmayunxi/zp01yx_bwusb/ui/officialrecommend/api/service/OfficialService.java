@@ -201,4 +201,10 @@ public interface OfficialService {
      */
     @POST("zp01yx_bwusb/api/loginscore")
     Observable<TMBaseResoultEntity<Object>> loginscore(@Body  RequestBody body);
+    /**
+     *每日登录领取积分
+     * @return
+     */
+    @POST("zp01yx_bwusb/api/login_log")
+    Observable<TMBaseResoultEntity<Object>> loginLog(@Body  RequestBody body);
 }

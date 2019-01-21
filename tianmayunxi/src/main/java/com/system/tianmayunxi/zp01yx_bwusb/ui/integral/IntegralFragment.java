@@ -88,6 +88,9 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private int themeColor;
     private TMUser tmUser;
     private int textcolor;
+    private boolean is_allbind;
+    private boolean is_bind;
+    private boolean is_bindlogin;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -244,7 +247,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mPresenter.getMyPoint(parms);
     }
 
-    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_signrule, R2.id.tv_sign})
+    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_signrule, R2.id.tv_sign,R2.id.tv_login})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         if (view.getId() == R.id.tv_userinfo) {
@@ -255,14 +258,14 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             String wx = tmUser.getWx();
             String qq = tmUser.getQq();
             boolean b = !TextUtils.isEmpty(sex) && !TextUtils.isEmpty(birthday) && !TextUtils.isEmpty(mobile) && !TextUtils.isEmpty(wb) && !TextUtils.isEmpty(wx) && !TextUtils.isEmpty(qq);
-            if(!b){
+            if(is_allbind){
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.UCPersonal");
                 startActivity(intent);
             }
 
         } else if (view.getId() == R.id.tv_account) {
             String mobile = tmUser.getMobile();
-            if(TextUtils.isEmpty(mobile)){
+            if(is_bind){
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
                 startActivity(intent);
             }
@@ -273,7 +276,15 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_sign) {
             HashMap<String, Object> parms = new HashMap<>();
             mPresenter.Sign(parms);
+        }else if(view.getId()==R.id.tv_login){
+            if(is_bindlogin){
+                lqJf();
+            }
         }
+
+    }
+
+    private void lqJf() {
 
     }
 
@@ -342,8 +353,8 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "AllBindService":
                             JsonObject jsonObject3 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
-                            double all_score = jsonObject3.get("all_score").getAsDouble();
+                            is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
+                            int all_score = jsonObject3.get("all_score").getAsInt();
                             tv2.setText("+"+all_score+"");
                             RadiusTextViewDelegate delegate1 = tv_userinfo.getDelegate();
                             if(is_allbind){
@@ -354,7 +365,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "BindScore":
                             JsonObject jsonObject4 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_bind = jsonObject4.get("is_bind").getAsBoolean();
+                            is_bind = jsonObject4.get("is_bind").getAsBoolean();
                             String scores = jsonObject4.get("score").getAsString();
                             tv3.setText("+"+scores);
                             RadiusTextViewDelegate delegate = tv_account.getDelegate();
@@ -366,7 +377,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "loginscore":
                             JsonObject jsonObject5 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
+                            is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
                             int scoreslogin = jsonObject5.get("score").getAsInt();
                             tv4.setText("+"+scoreslogin);
                             RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
@@ -375,6 +386,9 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                                 delegate3.setTextColor(getResources().getColor(R.color.white));
                                 tv_account.setText("已领取");
                             }
+                            break;
+                        case "loginLog":
+                            loginscore();
                             break;
                         case "Sign":
                             initList();

@@ -21,6 +21,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.aries.ui.view.radius.RadiusTextView;
 import com.aries.ui.view.radius.delegate.RadiusTextViewDelegate;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.TMBaseFragment;
@@ -88,6 +89,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private int themeColor;
     private TMUser tmUser;
     private int textcolor;
+    private boolean is_allbind;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -275,7 +277,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             String wx = tmUser.getWx();
             String qq = tmUser.getQq();
             boolean b = !TextUtils.isEmpty(sex) && !TextUtils.isEmpty(birthday) && !TextUtils.isEmpty(mobile) && !TextUtils.isEmpty(wb) && !TextUtils.isEmpty(wx) && !TextUtils.isEmpty(qq);
-            if (!b) {
+            if (is_allbind) {
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.UCPersonal");
                 startActivity(intent);
             }
@@ -362,8 +364,8 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "AllBindService":
                             JsonObject jsonObject3 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
-                            double all_score = jsonObject3.get("all_score").getAsDouble();
+                            is_allbind = jsonObject3.get("is_allbind").getAsBoolean();
+                            int all_score = jsonObject3.get("all_score").getAsInt();
                             tv2.setText("+"+all_score+"");
                             RadiusTextViewDelegate delegate1 = tv_userinfo.getDelegate();
                             if(is_allbind){
@@ -387,8 +389,13 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                         case "loginscore":
                             JsonObject jsonObject5 = GsonUtil.GsonToBean(object, JsonObject.class);
                             boolean is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
-                            int scoreslogin = jsonObject5.get("score").getAsInt();
-                            tv4.setText("+"+scoreslogin);
+
+                            JsonElement score = jsonObject5.get("score");
+                            if(score!=null){
+                                int scoreslogin = score.getAsInt();
+                                tv4.setText("+"+scoreslogin);
+
+                            }
                             RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
                             if(is_bindlogin){
                                 delegate3.setBackgroundColor(getResources().getColor(R.color.textcolor01));
@@ -406,7 +413,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             RelativeLayout layout = (RelativeLayout) inflate.findViewById(R.id.re_main);
                             TextView tv_score = inflate.findViewById(R.id.tv_score);
                             TextView tv_days = inflate.findViewById(R.id.tv_days);
-                            tv_score.setText("+" + score);
+                            tv_score.setText("+" + this.score);
                             tv_days.setText("已连续签到" + (day + 1) + "天");
                             loadingDialog.setCancelable(true);
                             loadingDialog.setCanceledOnTouchOutside(true);
