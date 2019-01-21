@@ -1,1 +1,1 @@
-include ':tianmayunxi', ':tmhxdl', ':tianmayunxi02'
+include ':tianmayunxi', ':tmhxdl', ':tianmayunxi02', ':app'
