@@ -106,11 +106,11 @@ dependencies {
     compile 'com.tianma.ventures:tm_userCenter_2nd:1.1.0'
 
 
-  /*  implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.1-t9'
-    implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.1-t9'
-    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.1-t9'*/
+  implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.2-t5'
+    implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.2-t5'
+    implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi02:0.0.2-t5'
 
-    implementation project(':tianmayunxi')
+/*    implementation project(':tianmayunxi')
     implementation project(':tianmayunxi02')
-    implementation project(':tmhxdl')
+    implementation project(':tmhxdl')*/
 }
