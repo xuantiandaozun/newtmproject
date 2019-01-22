@@ -126,6 +126,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                 }
             }
         });
+        adapter.setFragment(this);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {

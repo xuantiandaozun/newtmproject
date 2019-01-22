@@ -1,5 +1,7 @@
 package com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.adapter;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,22 +9,30 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
+import com.system.myproject.utils.GsonUtil;
 import com.system.tianmayunxi.zp01yx_bwusb.BuildConfig;
 import com.system.tianmayunxi.zp01yx_bwusb.R;
+import com.system.tianmayunxi.zp01yx_bwusb.TmyxRouterConfig;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.CommonSeeBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.TieZiBean;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
+import java.util.HashMap;
 import java.util.List;
+
+import me.yokeyword.fragmentation.SupportFragment;
 
 public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> {
     public static final int DATA_TYPE1=0;
     public static final int DATA_TYPE2=1;
+    public Fragment fragment;
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -36,6 +46,10 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
         addItemType(DATA_TYPE2, R.layout.layout_tiezi_item_zp01yx_bwusb);
     }
 
+    public void setFragment(Fragment fragment) {
+        this.fragment = fragment;
+    }
+
     @Override
     protected void convert(BaseViewHolder helper, MultiItemEntity item) {
         int itemType = item.getItemType();
@@ -47,7 +61,31 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                 layout.setOrientation(LinearLayout.HORIZONTAL);
                 mlist.setLayoutManager(layout);
                 helper.addOnClickListener(R.id.tv_fb);
-                mlist.setAdapter(new CommonIvAdapter(commonSeeBean.getList()));
+                CommonIvAdapter adapter1 = new CommonIvAdapter(commonSeeBean.getList());
+                adapter1.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                        String tmToken = TMSharedPUtil.getTMToken(mContext);
+
+                        if(TextUtils.isEmpty(tmToken)){
+                            Intent intent = new Intent(fragment.getActivity().getPackageName() + ".usercenter.login");
+                            fragment.getActivity().startActivity(intent);
+                            return;
+                        }
+                        CommonSeeBean.ListBean item1 = adapter1.getItem(position);
+                        HashMap<String, String> main = new HashMap<>();
+                        HashMap<String, String> param = new HashMap<>();
+                        param.put("detail",GsonUtil.GsonString(item1));
+                        main.put("fragment",TmyxRouterConfig.TMYX_THEMEDETAIL);
+                        main.put("params",new Gson().toJson(param));
+
+                        ARouter.getInstance().build(TmyxRouterConfig.MAIN_FRAGMENT)
+                                .withString("params",GsonUtil.GsonString(main))
+                                .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+                                .navigation();
+                    }
+                });
+                mlist.setAdapter(adapter1);
                 break;
             case DATA_TYPE2:
                 TieZiBean tieZiBean = (TieZiBean) item;

@@ -46,8 +46,10 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
         SimpleDraweeView user_head=helper.getView(R.id.user_head);
 
         String head_pic = item.getHead_pic();
-        if(!head_pic.contains("http")){
-            head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+        if(!TextUtils.isEmpty(head_pic)){
+            if(!head_pic.contains("http")){
+                head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+            }
         }
         user_head.setImageURI(head_pic);
 

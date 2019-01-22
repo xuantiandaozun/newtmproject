@@ -31,11 +31,23 @@ public interface DzsService {
     @GET("zp01hxdl_vjflt/Issn/detail")
     Observable<TMBaseResoultEntity<Object>> getIssnDetail(@QueryMap HashMap<String,Object> body);
     /**
+     *期刊详情
+     * @return
+     */
+    @GET("zp01hxdl_vjflt/Issn/detail2")
+    Observable<TMBaseResoultEntity<Object>> getIssnDetail2(@QueryMap HashMap<String,Object> body);
+    /**
      *电子书详情
      * @return
      */
     @GET("zp01hxdl_vjflt/Book/detail")
     Observable<TMBaseResoultEntity<Object>> getBookDetail(@QueryMap HashMap<String,Object> body);
+    /**
+     *电子书详情
+     * @return
+     */
+    @GET("zp01hxdl_vjflt/Book/detail2")
+    Observable<TMBaseResoultEntity<Object>> getBookDetail2(@QueryMap HashMap<String,Object> body);
     /**
      *推荐期刊
      * @return

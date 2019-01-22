@@ -9,8 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.aries.ui.view.radius.RadiusTextView;
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.library.flowlayout.SpaceItemDecoration;
 import com.system.myproject.base.BaseFragment;
@@ -22,6 +24,7 @@ import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.R2;
 import com.system.tmhsdl.zp01hxdl_vjflt.bean.EventCallBackBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.adapter.DYAdapter;
+import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.DyBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
@@ -81,6 +84,25 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
         mlist.setLayoutManager(new GridLayoutManager(getThisContext(), 2));
         mlist.addItemDecoration(new SpaceItemDecoration(UEMethod.dp2px(getThisContext(), 10)));
         adapter = new DYAdapter(new ArrayList<>());
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                InssBean.ListBean item = (InssBean.ListBean) adapter.getItem(position);
+                HashMap<String, String> main = new HashMap<>();
+
+
+                HashMap<String, String> param = new HashMap<>();
+                param.put("detail",new Gson().toJson(item));
+
+                main.put("fragment",HxdlRouterConfig.HXDL_DZSDETAIL);
+                main.put("params",new Gson().toJson(param));
+
+                ARouter.getInstance().build(HxdlRouterConfig.MAIN_FRAGMENT)
+                        .withString("params",GsonUtil.GsonString(main))
+                        .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+                        .navigation();
+            }
+        });
         mlist.setAdapter(adapter);
         mlist.setNestedScrollingEnabled(false);
         initList();

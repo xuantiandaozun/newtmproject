@@ -57,10 +57,11 @@
         android:id="@+id/ly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/icon_ly"
-        android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/tv_theme"
-        />
+        android:layout_alignParentRight="true"
+        android:scaleType="centerInside"
+        android:layout_marginBottom="@dimen/material_5"
+        android:src="@mipmap/ic_more" />
     <com.aries.ui.view.radius.RadiusTextView
         android:id="@+id/btn_pl"
         android:layout_width="wrap_content"

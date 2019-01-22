@@ -173,6 +173,7 @@
                         android:textColor="@color/textcolor01"
                         />
                     <TextView
+                        android:id="@+id/iv_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/material_5"

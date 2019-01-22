@@ -178,13 +178,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         String qq = tmUser.getQq();
 
         String tmToken = TMSharedPUtil.getTMToken(getContext());
-        RadiusTextViewDelegate delegate2 = tv_login.getDelegate();
 
-        if(!TextUtils.isEmpty(tmToken)){
-           tv_login.setText("已领取");
-            delegate2.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-            delegate2.setTextColor(getResources().getColor(R.color.white));
-        }
 
 
     }
@@ -277,7 +271,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             HashMap<String, Object> parms = new HashMap<>();
             mPresenter.Sign(parms);
         }else if(view.getId()==R.id.tv_login){
-            if(is_bindlogin){
+            if(!is_bindlogin){
                 lqJf();
             }
         }
@@ -285,7 +279,10 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     }
 
     private void lqJf() {
-
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.loginLog(body);
     }
 
     private void initList() {
@@ -380,15 +377,16 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
                             int scoreslogin = jsonObject5.get("score").getAsInt();
                             tv4.setText("+"+scoreslogin);
-                            RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
+                            RadiusTextViewDelegate delegate2 = tv_login.getDelegate();
                             if(is_bindlogin){
-                                delegate3.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-                                delegate3.setTextColor(getResources().getColor(R.color.white));
-                                tv_account.setText("已领取");
+                                tv_login.setText("已领取");
+                                delegate2.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                delegate2.setTextColor(getResources().getColor(R.color.white));
                             }
                             break;
                         case "loginLog":
                             loginscore();
+                            getMyPoint();
                             break;
                         case "Sign":
                             initList();

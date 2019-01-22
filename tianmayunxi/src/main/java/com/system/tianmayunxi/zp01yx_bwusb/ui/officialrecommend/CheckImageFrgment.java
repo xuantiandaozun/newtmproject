@@ -137,11 +137,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.getArticle(parms2);
     }
 
-    @OnClick({R2.id.iv_pl, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl, R2.id.tv_share,R2.id.tv_content,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
-        if(id==R.id.iv_pl){
+        if(id==R.id.iv_pl||id==R.id.tv_content){
             HashMap<String, String> param = new HashMap<>();
             param.put("id",beans.getId()+"");
             fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_PLLIST)
