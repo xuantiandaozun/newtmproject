@@ -19,6 +19,7 @@ import com.system.main.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.main.MainFragment;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.main.AppRootFragment;
 import com.tenma.ventures.base.TMActivity;
+import com.tenma.ventures.base.TMFragment;
 import com.tenma.ventures.base.TMWebFragment;
 import com.tenma.ventures.bean.TMBaseConfig;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
@@ -77,7 +78,6 @@ public class MainActivity extends TMActivity implements BottomNavigationBar.OnTa
         fragments.add(fragment02);
         Fragment fragment03 = new AppRootFragment();
         fragments.add(fragment03);
-
         mBottomNavigationBar.setTabSelectedListener(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.content, fragment01);

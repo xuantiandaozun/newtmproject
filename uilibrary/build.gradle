@@ -50,7 +50,7 @@ dependencies {
     }
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.xuantiandaozun:baselibrary:0.05'
+    implementation project(':base.app')
 
     api 'com.github.Awent:PhotoPick-Master:v1.095'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
