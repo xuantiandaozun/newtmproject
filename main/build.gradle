@@ -113,6 +113,5 @@ dependencies {
 /*        implementation project(':tianmayunxi')
     implementation project(':tianmayunxi02')
     implementation project(':tmhxdl')*/
- //   implementation 'com.github.xuantiandaozun.newtmproject:tmhxdl:0.0.2-t8'
 
 }
