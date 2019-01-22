@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="divider">#ffe0e0e0</color>
+    <!--筛选器颜色-->
+    <color name="black_p50">#7f000000</color>
+    <color name="gray_e7e7e7">#e7e7e7</color>
+    <color name="b_c_fafafa">#fafafa</color>
+    <color name="blue_4285f4">#4285f4</color>
+    <color name="black_5a626d">#5a626d</color>
+    <!--删除按钮颜色-->
+    <color name="btn_delete_normal">#bfc3cf</color>
+    <color name="btn_delete_selected">#a2a7b6</color>
+
+    <!--修改按钮颜色-->
+    <color name="btn_edit_normal">#29c0c9</color>
+    <color name="btn_edit_selected">#13aab3</color>
+    <!--背景色-->
+    <color name="background">#f6f6f6</color>
+    <color name="line_background">#DEDEDE</color>
+    <color name="text_background">#FA5252</color>
+    <color name="text_background2">#2F69D5</color>
+
+    <color name="list_item_press">#E0E0E0</color><!--F4F5FA-->
+
+    <color name="line">#EEEEEE</color>
+    <color name="recycleview_line">#DFDFDF</color>
+    <!--覆盖颜色-->
+    <color name="bgColor_overlay">#60000000</color>
+    <!--窗口背景颜色-->
+    <color name="bgColor_alertview_alert">#f8f8f8</color>
+    <color name="bgColor_alertview_alert_start">#f0f0f0</color>
+    <!--标题颜色-->
+    <color name="textColor_alert_title">#000000</color>
+    <color name="textColor_actionsheet_title">#8f8f8f</color>
+    <!--消息颜色-->
+    <color name="textColor_alert_msg">#000000</color>
+    <color name="textColor_actionsheet_msg">#8f8f8f</color>
+    <!--线条颜色-->
+    <color name="bgColor_divier">#d7d7db</color>
+    <!--取消按钮颜色-->
+    <color name="textColor_alert_button_cancel">#007aff</color>
+    <!--高亮按钮颜色-->
+    <color name="textColor_alert_button_destructive">#FF008AFF</color>
+    <!--普通按钮文字颜色-->
+    <color name="textColor_alert_button_others">#007aff</color>
+    <!--点击颜色-->
+    <color name="bgColor_alert_button_press">#EAEAEA</color>
+    <!--actionsheet模式的取消按钮背景颜色-->
+    <color name="bgColor_actionsheet_cancel_nor">#ffffff</color>
+
+</resources>
