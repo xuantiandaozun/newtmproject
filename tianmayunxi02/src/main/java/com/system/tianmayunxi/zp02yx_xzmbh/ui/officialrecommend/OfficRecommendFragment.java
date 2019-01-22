@@ -84,6 +84,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
         mlist.setLayoutManager(layout);
         mlist.addItemDecoration(new VerticalSpaceItemDecoration(UEMethod.dp2px(getThisContext(),5)));
         adapter = new officAdapter(new ArrayList<>());
+        adapter.setFragment(this);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

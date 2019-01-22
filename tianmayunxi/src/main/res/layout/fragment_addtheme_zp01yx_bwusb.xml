@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/material_10"
-            android:text="添加图片描述（选填）"
+            android:text="添加图片描述（必填）"
             android:textColor="@color/textcolor02"
             android:textSize="@dimen/material_font_15" />
 

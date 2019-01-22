@@ -141,8 +141,82 @@ public class DzsPresenter extends MVPBasePresenter<DzsContract.View> implements 
     }
 
     @Override
+    public void getIssnDetail2(HashMap<String, Object> body) {
+        mModel.getIssnDetail2(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onEnd() {
+
+            }
+
+            @Override
+            public void onSuccess(TMBaseResoultEntity<Object> data) {
+                if (data != null)
+                    if (isViewAttached()) {
+                        if (data.getError_code() == 200) {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("getIssnDetail", data.getData());
+                            getView().callBack(bean);
+                        } else {
+                            getView().showMessage(0, data.getMessage());
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (isViewAttached()) {
+                    getView().showMessage(0, message);
+                }
+            }
+        }));
+    }
+
+    @Override
     public void getBookDetail(HashMap<String, Object> body) {
         mModel.getBookDetail(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onEnd() {
+
+            }
+
+            @Override
+            public void onSuccess(TMBaseResoultEntity<Object> data) {
+                if (data != null)
+                    if (isViewAttached()) {
+                        if (data.getError_code() == 200) {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("getBookDetail", data.getData());
+                            getView().callBack(bean);
+                        } else {
+                            getView().showMessage(0, data.getMessage());
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (isViewAttached()) {
+                    getView().showMessage(0, message);
+                }
+            }
+        }));
+    }
+
+    @Override
+    public void getBookDetail2(HashMap<String, Object> body) {
+        mModel.getBookDetail2(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
             @Override
             public void onStart() {
             }

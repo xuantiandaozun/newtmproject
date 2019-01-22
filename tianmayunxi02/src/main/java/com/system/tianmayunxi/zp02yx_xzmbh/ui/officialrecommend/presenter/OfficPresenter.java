@@ -179,6 +179,44 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
     }
 
     @Override
+    public void loginLog(RequestBody body) {
+        mModel.loginLog(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onEnd() {
+
+            }
+
+            @Override
+            public void onSuccess(TMBaseResoultEntity<Object> data) {
+                if (data != null)
+                    if (isViewAttached()) {
+                        if (data.getError_code() == 200) {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("loginLog", data.getData());
+                            getView().callBack(bean);
+                            getView().showMessage(0, data.getMessage());
+                        } else {
+                            getView().showMessage(0, data.getMessage());
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (isViewAttached()) {
+                    getView().showMessage(0, message);
+                }
+            }
+        }));
+    }
+
+    @Override
     public void getArticleList(HashMap<String, Object> body) {
         mModel.getArticleList(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
             @Override

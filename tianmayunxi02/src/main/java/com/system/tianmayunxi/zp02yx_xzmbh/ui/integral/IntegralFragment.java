@@ -90,6 +90,8 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private TMUser tmUser;
     private int textcolor;
     private boolean is_allbind;
+    private boolean is_bindlogin;
+    private boolean is_bind;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -195,14 +197,9 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             delegate1.setTextColor(getResources().getColor(R.color.white));
             tv_account.setText("已完成");
         }
-        String tmToken = TMSharedPUtil.getTMToken(getContext());
-        RadiusTextViewDelegate delegate2 = tv_login.getDelegate();
 
-        if (!TextUtils.isEmpty(tmToken)) {
-            tv_login.setText("已领取");
-            delegate2.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-            delegate2.setTextColor(getResources().getColor(R.color.white));
-        }
+
+
 
 
     }
@@ -266,7 +263,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mPresenter.getMyPoint(parms);
     }
 
-    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_signrule, R2.id.tv_sign})
+    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_signrule, R2.id.tv_sign,R2.id.tv_login})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         if (view.getId() == R.id.tv_userinfo) {
@@ -284,7 +281,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
 
         } else if (view.getId() == R.id.tv_account) {
             String mobile = tmUser.getMobile();
-            if (TextUtils.isEmpty(mobile)) {
+            if (is_bind) {
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
                 startActivity(intent);
             }
@@ -295,8 +292,18 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_sign) {
             HashMap<String, Object> parms = new HashMap<>();
             mPresenter.Sign(parms);
+        }else if(view.getId()==R.id.tv_login){
+            if(!is_bindlogin){
+                lqJf();
+            }
         }
 
+    }
+    private void lqJf() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.loginLog(body);
     }
 
     private void initList() {
@@ -376,7 +383,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "BindScore":
                             JsonObject jsonObject4 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_bind = jsonObject4.get("is_bind").getAsBoolean();
+                            is_bind = jsonObject4.get("is_bind").getAsBoolean();
                             String scores = jsonObject4.get("score").getAsString();
                             tv3.setText("+"+scores);
                             RadiusTextViewDelegate delegate = tv_account.getDelegate();
@@ -388,20 +395,24 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "loginscore":
                             JsonObject jsonObject5 = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
+                            is_bindlogin = jsonObject5.get("is_login").getAsBoolean();
 
                             JsonElement score = jsonObject5.get("score");
                             if(score!=null){
                                 int scoreslogin = score.getAsInt();
                                 tv4.setText("+"+scoreslogin);
+                                RadiusTextViewDelegate delegate2 = tv_login.getDelegate();
+                                if(is_bindlogin){
+                                    tv_login.setText("已领取");
+                                    delegate2.setBackgroundColor(getResources().getColor(R.color.textcolor01));
+                                    delegate2.setTextColor(getResources().getColor(R.color.white));
+                                }
+                            }
 
-                            }
-                            RadiusTextViewDelegate delegate3 = tv_login.getDelegate();
-                            if(is_bindlogin){
-                                delegate3.setBackgroundColor(getResources().getColor(R.color.textcolor01));
-                                delegate3.setTextColor(getResources().getColor(R.color.white));
-                                tv_account.setText("已领取");
-                            }
+                            break;
+                        case "loginLog":
+                            loginscore();
+                            getMyPoint();
                             break;
                         case "Sign":
                             initList();

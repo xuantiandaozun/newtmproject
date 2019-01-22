@@ -21,7 +21,9 @@ public interface DzsContract {
         void getInssnList(HashMap<String, Object> body);
         void getBookList(HashMap<String, Object> body);
         void getIssnDetail(HashMap<String, Object> body);
+        void getIssnDetail2(HashMap<String, Object> body);
         void getBookDetail(HashMap<String, Object> body);
+        void getBookDetail2(HashMap<String, Object> body);
         void getRecommendList(HashMap<String, Object> body);
         void getApiIndex(HashMap<String, Object> body);
         void getContentList(HashMap<String, Object> body);
@@ -34,7 +36,9 @@ public interface DzsContract {
         Observable<TMBaseResoultEntity<Object>> getInssnList(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getBookList(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getIssnDetail(HashMap<String, Object> body);
+        Observable<TMBaseResoultEntity<Object>> getIssnDetail2(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getBookDetail(HashMap<String, Object> body);
+        Observable<TMBaseResoultEntity<Object>> getBookDetail2(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getRecommendList(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getApiIndex(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> getContentList(HashMap<String, Object> body);

@@ -1,6 +1,7 @@
 package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -119,16 +120,30 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         WindowManager windowManager = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(dm);
         width=dm.widthPixels;
-        getDetail();
+
 
 
 
     }
 
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+
+        getDetail();
+    }
+
     private void getDetail() {
         HashMap<String, Object> parms = new HashMap<>();
         parms.put("id",listBean.getId());
-        mPresenter.getIssnDetail(parms);
+        String tmToken = TMSharedPUtil.getTMToken(getContext());
+        if(TextUtils.isEmpty(tmToken)){
+            mPresenter.getIssnDetail(parms);
+
+        }else {
+            mPresenter.getIssnDetail2(parms);
+
+        }
     }
 
     @Override
@@ -149,6 +164,11 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         TMBaseFragment fragment=null;
         if(view.getId()==R.id.btn_next){
             String tmToken = TMSharedPUtil.getTMToken(getContext());
+            if(TextUtils.isEmpty(tmToken)){
+                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
+                getActivity().startActivity(intent);
+                return;
+            }
             if(!is_buy){
                 if(!TextUtils.isEmpty(tmToken)){
                    String price = detail.getPrice();

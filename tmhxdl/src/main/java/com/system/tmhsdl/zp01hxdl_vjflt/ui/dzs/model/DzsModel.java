@@ -40,8 +40,26 @@ public class DzsModel implements DzsContract.Model {
     }
 
     @Override
+    public Observable<TMBaseResoultEntity<Object>> getIssnDetail2(HashMap<String, Object> body) {
+        return MainService.getService().getIssnDetail2(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
     public Observable<TMBaseResoultEntity<Object>> getBookDetail(HashMap<String, Object> body) {
         return MainService.getService().getBookDetail(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<TMBaseResoultEntity<Object>> getBookDetail2(HashMap<String, Object> body) {
+        return MainService.getService().getBookDetail2(body)
                 //在新线程中执行登录请求
                 .subscribeOn(Schedulers.newThread())
                 //在主线程中执行;

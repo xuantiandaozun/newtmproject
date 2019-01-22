@@ -1,6 +1,7 @@
 package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -123,14 +124,26 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         windowManager.getDefaultDisplay().getMetrics(dm);
         width=dm.widthPixels;
 
+
+
+
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
         getDetail();
-
-
     }
     private void getDetail() {
         HashMap<String, Object> parms = new HashMap<>();
         parms.put("id",listBean.getId());
-        mPresenter.getBookDetail(parms);
+        String tmToken = TMSharedPUtil.getTMToken(getContext());
+        if(TextUtils.isEmpty(tmToken)){
+            mPresenter.getBookDetail(parms);
+        }else {
+            mPresenter.getBookDetail2(parms);
+        }
+
     }
 
     @Override
@@ -151,6 +164,11 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         TMBaseFragment fragment=null;
         if(view.getId()==R.id.btn_next){
             String tmToken = TMSharedPUtil.getTMToken(getContext());
+            if(TextUtils.isEmpty(tmToken)){
+                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
+                getActivity().startActivity(intent);
+                return;
+            }
             if(!is_buy){
                 if(!TextUtils.isEmpty(tmToken)){
                     String price = detail.getPrice();
@@ -164,52 +182,6 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
                         }
                     });
-                 /*   View inflate = LayoutInflater.from(getThisContext()).inflate(R.layout.custom_pay, null, false);
-                    Dialog loadingDialog = new Dialog(getContext(), com.system.uilibrary.R.style.MyDialogStyle);
-                    RelativeLayout layout = (RelativeLayout)inflate.findViewById(R.id.re_main);
-                    ImageView close = (ImageView) inflate.findViewById(R.id.iv_close);
-                    ImageView iv = (ImageView) inflate.findViewById(R.id.iv);
-                    TextView tv_name = (TextView) inflate.findViewById(R.id.tv_name);
-                    TextView tv_price = (TextView) inflate.findViewById(R.id.tv_price);
-                    TextView tv_wx = (TextView) inflate.findViewById(R.id.tv_wx);
-                    TextView tv_zfb = (TextView) inflate.findViewById(R.id.tv_zfb);
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            loadingDialog.dismiss();
-                        }
-                    });
-                    tv_wx.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            getPay(2);
-                            loadingDialog.dismiss();
-                        }
-                    });
-                    tv_zfb.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            getPay(1);
-                            loadingDialog.dismiss();
-                        }
-                    });
-
-                    tv_name.setText(listBean.getTitle());
-                    tv_price.setText("￥"+detail.getPrice());
-                    Glide.with(getContext()).load(TMSharedPUtil.getTMBaseConfig(mcontext).getDomain()+listBean.getImage()).into(iv);
-
-
-                    loadingDialog.setCancelable(true);
-                    loadingDialog.setCanceledOnTouchOutside(true);
-                    loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(-1, -1));
-                    Window window = loadingDialog.getWindow();
-                    android.view.WindowManager.LayoutParams lp = window.getAttributes();
-                    lp.width = -1;
-                    lp.height = -2;
-                    window.setGravity(17);
-                    window.setAttributes(lp);
-                    window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
-                    loadingDialog.show();*/
                 }
 
             }else {
