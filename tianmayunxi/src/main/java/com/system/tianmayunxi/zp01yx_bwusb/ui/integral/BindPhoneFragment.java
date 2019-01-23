@@ -8,7 +8,7 @@ import com.system.myproject.base.MVPBasePresenter;
 import com.system.tianmayunxi.zp01yx_bwusb.R;
 import com.system.tianmayunxi.zp01yx_bwusb.R2;
 import com.system.tianmayunxi.zp01yx_bwusb.TmyxRouterConfig;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
 
 import butterknife.BindView;
 

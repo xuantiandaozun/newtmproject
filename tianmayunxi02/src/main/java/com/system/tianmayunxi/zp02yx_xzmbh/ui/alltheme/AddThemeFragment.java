@@ -30,8 +30,9 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.bean.IvBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.contract.AllThemeContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.presenter.AllThemePresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.CommonSeeBean;
-import com.system.uilibrary.views.attachment.bean.AttachmentEntity;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+
+import com.system.tianmayunxi.zp02yx_xzmbh.views.attachment.bean.AttachmentEntity;
+import com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.zxy.tiny.Tiny;
 import com.zxy.tiny.callback.FileCallback;

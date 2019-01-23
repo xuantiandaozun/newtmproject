@@ -79,8 +79,17 @@ dependencies {
     implementation 'com.yuyh.bubble:library:1.0.0'
     implementation 'com.chenlittleping:recyclercoverflow:1.0.6'
     //  implementation 'android.arch.lifecycle:extensions:1.1.1'
-    implementation 'com.github.xuantiandaozun:baselibrary:0.03'
-    implementation 'com.github.xuantiandaozun:uilibrary:0.01'
-    api "com.tenma.ventures:tm_core:1.1.14"
+    api 'com.github.xuantiandaozun:baselibrary:0.06'
+    api 'com.github.AriesHoo.UIWidget:widget-core:3.2.6'
+    api 'com.github.AriesHoo.UIWidget:widget-alert:3.2.5'
+    api 'com.github.AriesHoo.UIWidget:widget-collapsing:3.2.5'
+    //日期选择
+    api('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.5.6') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.github.Awent:PhotoPick-Master:v1.095'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    api 'com.github.1002326270xc:LayoutManager-FlowLayout:v1.4'
+    implementation 'android.arch.lifecycle:extensions:1.1.0'
 
 }

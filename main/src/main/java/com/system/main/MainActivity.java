@@ -14,10 +14,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.system.main.R;
+
 
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.main.MainFragment;
-import com.system.tmhsdl.zp01hxdl_vjflt.ui.main.AppRootFragment;
+import com.system.tmhsdl.zp01hxdl_vjflt.ui.main.RootFragment;
 import com.tenma.ventures.base.TMActivity;
 import com.tenma.ventures.base.TMFragment;
 import com.tenma.ventures.base.TMWebFragment;
@@ -67,16 +67,16 @@ public class MainActivity extends TMActivity implements BottomNavigationBar.OnTa
 
         mBottomNavigationBar
                 .addItem(item01)
-                .addItem(item02)
+           .addItem(item02)
                 .addItem(item03)
                 .setFirstSelectedPosition(0)//设置默认选择item
                 .initialise();//初始化
 
        Fragment fragment01 = new com.system.tianmayunxi.zp01yx_bwusb.ui.main.MainFragment();
         fragments.add(fragment01);
-        Fragment fragment02 = new MainFragment();
+   Fragment fragment02 = new MainFragment();
         fragments.add(fragment02);
-        Fragment fragment03 = new AppRootFragment();
+        Fragment fragment03 = new RootFragment();
         fragments.add(fragment03);
         mBottomNavigationBar.setTabSelectedListener(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

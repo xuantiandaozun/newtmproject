@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="RightPopAnim" parent="@android:style/Animation.Activity">
-        <item name="android:windowEnterAnimation">@anim/right_in</item>
-        <item name="android:windowExitAnimation">@anim/right_out</item>
-    </style>
-</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="10dp"
+    android:insetRight="@dimen/material_10">
+<shape android:shape="rectangle"
+    >
+    <size android:height="1dp" />
+    <padding
+        android:bottom="0dp"
+        android:left="@dimen/material_10"
+        android:right="@dimen/material_10"
+        android:top="0dp" />
+    <solid android:color="@color/recycleview_line" />
+</shape>
+</inset>
