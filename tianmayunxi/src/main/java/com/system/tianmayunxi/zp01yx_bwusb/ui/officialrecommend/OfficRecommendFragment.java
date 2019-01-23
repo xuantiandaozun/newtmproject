@@ -36,7 +36,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.CommonSeeBe
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.TieZiBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
-import com.system.tianmayunxi.zp01yx_bwusb.views.recyclerview.decoration.VerticalSpaceItemDecoration;
+import com.system.uilibrary.views.recyclerview.decoration.VerticalSpaceItemDecoration;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.util.TMShareUtil;
@@ -127,6 +127,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
             }
         });
         adapter.setFragment(this);
+
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {

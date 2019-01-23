@@ -10,7 +10,6 @@ import io.reactivex.Observable;
 import okhttp3.RequestBody;
 
 public interface OfficContract {
-
     interface View extends MVPBaseView {
         void onFaild();
         void callBack(EventCallBackBean bean);

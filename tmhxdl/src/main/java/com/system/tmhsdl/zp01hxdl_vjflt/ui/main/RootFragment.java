@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.system.myproject.base.BaseFragment;
+import com.system.myproject.base.MVPBasePresenter;
 import com.system.tmhsdl.zp01hxdl_vjflt.HxdlRouterConfig;
 import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.R2;
@@ -44,14 +45,14 @@ import butterknife.Unbinder;
  * 创建时间：2018/4/3
  */
 public class RootFragment extends TMFragment {
+    public View rootView;
+    private Unbinder unbinder;
     @BindView(R2.id.magic_indicator5)
     MagicIndicator magicIndicator;
     @BindView(R2.id.viewpager)
     ViewPager mViewpager;
     @BindView(R2.id.view1)
     View view1;
-    public View rootView;
-    private Unbinder unbinder;
     private ViewPagerAdapter adapter;
     private static final String[] CHANNELS = new String[]{"电子刊", "电子书","订阅"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
@@ -84,6 +85,7 @@ public class RootFragment extends TMFragment {
         return this.rootView;
 
     }
+
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(getActivity()));

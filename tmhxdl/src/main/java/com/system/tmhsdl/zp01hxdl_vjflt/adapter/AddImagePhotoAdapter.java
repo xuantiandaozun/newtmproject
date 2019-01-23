@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.system.tmhsdl.zp01hxdl_vjflt.R;
-import com.system.tmhsdl.zp01hxdl_vjflt.views.attachment.bean.AttachmentEntity;
+import com.system.uilibrary.views.attachment.bean.AttachmentEntity;
 
 /**
  * 创建人： zhoudingwen

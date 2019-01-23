@@ -10,7 +10,6 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.JsonObject;
-import com.library.flowlayout.SpaceItemDecoration;
 import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.TMBaseFragment;
 import com.system.myproject.utils.GsonUtil;
@@ -24,9 +23,9 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.integral.adapter.IntegralShopAdapt
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.GoodsListBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
-import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.recyclerview.decoration.SpaceItemDecoration;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;

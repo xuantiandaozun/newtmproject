@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:rv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="@dimen/material_10">
-
+    android:padding="@dimen/material_10"
+    android:layout_height="wrap_content">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/iv_head"
         android:layout_width="@dimen/material_50"
         android:layout_height="@dimen/material_50"
-        fresco:roundAsCircle="true" />
-
+        fresco:roundAsCircle="true"
+        />
     <TextView
         android:id="@+id/tv_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_10"
         android:layout_toRightOf="@+id/iv_head"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:textSize="@dimen/material_font_13"
         android:textColor="@color/textcolor02"
-        android:textSize="@dimen/material_font_13" />
-
+        />
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -32,19 +31,19 @@
         android:layout_marginTop="@dimen/material_5"
         android:layout_toRightOf="@+id/iv_head"
         android:textColor="@color/textcolor03"
-        android:textSize="@dimen/material_font_13" />
-
+        android:textSize="@dimen/material_font_13"
+        />
     <TextView
         android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textSize="@dimen/material_font_12"
+        android:layout_toRightOf="@+id/iv_head"
         android:layout_below="@+id/tv_title"
+        android:layout_width="wrap_content"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginTop="@dimen/material_10"
-        android:layout_toRightOf="@+id/iv_head"
         android:textColor="@color/textcolor01"
-        android:textSize="@dimen/material_font_12" />
-
+        android:layout_height="wrap_content"
+        />
     <TextView
         android:id="@+id/tv_up"
         android:layout_width="wrap_content"
@@ -53,26 +52,24 @@
         android:layout_marginRight="@dimen/material_10"
         android:layout_toLeftOf="@+id/ly"
         android:drawableLeft="@mipmap/icon_msg_good" />
-
     <ImageView
         android:id="@+id/ly"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/material_25"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_alignBottom="@+id/tv_theme"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/material_5"
         android:scaleType="centerInside"
         android:src="@mipmap/ic_more" />
-
     <LinearLayout
         android:id="@+id/re_pop"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_time"
+        android:visibility="invisible"
         android:layout_alignParentRight="true"
         android:orientation="horizontal"
-        android:visibility="invisible">
-
+        android:layout_height="wrap_content">
         <com.aries.ui.view.radius.RadiusTextView
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"

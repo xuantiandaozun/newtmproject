@@ -27,12 +27,11 @@ import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import java.util.HashMap;
 import java.util.List;
 
-import me.yokeyword.fragmentation.SupportFragment;
-
 public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> {
     public static final int DATA_TYPE1=0;
     public static final int DATA_TYPE2=1;
     public Fragment fragment;
+
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -49,6 +48,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
     public void setFragment(Fragment fragment) {
         this.fragment = fragment;
     }
+
 
     @Override
     protected void convert(BaseViewHolder helper, MultiItemEntity item) {
@@ -85,8 +85,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                                 .navigation();
                     }
                 });
-                mlist.setAdapter(adapter1);
-                break;
+                mlist.setAdapter(adapter1);                break;
             case DATA_TYPE2:
                 TieZiBean tieZiBean = (TieZiBean) item;
 

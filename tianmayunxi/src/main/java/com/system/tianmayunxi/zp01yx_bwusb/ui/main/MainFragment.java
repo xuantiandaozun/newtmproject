@@ -143,5 +143,4 @@ public class MainFragment extends TMFragment {
         magicIndicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(magicIndicator, mViewpager);
     }
-
 }

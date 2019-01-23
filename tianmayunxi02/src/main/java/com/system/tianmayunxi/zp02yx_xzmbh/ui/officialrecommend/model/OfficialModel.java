@@ -67,41 +67,6 @@ public class OfficialModel implements OfficContract.Model{
                 //在主线程中执行;
                 .observeOn(AndroidSchedulers.mainThread());
     }
-    @Override
-    public Observable<TMBaseResoultEntity<Object>> AllBindService(RequestBody body) {
-        return MainService.getService().AllBindService(body)
-                //在新线程中执行登录请求
-                .subscribeOn(Schedulers.newThread())
-                //在主线程中执行;
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-    @Override
-    public Observable<TMBaseResoultEntity<Object>> BindScore(RequestBody body) {
-        return MainService.getService().BindScore(body)
-                //在新线程中执行登录请求
-                .subscribeOn(Schedulers.newThread())
-                //在主线程中执行;
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-    @Override
-    public Observable<TMBaseResoultEntity<Object>> loginscore(RequestBody body) {
-        return MainService.getService().loginscore(body)
-                //在新线程中执行登录请求
-                .subscribeOn(Schedulers.newThread())
-                //在主线程中执行;
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-    @Override
-    public Observable<TMBaseResoultEntity<Object>> loginLog(RequestBody body) {
-        return MainService.getService().loginLog(body)
-                //在新线程中执行登录请求
-                .subscribeOn(Schedulers.newThread())
-                //在主线程中执行;
-                .observeOn(AndroidSchedulers.mainThread());
-    }
 
     @Override
     public Observable<TMBaseResoultEntity<Object>> getMyArtic(HashMap<String, Object> body) {
@@ -224,6 +189,42 @@ public class OfficialModel implements OfficContract.Model{
     @Override
     public Observable<TMBaseResoultEntity<Object>> remind(RequestBody body) {
         return MainService.getService().remind(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<TMBaseResoultEntity<Object>> AllBindService(RequestBody body) {
+        return MainService.getService().AllBindService(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<TMBaseResoultEntity<Object>> BindScore(RequestBody body) {
+        return MainService.getService().BindScore(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<TMBaseResoultEntity<Object>> loginscore(RequestBody body) {
+        return MainService.getService().loginscore(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public Observable<TMBaseResoultEntity<Object>> loginLog(RequestBody body) {
+        return MainService.getService().loginLog(body)
                 //在新线程中执行登录请求
                 .subscribeOn(Schedulers.newThread())
                 //在主线程中执行;

@@ -55,12 +55,13 @@
         android:drawableLeft="@mipmap/icon_msg_good" />
     <ImageView
         android:id="@+id/ly"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/material_25"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_alignBottom="@+id/tv_theme"
         android:layout_alignParentRight="true"
-        android:scaleType="centerInside"
         android:layout_marginBottom="@dimen/material_5"
+        android:scaleType="centerInside"
         android:src="@mipmap/ic_more" />
     <com.aries.ui.view.radius.RadiusTextView
         android:id="@+id/btn_pl"

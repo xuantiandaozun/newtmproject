@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView
+    <com.system.uilibrary.views.titlebar.TitleBarView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="48dp"

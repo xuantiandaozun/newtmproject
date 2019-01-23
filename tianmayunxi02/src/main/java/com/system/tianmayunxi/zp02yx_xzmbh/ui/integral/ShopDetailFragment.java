@@ -24,7 +24,7 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.GoodsListBe
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.utils.GlideImageLoader;
-import com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;

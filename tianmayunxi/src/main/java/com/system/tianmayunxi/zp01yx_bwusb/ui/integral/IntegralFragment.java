@@ -36,7 +36,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ListSignBea
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp01yx_bwusb.views.SwitchView;
-import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.TMUser;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
@@ -63,12 +63,6 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     RecyclerView mlist;
     @BindView(R2.id.tv_mypoint)
     TextView tv_mypoint;
-    @BindView(R2.id.tv2)
-    TextView tv2;
-    @BindView(R2.id.tv4)
-    TextView tv4;
-    @BindView(R2.id.tv3)
-    TextView tv3;
     @BindView(R2.id.switchview)
     SwitchView switchView;
     @BindView(R2.id.tv_sign)
@@ -81,6 +75,12 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     RadiusTextView tv_userinfo;
     @BindView(R2.id.re_theme)
     RelativeLayout re_theme;
+    @BindView(R2.id.tv2)
+    TextView tv2;
+    @BindView(R2.id.tv4)
+    TextView tv4;
+    @BindView(R2.id.tv3)
+    TextView tv3;
     private QdAdapter adapter;
     private boolean is_sign;
     private int score;
@@ -91,6 +91,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private boolean is_allbind;
     private boolean is_bind;
     private boolean is_bindlogin;
+
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -163,7 +164,6 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 TMSharedPUtil.saveTMPush(getContext(),false);
             }
         });
-
         LinearLayoutManager layout = new LinearLayoutManager(getThisContext());
         layout.setOrientation(LinearLayoutManager.HORIZONTAL);
         mlist.setLayoutManager(layout);
@@ -178,7 +178,6 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         String qq = tmUser.getQq();
 
         String tmToken = TMSharedPUtil.getTMToken(getContext());
-
 
 
     }
@@ -201,7 +200,6 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         BindScore();
         loginscore();
     }
-
     private void loginscore() {
         HashMap<String, Object> parms = new HashMap<>();
         String value = new Gson().toJson(parms);
@@ -241,7 +239,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mPresenter.getMyPoint(parms);
     }
 
-    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_signrule, R2.id.tv_sign,R2.id.tv_login})
+    @OnClick({R2.id.tv_userinfo, R2.id.tv_account, R2.id.tv_login,R2.id.tv_signrule, R2.id.tv_sign})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         if (view.getId() == R.id.tv_userinfo) {
@@ -252,14 +250,14 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
             String wx = tmUser.getWx();
             String qq = tmUser.getQq();
             boolean b = !TextUtils.isEmpty(sex) && !TextUtils.isEmpty(birthday) && !TextUtils.isEmpty(mobile) && !TextUtils.isEmpty(wb) && !TextUtils.isEmpty(wx) && !TextUtils.isEmpty(qq);
-            if(is_allbind){
+            if(!b){
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.UCPersonal");
                 startActivity(intent);
             }
 
         } else if (view.getId() == R.id.tv_account) {
             String mobile = tmUser.getMobile();
-            if(is_bind){
+            if(TextUtils.isEmpty(mobile)){
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
                 startActivity(intent);
             }
@@ -394,7 +392,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             isSign();
 
                             View inflate = LayoutInflater.from(getThisContext()).inflate(R.layout.custom_sign_zp01yx_bwusb, null, false);
-                            Dialog loadingDialog = new Dialog(getActivity(), R.style.MyDialogStyle);
+                            Dialog loadingDialog = new Dialog(getActivity(), com.system.uilibrary.R.style.MyDialogStyle);
                             RelativeLayout layout = (RelativeLayout) inflate.findViewById(R.id.re_main);
                             TextView tv_score = inflate.findViewById(R.id.tv_score);
                             TextView tv_days = inflate.findViewById(R.id.tv_days);
@@ -409,7 +407,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             lp.height = -2;
                             window.setGravity(17);
                             window.setAttributes(lp);
-                            window.setWindowAnimations(R.style.PopWindowAnimStyle);
+                            window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
                             loadingDialog.show();
                             break;
                         case "isRemind":

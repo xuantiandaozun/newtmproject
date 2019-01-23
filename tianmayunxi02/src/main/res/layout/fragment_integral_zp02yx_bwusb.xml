@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView
+            <com.system.uilibrary.views.titlebar.TitleBarView
                 android:id="@+id/titleBar"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -303,7 +303,7 @@
                             rv:rv_radiusHalfHeightEnable="true"
                             rv:rv_rippleEnable="false"
                             rv:rv_textColor="@color/blue_primary"
-                            />
+                           />
                     </RelativeLayout>
 
                 </LinearLayout>

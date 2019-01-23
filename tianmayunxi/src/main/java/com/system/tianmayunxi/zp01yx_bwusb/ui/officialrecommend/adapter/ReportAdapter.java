@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.system.tianmayunxi.zp01yx_bwusb.R;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ReportBean;
-import com.system.tianmayunxi.zp01yx_bwusb.views.CheckBoxSample;
+import com.system.uilibrary.views.CheckBoxSample;
 
 import java.util.List;
 

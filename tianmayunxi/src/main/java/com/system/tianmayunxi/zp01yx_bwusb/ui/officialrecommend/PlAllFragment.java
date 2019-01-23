@@ -37,7 +37,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ArticMsgBea
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp01yx_bwusb.utils.ClipboardUtils;
-import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import java.util.ArrayList;
@@ -112,7 +112,8 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
         titleBar.setTitleMainTextColor(textcolor);
-        titleBar.setTitleMainText("评论").setLeftTextDrawable(R.mipmap.icon_nav_back)
+        titleBar.setTitleMainText("评论")
+                .setLeftTextDrawable(R.mipmap.icon_nav_back)
                 .setOnLeftTextClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

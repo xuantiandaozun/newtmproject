@@ -27,9 +27,4 @@
 
 <resources>
     <item name="item_id" type="id" />
-    <item name="fixedTabIndicator" type="id" />
-    <item name="mFilterContentView" type="id" />
-    <item name="tabview_id" type="id" />
-    <item name="viewid1" type="id" />
-    <item name="tabview_fragment_container" type="id" />
 </resources>

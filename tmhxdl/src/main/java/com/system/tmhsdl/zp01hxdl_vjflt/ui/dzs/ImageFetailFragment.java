@@ -22,7 +22,7 @@ import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.adapter.IVMainAdapter;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.ContentListBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.presenter.DzsPresenter;
-import com.system.tmhsdl.zp01hxdl_vjflt.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import java.util.ArrayList;

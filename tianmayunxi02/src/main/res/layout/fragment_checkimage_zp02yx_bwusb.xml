@@ -107,7 +107,7 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <com.aries.ui.view.radius.RadiusTextView
-            android:id="@+id/tv_content"
+            android:id="@+id/ret_circle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

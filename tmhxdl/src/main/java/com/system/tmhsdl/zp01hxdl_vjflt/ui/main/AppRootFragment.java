@@ -2,13 +2,8 @@ package com.system.tmhsdl.zp01hxdl_vjflt.ui.main;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -21,7 +16,6 @@ import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.R2;
 import com.system.tmhsdl.zp01hxdl_vjflt.adapter.ViewPagerAdapter;
 import com.system.tmhsdl.zp01hxdl_vjflt.views.ScaleTransitionPagerTitleView;
-import com.tenma.ventures.base.TMFragment;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -39,23 +33,19 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 创建人： zhoudingwen
  * 创建时间：2018/4/3
  */
 @Route(path = HxdlRouterConfig.FRAGMENT_MAIN)
-public class AppRootFragment extends TMFragment {
+public class AppRootFragment extends BaseFragment {
     @BindView(R2.id.magic_indicator5)
     MagicIndicator magicIndicator;
     @BindView(R2.id.viewpager)
     ViewPager mViewpager;
     @BindView(R2.id.view1)
     View view1;
-    public View rootView;
-    private Unbinder unbinder;
     private ViewPagerAdapter adapter;
     private static final String[] CHANNELS = new String[]{"电子刊", "电子书","订阅"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
@@ -72,24 +62,24 @@ public class AppRootFragment extends TMFragment {
         }
         return f;
     }
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ARouter.getInstance().inject(this);
+    protected MVPBasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    protected void init() {
 
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.hxdl_fragment_root, container, false);
-        this.unbinder = ButterKnife.bind(this, this.rootView);
-
-        return this.rootView;
-
+    protected int getLayoutResId() {
+        return R.layout.hxdl_fragment_root;
     }
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+
+    @Override
+    protected void initDatas() {
         themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(getActivity()));
         titleColor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         magicIndicator.setBackgroundColor(themeColor );

@@ -36,9 +36,8 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.OneThemeBea
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.TieZiBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
-
-import com.system.tianmayunxi.zp01yx_bwusb.views.recyclerview.decoration.VerticalSpaceItemDecoration;
-import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.recyclerview.decoration.VerticalSpaceItemDecoration;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.util.TMShareUtil;

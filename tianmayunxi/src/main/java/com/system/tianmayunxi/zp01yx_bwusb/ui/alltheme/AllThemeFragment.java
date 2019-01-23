@@ -1,9 +1,7 @@
 package com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme;
 
-import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -23,7 +21,6 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme.adapter.ThemeAdapter;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme.bean.AllThemBean;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme.contract.AllThemeContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme.presenter.AllThemePresenter;
-import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,13 +61,6 @@ public class AllThemeFragment extends BaseFragment<AllThemeContract.View, AllThe
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                String tmToken = TMSharedPUtil.getTMToken(getContext());
-
-                if(TextUtils.isEmpty(tmToken)){
-                    Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
-                    getActivity().startActivity(intent);
-                    return;
-                }
 
                 AllThemBean.ListBean item = (AllThemBean.ListBean) adapter.getItem(position);
 

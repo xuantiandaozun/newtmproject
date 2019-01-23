@@ -140,7 +140,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mlist.addItemDecoration(new SpaceItemDecoration(UEMethod.dp2px(getThisContext(), 5)));
         ArrayList<String> gridData = new ArrayList<>();
         ivadapter = new TieIvAdapter(gridData);
-
+        mlist.setNestedScrollingEnabled(false);
         ivadapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -318,7 +318,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         mPresenter.getArticMsgList(parms);
     }
 
-    @OnClick({R2.id.iv_pl, R2.id.tv_share,R2.id.ret_circle,R2.id.iv_share,R2.id.tv_addstar, R2.id.tv_up, R2.id.tv_dy,R2.id.iv_jf,R2.id.iv_back})
+    @OnClick({R2.id.iv_pl, R2.id.tv_share,R2.id.ret_circle,R2.id.tv_addstar, R2.id.tv_up, R2.id.tv_dy,R2.id.iv_jf,R2.id.iv_back})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         if (view.getId() == R.id.iv_pl||view.getId()==R.id.ret_circle) {
@@ -329,7 +329,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                     .navigation();
             start(fragment);
 
-        } else if (view.getId() == R.id.tv_share||view.getId()==R.id.iv_share) {
+        } else if (view.getId() == R.id.tv_share) {
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
             linkShare.setThumb(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+articleDetail.getTheme_image());

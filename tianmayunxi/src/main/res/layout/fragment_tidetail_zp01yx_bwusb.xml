@@ -172,16 +172,17 @@
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/textcolor01"
                         />
+
                     <TextView
                         android:id="@+id/iv_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/material_5"
-                        android:drawableLeft="@mipmap/icon_share"
-                        android:textSize="@dimen/material_font_13"
-                        android:textColor="@color/textcolor01"
                         android:layout_alignParentRight="true"
-                        />
+                        android:layout_marginRight="10dp"
+                        android:drawableLeft="@mipmap/icon_share"
+                        android:drawablePadding="@dimen/material_5"
+                        android:textColor="@color/textcolor01"
+                        android:textSize="@dimen/material_font_13" />
                 </RelativeLayout>
             </LinearLayout>
 

@@ -30,7 +30,7 @@ import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssDetail;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.presenter.DzsPresenter;
-import com.system.tmhsdl.zp01hxdl_vjflt.views.titlebar.TitleBarView;
+import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMPayUtil;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
@@ -120,7 +120,6 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         WindowManager windowManager = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(dm);
         width=dm.widthPixels;
-
 
 
 

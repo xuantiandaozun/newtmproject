@@ -72,8 +72,8 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                         CommonSeeBean.ListBean item1 = adapter1.getItem(position);
                         HashMap<String, String> main = new HashMap<>();
                         HashMap<String, String> param = new HashMap<>();
-                        param.put("detail",GsonUtil.GsonString(item1));
-                        main.put("fragment",Tmyx02RouterConfig.TMYX02_THEMEDETAIL);
+                        param.put("detail", GsonUtil.GsonString(item1));
+                        main.put("fragment", Tmyx02RouterConfig.TMYX02_THEMEDETAIL);
                         main.put("params",new Gson().toJson(param));
 
                         ARouter.getInstance().build(Tmyx02RouterConfig.MAIN02_FRAGMENT)
@@ -82,8 +82,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                                 .navigation();
                     }
                 });
-                mlist.setAdapter(adapter1);
-                break;
+                mlist.setAdapter(adapter1);                break;
             case DATA_TYPE2:
                 TieZiBean tieZiBean = (TieZiBean) item;
 

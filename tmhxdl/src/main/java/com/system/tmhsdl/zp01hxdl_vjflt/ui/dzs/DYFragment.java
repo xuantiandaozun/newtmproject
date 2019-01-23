@@ -24,7 +24,6 @@ import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.R2;
 import com.system.tmhsdl.zp01hxdl_vjflt.bean.EventCallBackBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.adapter.DYAdapter;
-import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.DyBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
