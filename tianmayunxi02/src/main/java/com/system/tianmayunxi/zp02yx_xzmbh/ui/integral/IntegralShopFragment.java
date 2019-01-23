@@ -23,8 +23,8 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.integral.adapter.IntegralShopAdapt
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.GoodsListBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
-import com.system.uilibrary.views.recyclerview.decoration.SpaceItemDecoration;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.system.tianmayunxi.zp02yx_xzmbh.views.recyclerview.decoration.SpaceItemDecoration;
+import com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import java.util.ArrayList;

@@ -22,7 +22,7 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.ReportAd
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.ReportBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.system.tianmayunxi.zp02yx_xzmbh.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 import java.util.ArrayList;

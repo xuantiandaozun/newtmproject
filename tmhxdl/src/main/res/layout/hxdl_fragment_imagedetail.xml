@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.system.uilibrary.views.titlebar.TitleBarView
+    <com.system.tmhsdl.zp01hxdl_vjflt.views.titlebar.TitleBarView
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="48dp"

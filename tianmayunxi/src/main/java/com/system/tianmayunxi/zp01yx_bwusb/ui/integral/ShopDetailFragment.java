@@ -31,7 +31,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.GoodsListBe
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp01yx_bwusb.views.NetWorkImageHolderView;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;

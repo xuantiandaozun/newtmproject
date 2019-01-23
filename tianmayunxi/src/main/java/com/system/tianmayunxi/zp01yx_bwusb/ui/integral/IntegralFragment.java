@@ -36,7 +36,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ListSignBea
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp01yx_bwusb.views.SwitchView;
-import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.system.tianmayunxi.zp01yx_bwusb.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.TMUser;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
@@ -394,7 +394,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             isSign();
 
                             View inflate = LayoutInflater.from(getThisContext()).inflate(R.layout.custom_sign_zp01yx_bwusb, null, false);
-                            Dialog loadingDialog = new Dialog(getActivity(), com.system.uilibrary.R.style.MyDialogStyle);
+                            Dialog loadingDialog = new Dialog(getActivity(), R.style.MyDialogStyle);
                             RelativeLayout layout = (RelativeLayout) inflate.findViewById(R.id.re_main);
                             TextView tv_score = inflate.findViewById(R.id.tv_score);
                             TextView tv_days = inflate.findViewById(R.id.tv_days);
@@ -409,7 +409,7 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             lp.height = -2;
                             window.setGravity(17);
                             window.setAttributes(lp);
-                            window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
+                            window.setWindowAnimations(R.style.PopWindowAnimStyle);
                             loadingDialog.show();
                             break;
                         case "isRemind":

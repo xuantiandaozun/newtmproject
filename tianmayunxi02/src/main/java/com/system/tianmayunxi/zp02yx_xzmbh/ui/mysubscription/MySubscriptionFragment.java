@@ -28,7 +28,7 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.ArticleBean
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.TieZiBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
-import com.system.uilibrary.views.recyclerview.decoration.VerticalSpaceItemDecoration;
+import com.system.tianmayunxi.zp02yx_xzmbh.views.recyclerview.decoration.VerticalSpaceItemDecoration;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.util.TMShareUtil;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 连框颜色值 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/divider" />
+        </shape>
+    </item>
+
+    <!-- 主体背景颜色值 android:top="1px"-->
+    <item
+        android:bottom="1px"
+        android:left="1px"
+        android:right="1px"
+        android:top="1px">
+        <shape>
+            <solid android:color="@color/white" />
+            <padding
+                android:bottom="@dimen/material_4"
+                android:left="@dimen/material_4"
+                android:right="@dimen/material_4"
+                android:top="@dimen/material_4" />
+        </shape>
+    </item>
+</layer-list>
