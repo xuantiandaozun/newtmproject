@@ -1,1 +1,1 @@
-include ':tianmayunxi', ':tmhxdl', ':tianmayunxi02', ':main', ':uilibrary', ':base.app'
+include ':tianmayunxi', ':tmhxdl', ':tianmayunxi02', ':main'
