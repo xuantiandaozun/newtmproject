@@ -234,7 +234,7 @@
                             android:layout_centerVertical="true"
                             android:paddingBottom="4dp"
                             android:text="去完成"
-                            android:textSize="@dimen/text_size_12sp"
+                            android:textSize="@dimen/material_font_12"
                             rv:rv_backgroundColor="@color/background04"
                             rv:rv_radiusHalfHeightEnable="true"
                             rv:rv_rippleEnable="false"

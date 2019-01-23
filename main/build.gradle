@@ -110,10 +110,10 @@ dependencies {
     compile 'com.tenma.ventures:tm_core:1.1.19'
     //个人中心
     compile 'com.tianma.ventures:tm_userCenter_2nd:1.1.0'
-    implementation project(':tianmayunxi')
+ /*   implementation project(':tianmayunxi')
     implementation project(':tianmayunxi02')
     implementation project(':tmhxdl')
-    compile project(path: ':tmhxdl')
-
+    compile project(path: ':tmhxdl')*/
+    //implementation 'com.github.xuantiandaozun.newtmproject:tianmayunxi:0.0.4'
 
 }
