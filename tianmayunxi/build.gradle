@@ -67,8 +67,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-    api 'com.github.xuantiandaozun:baselibrary:0.06'
-    implementation 'com.github.xuantiandaozun:uilibrary:0.05'
+    api 'com.github.xuantiandaozun:uilibrary:0.07'
 
     // fresco 图片加载框架
     implementation 'com.facebook.fresco:fresco:1.5.0'
