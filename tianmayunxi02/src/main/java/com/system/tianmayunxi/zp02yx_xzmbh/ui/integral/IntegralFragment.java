@@ -395,6 +395,10 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             }
 
                             break;
+                        case "loginLog":
+                            loginscore();
+                            getMyPoint();
+                            break;
                         case "Sign":
                             initList();
                             getMyPoint();

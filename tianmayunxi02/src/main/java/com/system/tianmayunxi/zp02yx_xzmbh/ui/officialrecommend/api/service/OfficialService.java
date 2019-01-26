@@ -205,6 +205,6 @@ public interface OfficialService {
      *每日登录领取积分
      * @return
      */
-    @POST("zp01yx_bwusb/api/login_log")
+    @POST("zp02yx_xzmbh/api/login_log")
     Observable<TMBaseResoultEntity<Object>> loginLog(@Body  RequestBody body);
 }

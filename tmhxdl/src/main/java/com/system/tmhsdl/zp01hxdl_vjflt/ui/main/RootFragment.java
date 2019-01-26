@@ -10,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.system.myproject.base.BaseFragment;
-import com.system.myproject.base.MVPBasePresenter;
 import com.system.tmhsdl.zp01hxdl_vjflt.HxdlRouterConfig;
 import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.R2;
@@ -128,7 +126,7 @@ public class RootFragment extends TMFragment {
                 SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
                 simplePagerTitleView.setText(mDataList.get(index));
                 simplePagerTitleView.setTextSize(15);
-                simplePagerTitleView.setPadding(UIUtil.dip2px(context, 5),0,UIUtil.dip2px(context, 5),0);
+                simplePagerTitleView.setPadding(UIUtil.dip2px(context, 5),0, UIUtil.dip2px(context, 5),0);
                 simplePagerTitleView.setNormalColor(titleColor);
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#FED403"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
