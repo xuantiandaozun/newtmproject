@@ -23,7 +23,8 @@ public class CommonIvAdapter extends BaseQuickAdapter<CommonSeeBean.ListBean, Ba
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_title,"#"+item.getTitle()+"#");
         }
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        String uriString =item.getImage();
+        iv.setImageURI(uriString);
     }
 
 }

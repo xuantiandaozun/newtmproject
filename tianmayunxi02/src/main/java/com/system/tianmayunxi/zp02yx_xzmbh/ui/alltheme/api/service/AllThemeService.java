@@ -16,7 +16,7 @@ public interface AllThemeService {
      *全部主题
      * @return
      */
-    @GET("zp02yx_xzmbh/api/getAllTheme")
+    @GET("zp02yx_xzmbh/api2/getAllTheme")
     Observable<TMBaseResoultEntity<Object>> getAllThemeList(@QueryMap HashMap<String,Object> body);
     /**
      *订阅主题

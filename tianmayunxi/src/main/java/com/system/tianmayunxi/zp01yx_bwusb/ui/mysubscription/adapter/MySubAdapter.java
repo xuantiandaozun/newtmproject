@@ -51,7 +51,7 @@ public class MySubAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> {
 
         user_head.setImageURI(head_pic);
 
-        iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getTheme_image());
+        iv_head.setImageURI(item.getTheme_image());
 
         if(!TextUtils.isEmpty(item.getTheme_title())){
             helper.setText(R.id.tv_theme,"#"+item.getTheme_title()+"#");

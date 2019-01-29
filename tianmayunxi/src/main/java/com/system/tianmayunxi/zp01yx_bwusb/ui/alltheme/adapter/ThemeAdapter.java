@@ -23,7 +23,7 @@ public class ThemeAdapter extends BaseQuickAdapter<AllThemBean.ListBean, BaseVie
     @Override
     protected void convert(BaseViewHolder helper, AllThemBean.ListBean item) {
         SimpleDraweeView simpleDraweeView=helper.getView(R.id.iv_head);
-        simpleDraweeView.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        simpleDraweeView.setImageURI(item.getImage());
 
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_title,item.getTitle());

@@ -106,14 +106,10 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                 helper.addOnClickListener(R.id.tv_up);
                 helper.addOnClickListener(R.id.tv_share);
 
-                iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+tieZiBean.getTheme_image());
+                iv_head.setImageURI(tieZiBean.getTheme_image());
                 SimpleDraweeView user_head=helper.getView(R.id.user_head);
                 String head_pic = tieZiBean.getHead_pic();
-                if(!TextUtils.isEmpty(head_pic)){
-                    if(!head_pic.contains("http")){
-                        head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
-                    }
-                }
+
                 user_head.setImageURI(head_pic);
 
                 if(!TextUtils.isEmpty(tieZiBean.getTheme_title())){

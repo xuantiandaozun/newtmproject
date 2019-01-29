@@ -420,13 +420,12 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                         case "getArticle":
                             articleDetail = GsonUtil.GsonToBean(object, ArticleDetail.class);
 
-                            head.setImageURI(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain() + articleDetail.getTheme_image());
-                            iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain() + articleDetail.getTheme_image());
+                            head.setImageURI(articleDetail.getTheme_image());
+                            iv_head.setImageURI(articleDetail.getTheme_image());
 
                             String head_pic = articleDetail.getHead_pic();
-                            if (!head_pic.contains("http")) {
-                                head_pic = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain() + head_pic;
-                            }
+
+
                             user_head.setImageURI(head_pic);
 
                             String title = articleDetail.getTitle();

@@ -28,7 +28,6 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
 
         RecyclerView mgrid=helper.getView(R.id.mlist);
         mgrid.setLayoutManager(new GridLayoutManager(mContext,3));
-        mgrid.addItemDecoration(new com.library.flowlayout.SpaceItemDecoration(UEMethod.dp2px(mContext,5)));
         TieIvAdapter adapter = new TieIvAdapter(item.getImage());
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -43,7 +42,7 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
         helper.addOnClickListener(R.id.mlist);
         helper.addOnClickListener(R.id.tv_share);
 
-        iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getTheme_image());
+        iv_head.setImageURI(item.getTheme_image());
         SimpleDraweeView user_head=helper.getView(R.id.user_head);
 
         String head_pic = item.getHead_pic();

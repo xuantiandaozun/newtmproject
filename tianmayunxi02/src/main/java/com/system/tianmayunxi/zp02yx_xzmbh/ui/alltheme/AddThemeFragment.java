@@ -318,14 +318,10 @@ public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, All
                            // List<IvBean> ivBeans = GsonUtil.GsonToList(object, IvBean.class);
                             List<IvBean> ivBeans = null;
 
-                            ivBeans = new Gson().fromJson(GsonString(object), (new TypeToken<List<IvBean>>() {
+                            List<String> string  = new Gson().fromJson(GsonString(object), (new TypeToken<List<String>>() {
                                 }).getType());
 
-                            List<String> string = new ArrayList<>();
-                            for (int i = 0; i < ivBeans.size(); i++) {
-                                String path = ivBeans.get(i).getPath();
-                                string.add(path);
-                            }
+
                             pushArticle(string);
                             break;
                         case "pushArticle":

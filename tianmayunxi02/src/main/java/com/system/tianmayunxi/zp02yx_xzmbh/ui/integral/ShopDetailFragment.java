@@ -97,7 +97,6 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
                 });
         //设置图片加载器
         convenientBanner.setImageLoader(new GlideImageLoader());
-
         mlist.setWebViewClient(new WebViewClient());// 设置 WebViewClient
         mlist.setWebChromeClient(new WebChromeClient());// 设置 WebChromeClient
         WebSettings webSettings = mlist.getSettings();
@@ -112,6 +111,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持通过JS打开新窗口
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
         webSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
+        initList();
         initList();
     }
     @OnClick({R2.id.tv_next})

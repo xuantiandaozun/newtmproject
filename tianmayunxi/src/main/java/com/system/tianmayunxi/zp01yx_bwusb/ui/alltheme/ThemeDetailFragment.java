@@ -114,7 +114,7 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                         }
                     }
                 });
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+listBean.getImage());
+        iv.setImageURI(listBean.getImage());
         tv_name.setText(listBean.getTitle());
         mlist.setLayoutManager(new LinearLayoutManager(getThisContext()));
         mlist.addItemDecoration(new VerticalSpaceItemDecoration(UEMethod.dp2px(getThisContext(),5)));

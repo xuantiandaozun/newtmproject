@@ -42,12 +42,10 @@ public class MySubAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> {
         SimpleDraweeView user_head=helper.getView(R.id.user_head);
 
         String head_pic = item.getHead_pic();
-        if(!head_pic.contains("http")){
-            head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
-        }
+
         user_head.setImageURI(head_pic);
 
-        iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getTheme_image());
+        iv_head.setImageURI(item.getTheme_image());
 
         if(!TextUtils.isEmpty(item.getTheme_title())){
             helper.setText(R.id.tv_theme,"#"+item.getTheme_title()+"#");

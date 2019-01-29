@@ -19,7 +19,7 @@ public class TieIvAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         SimpleDraweeView iv=helper.getView(R.id.iv);
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item);
+        iv.setImageURI(item);
     }
 
 }
