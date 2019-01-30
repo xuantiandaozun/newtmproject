@@ -52,7 +52,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (image_list != null && image_list.size() != 0) {
-            String string = TMSharedPUtil.getTMBaseConfig(mContext).getDomain() + image_list.get(position % image_list.size()).getImage();
+            String string = image_list.get(position % image_list.size()).getImage();
             GlideApp.with(mContext).asBitmap().load(string).into(new BitmapImageViewTarget(holder.img) {
                 @Override
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {

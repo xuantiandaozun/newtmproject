@@ -451,6 +451,6 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
 
     @Override
     public void showMessage(int type, String message) {
-        ToastUtil.showSnack(getThisContext(), message);
+     //   ToastUtil.showSnack(getThisContext(), message);
     }
 }

@@ -83,7 +83,7 @@ public class UltraPagerAdapter extends PagerAdapter {
                 }
             }
         });
-        textView.setImageURI(TMSharedPUtil.getTMBaseConfig(container.getContext()).getDomain()+images.get(position));
+        textView.setImageURI(images.get(position));
         linearLayout.setId(R.id.item_id);
 
         container.addView(linearLayout);

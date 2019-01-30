@@ -99,7 +99,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         titleBar.setBackgroundColor(themeColor);
         tv_title.setTextColor(textcolor);
 
-        head.setImageURI(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+beans.getTheme_image());
+        head.setImageURI(beans.getTheme_image());
         tv_title.setText(beans.getTheme_title());
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
         List<String> image = beans.getImage();

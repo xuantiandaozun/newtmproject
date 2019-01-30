@@ -302,6 +302,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                             adapter.addData(0,commonSeeBean);
                             break;
                         case "getArticleList":
+                        case "getArticleListNoLogin":
                             if(mPageIndex==1){
                                 refreshLayout.finishRefresh();
                             }else {

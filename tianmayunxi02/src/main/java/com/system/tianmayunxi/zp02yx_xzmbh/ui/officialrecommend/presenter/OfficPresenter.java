@@ -330,6 +330,11 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             eventData.put("getArticleListNoLogin", data.getData());
                             getView().callBack(bean);
                         } else {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("getArticleListNoLogin", null);
+                            getView().callBack(bean);
                             getView().showMessage(0, data.getMessage());
                         }
                     }
