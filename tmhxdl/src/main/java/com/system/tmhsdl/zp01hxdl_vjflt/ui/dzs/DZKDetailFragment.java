@@ -298,7 +298,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                                     btn_next.setText("购买");
                                 }
                             }
-                            iv.setImageURI(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+listBean.getImage());
+                            iv.setImageURI(listBean.getImage());
                             tv_time.setText(detail.getIssn());
                             tv_money.setText("￥"+detail.getPrice());
                             tv_name.setText(detail.getTitle());

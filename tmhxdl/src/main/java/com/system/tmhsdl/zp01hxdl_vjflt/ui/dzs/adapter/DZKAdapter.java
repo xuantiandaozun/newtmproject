@@ -22,7 +22,7 @@ public class DZKAdapter  extends BaseQuickAdapter<InssBean.ListBean, BaseViewHol
     @Override
     protected void convert(BaseViewHolder helper, InssBean.ListBean item) {
         ImageView iv=helper.getView(R.id.iv);
-        Glide.with(mContext).load(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage()).into(iv);
+        Glide.with(mContext).load(item.getImage()).into(iv);
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_name,item.getTitle());
         }
