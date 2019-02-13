@@ -309,7 +309,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                                 adapter.setNewDatas(image_list);
 
                             }
-                            Glide.with(getContext()).load(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+ detail.getAd()).into(iv_ad);
+                            Glide.with(getContext()).load(detail.getAd()).into(iv_ad);
                             break;
                         case "getPay":
                             try {

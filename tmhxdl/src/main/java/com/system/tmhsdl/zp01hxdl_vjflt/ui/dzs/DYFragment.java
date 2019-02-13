@@ -184,7 +184,7 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
                                 ll.setVisibility(View.GONE);
                             }
                             tv_price.setText(dyBean.getPrice());
-                            Glide.with(getContext()).load(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain() + dyBean.getImage()).into(iv);
+                            Glide.with(getContext()).load( dyBean.getImage()).into(iv);
                             break;
                         case "getRecommendList":
                             InssBean inssBean = GsonUtil.GsonToBean(object, InssBean.class);

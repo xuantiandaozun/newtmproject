@@ -301,12 +301,11 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                             tv_name.setText(detail.getTitle());
                             List<BookDetail.ImageListBean> image_list = detail.getImage_list();
                             if(image_list!=null&&image_list.size()!=0){
-
                                 mlist.setVisibility(View.VISIBLE);
                                 adapter.setNewDatas(image_list);
 
                             }
-                            Glide.with(getContext()).load(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+ detail.getAd()).into(iv_ad);
+                            Glide.with(getContext()).load(detail.getAd()).into(iv_ad);
                             break;
                         case "getPay":
                             try {
