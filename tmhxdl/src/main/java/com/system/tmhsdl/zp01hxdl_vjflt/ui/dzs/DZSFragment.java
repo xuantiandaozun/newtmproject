@@ -145,7 +145,7 @@ public class DZSFragment extends BaseFragment<DzsContract.View, DzsPresenter>
                                 adapter.setNewData(list);
                             }else {
                                 refreshLayout.finishLoadMore();
-                                if(mlist!=null)
+                                if(list!=null)
                                 adapter.addData(list);
                             }
                             break;
