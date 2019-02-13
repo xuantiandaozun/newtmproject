@@ -149,7 +149,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                     .navigation();
             start(fragment);
         }else if(id==R.id.iv_back){
-            pop();
+            if (getPreFragment() != null) {
+                pop();
+            } else {
+                getActivity().finish();
+            }
         }else if(id==R.id.tv_share){
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());

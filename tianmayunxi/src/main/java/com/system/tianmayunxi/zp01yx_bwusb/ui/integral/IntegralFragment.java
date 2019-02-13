@@ -143,17 +143,8 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 remind("1");
                 SPUtils.put(getContext(),"isSign",true);
                 TMSharedPUtil.saveTMPush(getContext(),true);
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("");
-                builder.setMessage("提醒开启成功, 每日21:00进行提醒请确保手机通知功能处于开启状态！");
-                AlertDialog alertDialog = builder.setPositiveButton("知道了", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                }).create();
-                alertDialog.show();
-                alertDialog.getButton(-1).setTextColor(getResources().getColor(R.color.blue_primary));
+
             }
 
             @Override
@@ -423,6 +414,22 @@ public class IntegralFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "remind":
                             isRemind();
+                            if(object!=null){
+                                String object1 = (String) object;
+                                if(!TextUtils.isEmpty(object1)){
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                    builder.setTitle("");
+                                    builder.setMessage(object1);
+                                    AlertDialog alertDialog = builder.setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                        }
+                                    }).create();
+                                    alertDialog.show();
+                                    alertDialog.getButton(-1).setTextColor(getResources().getColor(R.color.blue_primary));
+                                }
+                            }
                             break;
                         default:
                             break;
