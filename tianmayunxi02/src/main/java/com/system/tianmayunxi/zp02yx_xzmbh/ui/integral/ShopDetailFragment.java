@@ -174,7 +174,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
                             if (images == null&&image_list!=null&&image_list.size()!=0) {
                                 images = new ArrayList<>();
                                 for (int i=0;i<image_list.size();i++){
-                                    String img = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain() + image_list.get(i).getImage();
+                                    String img = image_list.get(i).getImage();
                                     images.add(img);
                                 }
                             }

@@ -137,29 +137,51 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     }
     private void addStar() {
         TMUser tmUser = TMSharedPUtil.getTMUser(getContext());
-        HashMap<String, String> parms = new HashMap<>();
+        HashMap<String, Object> parms = new HashMap<>();
         JSONObject jsonObject = new JSONObject();
+
+        HashMap<String, String> main = new HashMap<>();
+
+
+        HashMap<String, String> param = new HashMap<>();
+        param.put("id",beans.getId()+"");
+        param.put("detail",new Gson().toJson(beans));
+
+        main.put("fragment",Tmyx02RouterConfig.MAIN02_FRAGMENT);
+        main.put("params",new Gson().toJson(param));
+
+
+        JSONObject value = new JSONObject();
         try {
-            JSONObject value = new JSONObject();
-            value.put("native",true);
-            value.put("src","com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.TiDetailFragment");
-            value.put("paramStr",beans.getId()+"");
-            value.put("wwwFolder","");
+            value.put("native", "true");
+            value.put("src", "com.system.tianmayunxi.zp02yx_xzmbh.ui.FragmentActivity");
+            value.put("paramStr", GsonUtil.GsonString(main));
+            value.put("wwwFolder", "");
+
             jsonObject.put("androidInfo", value);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+
+
         parms.put("member_code", tmUser.getMember_code());
         parms.put("title", articleDetail.getTitle());
         parms.put("intro", articleDetail.getContent());
         parms.put("app_id", "zp02yx_xzmbh");
-        parms.put("article_id", articleDetail.getId()+"");
-        parms.put("extend", new Gson().toJson(jsonObject));
+        parms.put("article_id", articleDetail.getId() + "");
+        parms.put("extend", jsonObject.toString());
         parms.put("type", "1");
-        String value = new Gson().toJson(parms);
-        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
+
+        parms.put("pic",domain+articleDetail.getTheme_image());
+        String values = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), values);
         mPresenter.addStar(body);
     }
+
     private void checkIsStar() {
         TMUser tmUser = TMSharedPUtil.getTMUser(getContext());
 
@@ -184,11 +206,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.deleteStar(body);
     }
 
-    @OnClick({R2.id.iv_pl, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl,R2.id.ret_circle, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
-        if(id==R.id.iv_pl){
+        if(id==R.id.iv_pl||id==R.id.ret_circle){
             HashMap<String, String> param = new HashMap<>();
             param.put("id",beans.getId()+"");
             fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_PLIST)
@@ -196,7 +218,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                     .navigation();
             start(fragment);
         }else if(id==R.id.iv_back){
-            pop();
+            if(getPreFragment()!=null){
+                pop();
+            }else {
+                getActivity().finish();
+            }
         }else if(id==R.id.tv_share){
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
@@ -204,7 +230,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             linkShare.setTitle(articleDetail.getTitle());
             String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 
-            linkShare.setUrl(domain + TmyxConstant.shareUrl+id);
+            linkShare.setUrl(domain + TmyxConstant.shareUrl+beans.getId());
             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
 
         }else if(view.getId()==R.id.tv_dy){

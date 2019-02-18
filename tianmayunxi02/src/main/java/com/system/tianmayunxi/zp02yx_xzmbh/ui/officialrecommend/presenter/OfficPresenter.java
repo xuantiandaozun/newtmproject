@@ -172,7 +172,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             HashMap<String, Object> eventData = bean.getEventData();
                             eventData.put("getArticMsgList", null);
                             getView().callBack(bean);
-                            getView().showMessage(0, data.getMessage());
+                           // getView().showMessage(0, data.getMessage());
                         }
                     }
             }
@@ -409,7 +409,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             eventData.put("artcleLike", data.getData());
                             getView().callBack(bean);
                         } else {
-                            getView().showMessage(0, data.getMessage());
+                          //  getView().showMessage(0, data.getMessage());
                         }
                     }
             }

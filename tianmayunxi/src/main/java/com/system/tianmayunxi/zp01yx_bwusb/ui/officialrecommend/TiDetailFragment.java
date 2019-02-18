@@ -101,6 +101,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private boolean isStart;
     private double star_id;
     private String detail;
+    private boolean is_sub;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -344,7 +345,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_up) {
             articUp();
         } else if (view.getId() == R.id.tv_dy) {
-            addSubscription(tid);
+            if(!is_sub){
+                addSubscription(tid);
+            }
         } else if (view.getId() == R.id.iv_jf) {
             fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_LQJF)
                     .navigation();
@@ -491,9 +494,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "isSub":
                             JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_sub = jsonObject.get("is_sub").getAsBoolean();
+                            is_sub = jsonObject.get("is_sub").getAsBoolean();
                             if (is_sub) {
-                                tv_dy.setVisibility(View.GONE);
+                                tv_dy.setText("已订阅");
                             } else {
                                 tv_dy.setVisibility(View.VISIBLE);
                             }

@@ -161,7 +161,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             linkShare.setTitle(articleDetail.getTitle());
             String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 
-            linkShare.setUrl(domain + TmyxConstant.shareUrl+id);
+            linkShare.setUrl(domain + TmyxConstant.shareUrl+beans.getId());
             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
 
         }else if(view.getId()==R.id.tv_dy){
@@ -182,27 +182,47 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     }
     private void addStar() {
         TMUser tmUser = TMSharedPUtil.getTMUser(getContext());
-        HashMap<String, String> parms = new HashMap<>();
+        HashMap<String, Object> parms = new HashMap<>();
         JSONObject jsonObject = new JSONObject();
+
+        HashMap<String, String> main = new HashMap<>();
+
+
+        HashMap<String, String> param = new HashMap<>();
+        param.put("id",beans.getId()+"");
+        param.put("detail",new Gson().toJson(beans));
+
+        main.put("fragment",TmyxRouterConfig.TMYX_TIDETAIL);
+        main.put("params",new Gson().toJson(param));
+
+
+        JSONObject value = new JSONObject();
         try {
-            JSONObject value = new JSONObject();
-            value.put("native",true);
-            value.put("src","com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.TiDetailFragment");
-            value.put("paramStr",beans.getId());
-            value.put("wwwFolder","");
+            value.put("native", "true");
+            value.put("src", "com.system.tianmayunxi.zp01yx_bwusb.ui.FragmentActivity");
+            value.put("paramStr", GsonUtil.GsonString(main));
+            value.put("wwwFolder", "");
+
             jsonObject.put("androidInfo", value);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+
+
         parms.put("member_code", tmUser.getMember_code());
         parms.put("title", articleDetail.getTitle());
         parms.put("intro", articleDetail.getContent());
         parms.put("app_id", "zp01yx_bwusb");
-        parms.put("article_id", articleDetail.getId()+"");
-        parms.put("extend", new Gson().toJson(jsonObject));
+        parms.put("article_id", articleDetail.getId() + "");
+        parms.put("extend", jsonObject.toString());
         parms.put("type", "1");
-        String value = new Gson().toJson(parms);
-        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
+        parms.put("pic",domain+articleDetail.getTheme_image());
+        String values = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), values);
         mPresenter.addStar(body);
     }
     private void checkIsStar() {

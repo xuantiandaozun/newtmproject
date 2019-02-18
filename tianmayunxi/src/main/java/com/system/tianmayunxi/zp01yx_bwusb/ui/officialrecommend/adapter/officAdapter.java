@@ -6,8 +6,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
@@ -31,6 +33,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
     public static final int DATA_TYPE1=0;
     public static final int DATA_TYPE2=1;
     public Fragment fragment;
+    private RecyclerView view;
 
 
     /**
@@ -90,6 +93,17 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                 TieZiBean tieZiBean = (TieZiBean) item;
 
                 RecyclerView mgrid=helper.getView(R.id.mlist);
+                mgrid.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            OnItemClickListener onItemClickListener = getOnItemClickListener();
+                            onItemClickListener.onItemClick(officAdapter.this,null,helper.getLayoutPosition());
+                        }
+
+                        return false;
+                    }
+                });
                 mgrid.setLayoutManager(new GridLayoutManager(mContext,3));
                 TieIvAdapter adapter = new TieIvAdapter(tieZiBean.getImage());
                 adapter.setOnItemClickListener(new OnItemClickListener() {
@@ -135,5 +149,9 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                 }
                 break;
         }
+    }
+
+    public void setFatherView(RecyclerView mlist) {
+        this.view=mlist;
     }
 }

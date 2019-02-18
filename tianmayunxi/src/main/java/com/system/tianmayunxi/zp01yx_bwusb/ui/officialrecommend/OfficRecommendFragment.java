@@ -127,7 +127,6 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
             }
         });
         adapter.setFragment(this);
-
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -190,6 +189,8 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
 
                             linkShare.setUrl(domain + TmyxConstant.shareUrl+item2.getId());
                             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
+                        }else if(view.getId()==R.id.view){
+                            System.out.println();
                         }
                         break;
                 }
@@ -197,7 +198,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
             }
         });
         mlist.setAdapter(adapter);
-
+        adapter.setFatherView(mlist);
         refreshLayout.setOnRefreshListener(this);
         refreshLayout.setOnLoadMoreListener(this);
 

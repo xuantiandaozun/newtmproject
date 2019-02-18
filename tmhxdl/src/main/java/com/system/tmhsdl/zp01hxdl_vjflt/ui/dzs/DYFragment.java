@@ -91,15 +91,16 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
 
 
                 HashMap<String, String> param = new HashMap<>();
-                param.put("detail",new Gson().toJson(item));
+                param.put("detail", new Gson().toJson(item));
 
-                main.put("fragment",HxdlRouterConfig.HXDL_DZSDETAIL);
-                main.put("params",new Gson().toJson(param));
+                main.put("fragment", HxdlRouterConfig.HXDL_DZKDETAIL);
+                main.put("params", new Gson().toJson(param));
 
                 ARouter.getInstance().build(HxdlRouterConfig.MAIN_FRAGMENT)
-                        .withString("params",GsonUtil.GsonString(main))
+                        .withString("params", GsonUtil.GsonString(main))
                         .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                         .navigation();
+
             }
         });
         mlist.setAdapter(adapter);
@@ -117,17 +118,21 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
         if(view.getId()==R.id.iv||view.getId()==R.id.tv_pay){
             String tmToken = TMSharedPUtil.getTMToken(getContext());
             if(!TextUtils.isEmpty(tmToken)) {
-                String price = dyBean.getPrice();
-                TMPayUtil.showPayDialog(getThisContext(), Float.valueOf(price), new TMPayUtil.PayTypeSelect() {
-                    @Override
-                    public void selectPayType(int payType) {
-                        if(payType>0){
-                            DYFragment.this.paytype = payType;
-                            getPay(payType);
-                        }
+                if(dyBean!=null){
+                    String price = dyBean.getPrice();
+                    TMPayUtil.showPayDialog(getThisContext(), Float.valueOf(price), new TMPayUtil.PayTypeSelect() {
+                        @Override
+                        public void selectPayType(int payType) {
+                            if(payType>0){
+                                DYFragment.this.paytype = payType;
+                                getPay(payType);
+                            }
 
-                    }
-                });
+                        }
+                    });
+                }else {
+                    ToastUtil.showSnack(getContext(),"还在加载中。。。");
+                }
             }
         }
     }

@@ -99,6 +99,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
     private int textcolor;
     private double star_id;
     private String detail;
+    private boolean is_sub;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -243,14 +244,14 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         param.put("id",id);
         param.put("detail",new Gson().toJson(detail));
 
-        main.put("fragment", Tmyx02RouterConfig.TMYX02_TIDETAIL);
+        main.put("fragment",Tmyx02RouterConfig.MAIN02_FRAGMENT);
         main.put("params",new Gson().toJson(param));
 
 
         JSONObject value = new JSONObject();
         try {
             value.put("native", "true");
-            value.put("src", "com.system.tianmayunxi.zp01yx_bwusb.ui.FragmentActivity");
+            value.put("src", "com.system.tianmayunxi.zp02yx_xzmbh.ui.FragmentActivity");
             value.put("paramStr", GsonUtil.GsonString(main));
             value.put("wwwFolder", "");
 
@@ -266,7 +267,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         parms.put("member_code", tmUser.getMember_code());
         parms.put("title", articleDetail.getTitle());
         parms.put("intro", articleDetail.getContent());
-        parms.put("app_id", "zp01yx_bwusb");
+        parms.put("app_id", "zp02yx_xzmbh");
         parms.put("article_id", articleDetail.getId() + "");
         parms.put("extend", jsonObject.toString());
         parms.put("type", "1");
@@ -341,7 +342,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_up) {
             articUp();
         } else if (view.getId() == R.id.tv_dy) {
-            addSubscription(tid);
+            if(!is_sub){
+                addSubscription(tid);
+            }
         } else if (view.getId() == R.id.iv_jf) {
             fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_LQJF)
                     .navigation();
@@ -487,9 +490,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "isSub":
                             JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_sub = jsonObject.get("is_sub").getAsBoolean();
+                            is_sub = jsonObject.get("is_sub").getAsBoolean();
                             if (is_sub) {
-                                tv_dy.setVisibility(View.GONE);
+                                tv_dy.setText("已订阅");
                             } else {
                                 tv_dy.setVisibility(View.VISIBLE);
                             }

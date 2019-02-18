@@ -24,7 +24,7 @@ public class IntegralShopAdapter extends BaseQuickAdapter<GoodsListBean.ListBean
     @Override
     protected void convert(BaseViewHolder helper, GoodsListBean.ListBean item) {
         SimpleDraweeView iv=helper.getView(R.id.iv);
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        iv.setImageURI(item.getImage());
 
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.setCornersRadii(UEMethod.dp2px(mContext,10), UEMethod.dp2px(mContext,10), 0, 0);

@@ -19,6 +19,6 @@ public class IVMainAdapter extends BaseQuickAdapter<ContentListBean.ListBean, Ba
     @Override
     protected void convert(BaseViewHolder helper, ContentListBean.ListBean item) {
         SimpleDraweeView iv=helper.getView(R.id.iv);
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        iv.setImageURI(item.getImage());
     }
 }
