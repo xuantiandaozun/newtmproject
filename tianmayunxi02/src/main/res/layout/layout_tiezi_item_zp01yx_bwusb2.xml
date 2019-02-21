@@ -18,7 +18,11 @@
         <TextView
             android:id="@+id/tv_theme"
             android:layout_width="wrap_content"
+            android:lines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
             android:layout_height="wrap_content"
+            android:maxWidth="@dimen/material_200"
             android:layout_toRightOf="@+id/iv_head"
             android:layout_marginLeft="@dimen/dp_10"
             android:textSize="@dimen/material_font_13"

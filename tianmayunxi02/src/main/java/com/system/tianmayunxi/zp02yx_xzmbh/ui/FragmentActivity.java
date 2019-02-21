@@ -66,6 +66,9 @@ public class FragmentActivity extends MVPBaseActivity {
 
         Bundle bundle = getIntent().getExtras();
         String params = bundle.getString("params");
+        if(TextUtils.isEmpty(params)){
+            params = getIntent().getStringExtra("paramStr");
+        }
         HashMap hashMapByParams = getHashMapByParams(params);
         if(hashMapByParams.containsKey("fragment")){
             fragment = hashMapByParams.get("fragment").toString();

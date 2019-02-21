@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -88,6 +89,8 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
     LinearLayout titleBar;
     @BindView(R2.id.tv_centertitle)
     TextView tv_centertitle;
+    @BindView(R2.id.tv_addstar)
+    ImageView tv_addstar;
     @Autowired(name = "params")
     public String params;
     private PlAdapter adapter;
@@ -244,7 +247,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         param.put("id",id);
         param.put("detail",new Gson().toJson(detail));
 
-        main.put("fragment",Tmyx02RouterConfig.MAIN02_FRAGMENT);
+        main.put("fragment",Tmyx02RouterConfig.TMYX02_TIDETAIL);
         main.put("params",new Gson().toJson(param));
 
 
@@ -271,9 +274,10 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         parms.put("article_id", articleDetail.getId() + "");
         parms.put("extend", jsonObject.toString());
         parms.put("type", "1");
+        parms.put("pic", articleDetail.getTheme_image());
         String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 
-        parms.put("pic",domain+articleDetail.getTheme_image());
+        parms.put("pic",articleDetail.getTheme_image());
         String values = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), values);
         mPresenter.addStar(body);
@@ -494,7 +498,6 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             if (is_sub) {
                                 tv_dy.setText("已订阅");
                             } else {
-                                tv_dy.setVisibility(View.VISIBLE);
                             }
                             break;
                         case "addSubscription":
@@ -502,10 +505,12 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "checkIsStar":
                             LinkedTreeMap object1 = (LinkedTreeMap) object;
-                            if(object1.size()!=0){
-                                star_id = (double )object1.get("star_id");
-                            }else {
-                                star_id=-1;
+                            if (object1.size() != 0) {
+                                star_id = (double) object1.get("star_id");
+                                tv_addstar.setImageResource(R.mipmap.ic_select_start);
+                            } else {
+                                star_id = -1;
+                                tv_addstar.setImageResource(R.mipmap.icon_footer_sc);
                             }
                             break;
                         case "deleteStar":

@@ -3,6 +3,7 @@ package com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -61,6 +62,8 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     TextView tv_dy;
     @BindView(R2.id.titleBar)
     LinearLayout titleBar;
+    @BindView(R2.id.tv_addstar)
+    ImageView tv_addstar;
     @Autowired(name = "params")
     public String params;
     private UltraPagerAdapter adapter;
@@ -219,8 +222,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         parms.put("article_id", articleDetail.getId() + "");
         parms.put("extend", jsonObject.toString());
         parms.put("type", "1");
-        String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
-        parms.put("pic",domain+articleDetail.getTheme_image());
+        parms.put("pic",articleDetail.getTheme_image());
         String values = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), values);
         mPresenter.addStar(body);
@@ -314,10 +316,12 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                             break;
                         case "checkIsStar":
                             LinkedTreeMap object1 = (LinkedTreeMap) object;
-                            if(object1.size()!=0){
-                                star_id = (double )object1.get("star_id");
-                            }else {
-                                star_id=-1;
+                            if (object1.size() != 0) {
+                                star_id = (double) object1.get("star_id");
+                                tv_addstar.setImageResource(R.mipmap.ic_select_start);
+                            } else {
+                                star_id = -1;
+                                tv_addstar.setImageResource(R.mipmap.icon_footer_sc);
                             }
                             break;
                         case "deleteStar":
