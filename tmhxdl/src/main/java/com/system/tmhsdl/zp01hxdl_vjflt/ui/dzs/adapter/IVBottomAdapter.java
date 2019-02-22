@@ -20,7 +20,7 @@ public class IVBottomAdapter extends BaseQuickAdapter<ContentListBean.ListBean, 
     @Override
     protected void convert(BaseViewHolder helper, ContentListBean.ListBean item) {
         SimpleDraweeView iv=helper.getView(R.id.iv);
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        iv.setImageURI(item.getImage());
 
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_name,item.getTitle());
