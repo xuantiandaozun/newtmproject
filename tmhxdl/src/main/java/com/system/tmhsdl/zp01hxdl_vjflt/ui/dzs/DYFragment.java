@@ -1,5 +1,6 @@
 package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -137,6 +138,9 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
                 }else {
                     ToastUtil.showSnack(getContext(),"还在加载中。。。");
                 }
+            }else {
+                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
+                getActivity().startActivity(intent);
             }
         }
     }
