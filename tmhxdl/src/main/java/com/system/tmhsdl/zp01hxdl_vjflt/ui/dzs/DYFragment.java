@@ -109,7 +109,11 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
     }
 
     private void initList() {
+        String tmToken = TMSharedPUtil.getTMToken(getContext());
+
         HashMap<String, Object> parms = new HashMap<>();
+        parms.put("token",tmToken);
+
         mPresenter.getApiIndex(parms);
         mPresenter.getRecommendList(parms);
     }
@@ -137,9 +141,12 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
         }
     }
     private void getPay(int type) {
+        String tmToken = TMSharedPUtil.getTMToken(getContext());
+
         HashMap<String, String> parms = new HashMap<>();
         parms.put("type", type+"");
         parms.put("sid", "3");
+        parms.put("token",tmToken);
         String value = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
         mPresenter.getPay(body);
