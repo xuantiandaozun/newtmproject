@@ -53,6 +53,7 @@ public interface OfficContract {
         void oneTheme(HashMap<String, Object> body);
         void isSub(HashMap<String, Object> body);
         void addSubscription(RequestBody body);
+        void unSubscribe(RequestBody body);
 
         void homeRefresh(HashMap<String, Object> parms, HashMap<String, Object> parms2);
     }
@@ -94,7 +95,7 @@ public interface OfficContract {
         Observable<TMBaseResoultEntity<Object>> oneTheme(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> isSub(HashMap<String, Object> body);
         Observable<TMBaseResoultEntity<Object>> addSubscription(RequestBody body);
-
+        Observable<TMBaseResoultEntity<Object>> unSubscribe(RequestBody body);
 
     }
 }

@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -24,7 +26,27 @@ public class DynamicAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> 
     protected void convert(BaseViewHolder helper, TieZiBean item) {
         RecyclerView mgrid=helper.getView(R.id.mlist);
         mgrid.setLayoutManager(new GridLayoutManager(mContext,3));
-        mgrid.setAdapter(new TieIvAdapter(item.getImage()));
+        TieIvAdapter adapter = new TieIvAdapter(item.getImage());
+        mgrid.setAdapter(adapter);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                OnItemChildClickListener onItemChildClickListener = getOnItemChildClickListener();
+                int layoutPosition = helper.getLayoutPosition();
+                onItemChildClickListener.onItemChildClick(DynamicAdapter.this,view,layoutPosition);
+            }
+        });
+        mgrid.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    OnItemClickListener onItemClickListener = getOnItemClickListener();
+                    onItemClickListener.onItemClick(DynamicAdapter.this,null,helper.getLayoutPosition());
+                }
+
+                return false;
+            }
+        });
 
         SimpleDraweeView iv_head=helper.getView(R.id.iv_head);
         helper.addOnClickListener(R.id.mlist);
@@ -33,12 +55,10 @@ public class DynamicAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> 
         SimpleDraweeView user_head=helper.getView(R.id.user_head);
 
 
-        iv_head.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getTheme_image());
+        iv_head.setImageURI(item.getTheme_image());
 
         String head_pic = item.getHead_pic();
-        if(!head_pic.contains("http")){
-            head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
-        }
+
         user_head.setImageURI(head_pic);
 
 

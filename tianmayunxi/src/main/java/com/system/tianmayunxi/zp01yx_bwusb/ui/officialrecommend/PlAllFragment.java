@@ -353,7 +353,7 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
 
     @Override
     public void showMessage(int type, String message) {
-        ToastUtil.showSnack(getThisContext(), message);
+      //  ToastUtil.showSnack(getThisContext(), message);
     }
 
 

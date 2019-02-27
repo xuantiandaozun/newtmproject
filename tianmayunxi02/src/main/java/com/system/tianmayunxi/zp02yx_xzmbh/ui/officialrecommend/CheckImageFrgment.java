@@ -106,6 +106,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
         List<String> image = beans.getImage();
         adapter = new UltraPagerAdapter(true, image);
+        adapter.setContext(getContext());
         adapter.setListener(new UltraPagerAdapter.onImageViewClickListener() {
             @Override
             public void onListener(int position) {

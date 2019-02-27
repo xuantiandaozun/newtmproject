@@ -21,6 +21,7 @@ public class IVMainAdapter extends BaseQuickAdapter<ContentListBean.ListBean, Ba
     @Override
     protected void convert(BaseViewHolder helper, ContentListBean.ListBean item) {
         ImageView iv=helper.getView(R.id.iv);
-        Picasso.get().load(item.getImage()).into(iv);
+        Picasso.with(mContext).load(item.getImage()).into(iv);
+
     }
 }

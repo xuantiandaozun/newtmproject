@@ -127,13 +127,19 @@ public class DynamicFragment extends BaseFragment<OfficContract.View, OfficPrese
                     case DATA_TYPE2:
                         TieZiBean item2 = (TieZiBean) item;
                         if(view.getId()==R.id.ll_iv){
+                            HashMap<String, String> main = new HashMap<>();
+
+
                             HashMap<String, String> param = new HashMap<>();
                             param.put("detail",GsonUtil.GsonString(item2));
-                            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_CKIMAGE)
-                                    .withString("params",GsonUtil.GsonString(param))
+
+                            main.put("fragment",Tmyx02RouterConfig.TMYX02_CKIMAGE);
+                            main.put("params",new Gson().toJson(param));
+
+                            ARouter.getInstance().build(Tmyx02RouterConfig.MAIN02_FRAGMENT)
+                                    .withString("params",GsonUtil.GsonString(main))
+                                    .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                                     .navigation();
-                            parentFragment = (TMBaseFragment) getParentFragment().getParentFragment();
-                            parentFragment.start(fragment);
                         }else if(view.getId()==R.id.tv_up){
                             articUp(item2);
                         }else if(view.getId()==R.id.tv_share){

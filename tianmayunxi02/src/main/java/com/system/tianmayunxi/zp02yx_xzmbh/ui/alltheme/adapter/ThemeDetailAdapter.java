@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -11,6 +12,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.system.myproject.utils.UEMethod;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
+import com.system.tianmayunxi.zp02yx_xzmbh.ui.mysubscription.adapter.MySubAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter.TieIvAdapter;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.bean.TieZiBean;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
@@ -26,6 +28,17 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
     protected void convert(BaseViewHolder helper, TieZiBean item) {
 
         RecyclerView mgrid=helper.getView(R.id.mlist);
+        mgrid.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    OnItemClickListener onItemClickListener = getOnItemClickListener();
+                    onItemClickListener.onItemClick(ThemeDetailAdapter.this,null,helper.getLayoutPosition());
+                }
+
+                return false;
+            }
+        });
         mgrid.setLayoutManager(new GridLayoutManager(mContext,3));
         mgrid.addItemDecoration(new com.library.flowlayout.SpaceItemDecoration(UEMethod.dp2px(mContext,5)));
         TieIvAdapter adapter = new TieIvAdapter(item.getImage());

@@ -1287,6 +1287,43 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
     }
 
     @Override
+    public void unSubscribe(RequestBody body) {
+        mModel.unSubscribe(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onEnd() {
+
+            }
+
+            @Override
+            public void onSuccess(TMBaseResoultEntity<Object> data) {
+                if (data != null)
+                    if (isViewAttached()) {
+                        if (data.getError_code() == 200) {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("unSubscribe", data.getData());
+                            getView().callBack(bean);
+                        } else {
+                            getView().showMessage(0, data.getMessage());
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (isViewAttached()) {
+                    getView().showMessage(0, message);
+                }
+            }
+        }));
+    }
+
+    @Override
     public void homeRefresh(HashMap<String, Object> parms, HashMap<String, Object> parms2) {
         Observable<TMBaseResoultEntity<Object>> theme = mModel.getTheme(parms);
         Observable<TMBaseResoultEntity<Object>> articleList = mModel.getArticleListNoLogin(parms2);

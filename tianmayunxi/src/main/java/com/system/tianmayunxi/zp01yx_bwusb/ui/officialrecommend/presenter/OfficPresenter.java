@@ -214,7 +214,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             HashMap<String, Object> eventData = bean.getEventData();
                             eventData.put("msgInfoList", null);
                             getView().callBack(bean);
-                            getView().showMessage(0, data.getMessage());
+                         //   getView().showMessage(0, data.getMessage());
                         }
                     }
             }
@@ -1270,6 +1270,43 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
                             eventData.put("addSubscription", data.getData());
+                            getView().callBack(bean);
+                        } else {
+                            getView().showMessage(0, data.getMessage());
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (isViewAttached()) {
+                    getView().showMessage(0, message);
+                }
+            }
+        }));
+    }
+
+    @Override
+    public void unSubscribe(RequestBody body) {
+        mModel.unSubscribe(body).subscribe(new OnRequestCallback<>(new ResultListener<TMBaseResoultEntity<Object>>() {
+            @Override
+            public void onStart() {
+            }
+
+            @Override
+            public void onEnd() {
+
+            }
+
+            @Override
+            public void onSuccess(TMBaseResoultEntity<Object> data) {
+                if (data != null)
+                    if (isViewAttached()) {
+                        if (data.getError_code() == 200) {
+                            EventCallBackBean bean = new EventCallBackBean();
+                            bean.setEventNumber(EventCallBackBean.WHITEDATA);
+                            HashMap<String, Object> eventData = bean.getEventData();
+                            eventData.put("unSubscribe", data.getData());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());

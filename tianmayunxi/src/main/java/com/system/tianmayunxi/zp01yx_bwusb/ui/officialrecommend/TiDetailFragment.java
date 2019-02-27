@@ -349,6 +349,8 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_dy) {
             if(!is_sub){
                 addSubscription(tid);
+            }else {
+                unSubscription(tid);
             }
         } else if (view.getId() == R.id.iv_jf) {
             fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_LQJF)
@@ -376,6 +378,13 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         String value = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
         mPresenter.addSubscription(body);
+    }
+    private void unSubscription(int id) {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("tid",id+"");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.unSubscribe(body);
     }
 
     private void articUp() {
@@ -500,9 +509,12 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             if (is_sub) {
                                 tv_dy.setText("已订阅");
                             } else {
+                                tv_dy.setText("未订阅");
+
                             }
                             break;
                         case "addSubscription":
+                        case "unSubscribe":
                             isSub(tid);
                             break;
                         case "checkIsStar":

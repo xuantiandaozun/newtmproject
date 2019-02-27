@@ -26,13 +26,16 @@
 
 package com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.adapter;
 
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.squareup.picasso.Picasso;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
@@ -46,7 +49,7 @@ public class UltraPagerAdapter extends PagerAdapter {
     private final  List<String>  images;
     private boolean isMultiScr;
     private onImageViewClickListener listener;
-
+    private Context context;
     public onImageViewClickListener getListener() {
         return listener;
     }
@@ -58,6 +61,14 @@ public class UltraPagerAdapter extends PagerAdapter {
     public UltraPagerAdapter(boolean isMultiScr, List<String> images) {
         this.isMultiScr = isMultiScr;
         this.images=images;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -74,7 +85,7 @@ public class UltraPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.layout_child_zp01yx_bwusb2, null);
         //new LinearLayout(container.getContext());
-        SimpleDraweeView textView = (SimpleDraweeView) linearLayout.findViewById(R.id.pager_textview);
+        ImageView textView = (ImageView) linearLayout.findViewById(R.id.pager_textview);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +94,9 @@ public class UltraPagerAdapter extends PagerAdapter {
                 }
             }
         });
-        textView.setImageURI(images.get(position));
+        Picasso.with(context).load(images.get(position)).into(textView);
+
+      //  textView.setImageURI(images.get(position));
         linearLayout.setId(R.id.item_id);
 
         container.addView(linearLayout);
