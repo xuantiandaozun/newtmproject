@@ -76,7 +76,7 @@
     <com.tmall.ultraviewpager.UltraViewPager
         android:id="@+id/ultra_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_250"
+        android:layout_height="@dimen/material_300"
         android:layout_centerVertical="true"
         android:layout_centerInParent="true" />
     <RelativeLayout
