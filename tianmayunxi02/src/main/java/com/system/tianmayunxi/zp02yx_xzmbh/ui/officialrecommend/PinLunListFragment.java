@@ -236,11 +236,17 @@ public class PinLunListFragment extends MVPBaseFragment<OfficContract.View, Offi
                     Object object = eventData.get(next);
                     switch (next) {
                         case "pushMsg":
+                            if(object instanceof String){
+                                ToastUtil.showSnack(getThisContext(),(String) object);
+                            }
                             pop();
                             break;
                         case "reportMsg":
                         case "delMsg":
                         case "msgLike":
+                            if(object instanceof String){
+                                ToastUtil.showSnack(getThisContext(),(String) object);
+                            }
                             initList();
                             break;
                         case "getArticMsgList":

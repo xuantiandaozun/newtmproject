@@ -76,15 +76,16 @@
     <com.tmall.ultraviewpager.UltraViewPager
         android:id="@+id/ultra_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_300"
-        android:layout_centerVertical="true"
-        android:layout_centerInParent="true" />
+        android:layout_height="440dp"
+        android:layout_marginTop="@dimen/material_10"
+        android:layout_below="@+id/titleBar" />
     <RelativeLayout
+        android:id="@+id/iv_content"
         android:layout_width="match_parent"
-        android:layout_below="@+id/ultra_viewpager"
         android:padding="@dimen/material_5"
+        android:layout_below="@+id/ultra_viewpager"
         android:layout_above="@+id/re_bottom"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/material_50">
         <TextView
             android:id="@+id/tv_indicator"
             android:layout_width="wrap_content"

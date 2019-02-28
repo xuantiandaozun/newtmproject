@@ -75,10 +75,11 @@
     </LinearLayout>
     <com.tmall.ultraviewpager.UltraViewPager
         android:id="@+id/ultra_viewpager"
+        android:layout_below="@+id/titleBar"
+        android:layout_marginTop="@dimen/material_10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_300"
-        android:layout_centerVertical="true"
-        android:layout_centerInParent="true" />
+        android:layout_height="440dp"
+     />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_below="@+id/ultra_viewpager"

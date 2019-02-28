@@ -495,9 +495,13 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "artcleLike":
                             getDetail();
+                            ToastUtil.showSnack(getThisContext(),(String) object);
+
                             break;
                         case "msgLike":
                             initList();
+                            ToastUtil.showSnack(getThisContext(),(String) object);
+
                             break;
                         case "delMsg":
                         case "reportMsg":

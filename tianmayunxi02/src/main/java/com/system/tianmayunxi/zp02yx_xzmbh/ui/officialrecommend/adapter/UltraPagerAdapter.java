@@ -141,9 +141,9 @@ public class UltraPagerAdapter extends PagerAdapter {
                 int height = imageInfo.getHeight();
                 int width = imageInfo.getWidth();
                 float v = (float) (imageWidth * height) / (float) width;
-                int i = SizeUtil.dp2px(300);
+                int i = SizeUtil.dp2px(440);
                 if(v> i){
-                    v=SizeUtil.dp2px(300);
+                    v=SizeUtil.dp2px(440);
                     layoutParams.width =(int) (v *((float)width/(float)height));
                 }else {
                     layoutParams.width = imageWidth;

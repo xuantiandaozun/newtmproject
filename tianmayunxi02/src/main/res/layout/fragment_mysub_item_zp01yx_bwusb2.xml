@@ -25,6 +25,7 @@
             android:layout_toLeftOf="@+id/tv_time"
             android:layout_marginRight="@dimen/material_10"
             android:lines="1"
+            android:ellipsize="end"
             android:textColor="@color/blue_primary"
             android:text="#主题名称#"
             />

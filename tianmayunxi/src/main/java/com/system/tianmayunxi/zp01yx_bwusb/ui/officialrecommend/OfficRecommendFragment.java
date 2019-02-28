@@ -327,6 +327,7 @@ public class OfficRecommendFragment extends BaseFragment<OfficContract.View, Off
                             break;
                         case "artcleLike":
                             initList();
+                            ToastUtil.showSnack(getThisContext(),(String) object);
                             break;
                         default:
                             break;

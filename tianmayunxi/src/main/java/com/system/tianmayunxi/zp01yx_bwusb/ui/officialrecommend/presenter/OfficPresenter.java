@@ -327,7 +327,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             EventCallBackBean bean = new EventCallBackBean();
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
-                            eventData.put("pushMsg", data.getData());
+                            eventData.put("pushMsg", data.getMessage());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());
@@ -364,7 +364,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             EventCallBackBean bean = new EventCallBackBean();
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
-                            eventData.put("artcleLike", data.getData());
+                            eventData.put("artcleLike", data.getMessage());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());
@@ -401,7 +401,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             EventCallBackBean bean = new EventCallBackBean();
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
-                            eventData.put("msgLike", data.getData());
+                            eventData.put("msgLike", data.getMessage());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());

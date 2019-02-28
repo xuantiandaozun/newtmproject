@@ -493,6 +493,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             }
                             break;
                         case "artcleLike":
+                            if(object instanceof String){
+                                ToastUtil.showSnack(getThisContext(),(String) object);
+                            }
                             getDetail();
                             break;
                         case "msgLike":
@@ -513,6 +516,9 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             break;
                         case "addSubscription":
                         case "unSubscribe":
+                            if(object instanceof String){
+                                ToastUtil.showSnack(getThisContext(),(String) object);
+                            }
                             isSub(tid);
                             break;
                         case "checkIsStar":

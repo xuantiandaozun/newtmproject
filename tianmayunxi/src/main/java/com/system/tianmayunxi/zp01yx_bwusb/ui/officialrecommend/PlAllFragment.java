@@ -303,11 +303,15 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
                     Object object = eventData.get(next);
                     switch (next) {
                         case "pushMsg":
+                            ToastUtil.showSnack(getThisContext(),(String) object);
                             pop();
                             break;
                         case "reportMsg":
                         case "delMsg":
                         case "msgLike":
+                            if(object instanceof String){
+                                ToastUtil.showSnack(getThisContext(),(String) object);
+                            }
                             if(isDetail){
                                 pop();
                             }else {

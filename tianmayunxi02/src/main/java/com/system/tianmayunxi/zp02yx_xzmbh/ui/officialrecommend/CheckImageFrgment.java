@@ -3,6 +3,7 @@ package com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -106,6 +107,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
         List<String> image = beans.getImage();
         adapter = new UltraPagerAdapter(true, image);
+
         adapter.setContext(getContext());
         adapter.setListener(new UltraPagerAdapter.onImageViewClickListener() {
             @Override
