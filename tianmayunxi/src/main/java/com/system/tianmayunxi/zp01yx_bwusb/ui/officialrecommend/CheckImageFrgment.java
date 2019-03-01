@@ -141,7 +141,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.getArticle(parms2);
     }
 
-    @OnClick({R2.id.iv_pl,R2.id.tv_content, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl,R2.id.iv_jf,R2.id.tv_content, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
@@ -168,6 +168,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             linkShare.setUrl(domain + TmyxConstant.shareUrl+beans.getId());
             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
 
+        } else if (view.getId() == R.id.iv_jf) {
+            fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_LQJF)
+                    .navigation();
+            TMBaseFragment parentFragment = (TMBaseFragment) getParentFragment();
+            start(fragment);
         }else if(view.getId()==R.id.tv_dy){
             addSubscription(tid);
         }else if(view.getId()==R.id.iv_back){

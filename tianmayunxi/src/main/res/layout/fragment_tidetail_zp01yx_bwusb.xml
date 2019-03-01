@@ -230,6 +230,21 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/iv_jf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img_tip_jf"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/dp_10"
+        android:layout_above="@+id/re_bottom"
+        android:layout_marginBottom="@dimen/material_130"
+        android:textSize="@dimen/material_font_13"
+        android:paddingLeft="@dimen/material_30"
+        android:text="领取积分"
+        />
+
     <LinearLayout
         android:id="@+id/re_bottom"
         android:layout_width="match_parent"
@@ -288,17 +303,5 @@
             android:src="@mipmap/icon_footer_share"
             />
     </LinearLayout>
-    <TextView
-        android:id="@+id/iv_jf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/img_tip_jf"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/material_150"
-        android:textColor="@color/white"
-        android:paddingTop="@dimen/dp_10"
-        android:textSize="@dimen/material_font_13"
-        android:paddingLeft="@dimen/material_30"
-        android:text="领取积分"
-       />
+
 </RelativeLayout>

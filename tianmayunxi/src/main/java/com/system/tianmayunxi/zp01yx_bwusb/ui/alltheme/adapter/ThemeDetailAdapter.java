@@ -61,11 +61,15 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
         String head_pic = item.getHead_pic();
         if(!TextUtils.isEmpty(head_pic)){
             if(!head_pic.contains("http")){
-                head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+                String domain = TMSharedPUtil.getTMBaseConfig(mContext).getDomain();
+
+                head_pic=domain+head_pic;
             }
+            user_head.setImageURI(head_pic);
+        }else {
+            user_head.setBackgroundResource(R.mipmap.default_head);
         }
 
-        user_head.setImageURI(head_pic);
 
         if(!TextUtils.isEmpty(item.getTheme_title())){
             helper.setText(R.id.tv_theme,"#"+item.getTheme_title()+"#");

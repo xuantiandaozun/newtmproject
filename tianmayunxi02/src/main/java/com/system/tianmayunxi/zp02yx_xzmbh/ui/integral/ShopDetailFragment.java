@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import com.aries.ui.view.radius.RadiusTextView;
+import com.google.gson.Gson;
 import com.system.myproject.base.MVPBaseFragment;
 import com.system.myproject.base.TMBaseFragment;
 import com.system.myproject.utils.GsonUtil;
@@ -41,6 +42,7 @@ import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.RequestBody;
 
 @Route(path = Tmyx02RouterConfig.TMYX02_SHOPDETAIL)
 public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
@@ -109,13 +111,27 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         TMBaseFragment fragment=null;
         int id = view.getId();
         if(id==R.id.tv_next){
-            HashMap<String, String> param = new HashMap<>();
-            param.put("detail",GsonUtil.GsonString(beans));
-            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_ADDADDRESS)
-                    .withString("params",GsonUtil.GsonString(param))
-                    .navigation();
-            start(fragment);
+            int is_virtual = beans.getIs_virtual();
+            if(is_virtual==0){
+                HashMap<String, String> param = new HashMap<>();
+                param.put("detail",GsonUtil.GsonString(beans));
+                fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_ADDADDRESS)
+                        .withString("params",GsonUtil.GsonString(param))
+                        .navigation();
+                start(fragment);
+            }else {
+                exchangeShop();
+            }
+
         }
+    }
+
+    private void exchangeShop() {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("id", beans.getId() + "");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.exchangeGoods(body);
     }
 
     private void initList() {
@@ -176,6 +192,11 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
                             //banner设置方法全部调用完毕时最后调用
                             convenientBanner.start();
 
+                            break;
+                        case "exchangeGoods":
+                            TMBaseFragment fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_DHJG)
+                                    .navigation();
+                            start(fragment);
                             break;
                         default:
                             break;

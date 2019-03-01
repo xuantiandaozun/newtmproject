@@ -212,7 +212,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.deleteStar(body);
     }
 
-    @OnClick({R2.id.iv_pl,R2.id.ret_circle, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl,R2.id.ret_circle, R2.id.tv_share,R2.id.iv_jf,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
@@ -241,6 +241,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
 
         }else if(view.getId()==R.id.tv_dy){
             addSubscription(tid);
+        } else if (view.getId() == R.id.iv_jf) {
+            fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_LQJF)
+                    .navigation();
+            TMBaseFragment parentFragment = (TMBaseFragment) getParentFragment();
+            start(fragment);
         }else if(view.getId()==R.id.iv_back){
             if(getPreFragment()!=null){
                 pop();
