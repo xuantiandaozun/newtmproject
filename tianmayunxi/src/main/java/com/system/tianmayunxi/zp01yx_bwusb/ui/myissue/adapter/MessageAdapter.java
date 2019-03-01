@@ -27,7 +27,7 @@ public class MessageAdapter  extends BaseQuickAdapter<MessageBean.ListBean, Base
         SimpleDraweeView iv=helper.getView(R.id.iv);
         String head_pic = item.getHead_pic();
         iv_head.setImageURI(head_pic);
-        iv.setImageURI(TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+item.getImage());
+        iv.setImageURI(item.getImage());
         if(!TextUtils.isEmpty(item.getMember_nickname())){
             helper.setText(R.id.tv_username,item.getMember_nickname());
         }
@@ -43,7 +43,7 @@ public class MessageAdapter  extends BaseQuickAdapter<MessageBean.ListBean, Base
                     break;
                 case 2:
                     iv_up.setVisibility(View.GONE);
-                    helper.setText(R.id.tv_up,"回复了你");
+                    helper.setText(R.id.tv_up,item.getContent());
                     break;
                 case 3:
                     iv_up.setVisibility(View.GONE);
