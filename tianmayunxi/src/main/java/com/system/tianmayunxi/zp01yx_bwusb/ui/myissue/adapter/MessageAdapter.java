@@ -30,6 +30,8 @@ public class MessageAdapter  extends BaseQuickAdapter<MessageBean.ListBean, Base
         iv.setImageURI(item.getImage());
         if(!TextUtils.isEmpty(item.getMember_nickname())){
             helper.setText(R.id.tv_username,item.getMember_nickname());
+        }else {
+            helper.setText(R.id.tv_username,"");
         }
         if(!TextUtils.isEmpty(item.getCreate_time())){
             helper.setText(R.id.tv_time,item.getCreate_time());

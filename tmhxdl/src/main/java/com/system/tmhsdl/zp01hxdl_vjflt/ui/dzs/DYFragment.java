@@ -118,7 +118,7 @@ public class DYFragment extends BaseFragment<DzsContract.View, DzsPresenter>
         mPresenter.getApiIndex(parms);
         mPresenter.getRecommendList(parms);
     }
-    @OnClick({R2.id.iv,R2.id.tv_pay})
+    @OnClick({R2.id.tv_pay})
     public void onClick(View view) {
         if(view.getId()==R.id.iv||view.getId()==R.id.tv_pay){
             String tmToken = TMSharedPUtil.getTMToken(getContext());

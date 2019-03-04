@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -68,6 +69,10 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
     ImageView iv_ad;
     @BindView(R2.id.btn_next)
     TextView btn_next;
+    @BindView(R2.id.iv_ad_close)
+    ImageView iv_ad_close;
+    @BindView(R2.id.re_back)
+    RelativeLayout re_back;
     @Autowired(name = "params")
     public String params;
     private int width;
@@ -105,6 +110,7 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
         titleBar.setTitleMainTextColor(textcolor);
+        re_back.setBackgroundColor(themeColor);
 
         titleBar.setTitleMainText("刊物详情")
                 .setLeftTextDrawable(R.mipmap.icon_nav_back)
@@ -153,13 +159,19 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         mlist.setOnItemSelectedListener(new CoverFlowLayoutManger.OnSelected() {
             @Override
             public void onItemSelected(int position) {
+                adapter.setView(position);
+
             }
         });
     }
 
-    @OnClick({R2.id.btn_next,R2.id.iv})
+    @OnClick({R2.id.btn_next,R2.id.iv,R2.id.iv_ad_close})
     public void onClick(View view){
         TMBaseFragment fragment=null;
+        if(view.getId()==R.id.iv_ad_close){
+            iv_ad.setVisibility(View.INVISIBLE);
+            iv_ad_close.setVisibility(View.GONE);
+        }
         if(view.getId()==R.id.btn_next){
             String tmToken = TMSharedPUtil.getTMToken(getContext());
             if(TextUtils.isEmpty(tmToken)){

@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -66,6 +67,10 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
     TextView btn_next;
     @BindView(R2.id.iv_ad)
     ImageView iv_ad;
+    @BindView(R2.id.iv_ad_close)
+    ImageView iv_ad_close;
+    @BindView(R2.id.re_back)
+    RelativeLayout re_back;
     @Autowired(name = "params")
     public String params;
     private int width;
@@ -102,15 +107,15 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
         titleBar.setTitleMainTextColor(textcolor);
-
+        re_back.setBackgroundColor(themeColor);
         titleBar.setTitleMainText("刊物详情")
                 .setLeftTextDrawable(R.mipmap.icon_nav_back)
                 .setOnLeftTextClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(getPreFragment()!=null){
+                        if (getPreFragment() != null) {
                             pop();
-                        }else {
+                        } else {
                             getActivity().finish();
                         }
                     }
@@ -119,8 +124,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         DisplayMetrics dm = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(dm);
-        width=dm.widthPixels;
-
+        width = dm.widthPixels;
 
 
     }
@@ -134,12 +138,12 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
     private void getDetail() {
         HashMap<String, Object> parms = new HashMap<>();
-        parms.put("id",listBean.getId());
+        parms.put("id", listBean.getId());
         String tmToken = TMSharedPUtil.getTMToken(getContext());
-        if(TextUtils.isEmpty(tmToken)){
+        if (TextUtils.isEmpty(tmToken)) {
             mPresenter.getIssnDetail(parms);
 
-        }else {
+        } else {
             mPresenter.getIssnDetail2(parms);
 
         }
@@ -149,33 +153,38 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
     public void onEnterAnimationEnd(Bundle savedInstanceState) {
         super.onEnterAnimationEnd(savedInstanceState);
 
-        adapter = new Adapter(getActivity(),new ArrayList<>());
-       mlist.setAdapter(adapter);
+        adapter = new Adapter(getActivity(), new ArrayList<>());
+        mlist.setAdapter(adapter);
         mlist.setOnItemSelectedListener(new CoverFlowLayoutManger.OnSelected() {
             @Override
             public void onItemSelected(int position) {
+                adapter.setView(position);
             }
         });
     }
 
-    @OnClick({R2.id.btn_next,R2.id.iv})
-    public void onClick(View view){
-        TMBaseFragment fragment=null;
-        if(view.getId()==R.id.btn_next){
+    @OnClick({R2.id.btn_next,R2.id.iv_ad_close, R2.id.iv})
+    public void onClick(View view) {
+        TMBaseFragment fragment = null;
+        if(view.getId()==R.id.iv_ad_close){
+            iv_ad.setVisibility(View.INVISIBLE);
+            iv_ad_close.setVisibility(View.GONE);
+        }
+        if (view.getId() == R.id.btn_next) {
             String tmToken = TMSharedPUtil.getTMToken(getContext());
-            if(TextUtils.isEmpty(tmToken)){
+            if (TextUtils.isEmpty(tmToken)) {
                 Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
                 getActivity().startActivity(intent);
                 return;
             }
-            if(!is_buy){
-                if(!TextUtils.isEmpty(tmToken)){
-                   String price = detail.getPrice();
+            if (!is_buy) {
+                if (!TextUtils.isEmpty(tmToken)) {
+                    String price = detail.getPrice();
                     TMPayUtil.showPayDialog(getThisContext(), Float.valueOf(price), new TMPayUtil.PayTypeSelect() {
                         @Override
                         public void selectPayType(int payType) {
-                            if(payType!=-1){
-                                DZKDetailFragment.this.paytype=payType;
+                            if (payType != -1) {
+                                DZKDetailFragment.this.paytype = payType;
                                 getPay(payType);
                             }
 
@@ -229,16 +238,16 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                     loadingDialog.show();*/
                 }
 
-            }else {
+            } else {
                 List<InssDetail.ImageListBean> image_list = detail.getImage_list();
 
                 HashMap<String, String> param = new HashMap<>();
-                param.put("id",listBean.getId()+"");
-                param.put("type","1");
+                param.put("id", listBean.getId() + "");
+                param.put("type", "1");
 
                 fragment = (TMBaseFragment) ARouter.getInstance()
                         .build(HxdlRouterConfig.HXDL_IMAGIVE)
-                        .withString("params",GsonUtil.GsonString(param))
+                        .withString("params", GsonUtil.GsonString(param))
                         .navigation();
                 start(fragment);
             }
@@ -248,9 +257,9 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
     private void getPay(int type) {
         HashMap<String, String> parms = new HashMap<>();
-        parms.put("type", type+"");
+        parms.put("type", type + "");
         parms.put("sid", "1");
-        parms.put("id", listBean.getId()+"");
+        parms.put("id", listBean.getId() + "");
         String value = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
         mPresenter.getPay(body);
@@ -288,22 +297,22 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                         case "getIssnDetail":
                             detail = GsonUtil.GsonToBean(object, InssDetail.class);
                             is_buy = detail.isIs_buy();
-                            if(is_buy){
+                            if (is_buy) {
                                 btn_next.setText("查看");
-                            }else {
+                            } else {
                                 String tmToken = TMSharedPUtil.getTMToken(getContext());
-                                if(TextUtils.isEmpty(tmToken)){
+                                if (TextUtils.isEmpty(tmToken)) {
                                     btn_next.setText("请登录");
-                                }else {
+                                } else {
                                     btn_next.setText("购买");
                                 }
                             }
                             iv.setImageURI(listBean.getImage());
                             tv_time.setText(detail.getIssn());
-                            tv_money.setText("￥"+detail.getPrice());
+                            tv_money.setText("￥" + detail.getPrice());
                             tv_name.setText(detail.getTitle());
                             List<InssDetail.ImageListBean> image_list = detail.getImage_list();
-                            if(image_list!=null&&image_list.size()!=0){
+                            if (image_list != null && image_list.size() != 0) {
 
                                 mlist.setVisibility(View.VISIBLE);
                                 adapter.setNewDatas(image_list);
@@ -316,7 +325,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                                 TMPayUtil.gotoPay(getContext(), paytype, object, new TMPayUtil.PayResult() {
                                     @Override
                                     public void paySuccess() {
-                                        ToastUtil.showSnack(getContext(),"支付成功！");
+                                        ToastUtil.showSnack(getContext(), "支付成功！");
                                         getDetail();
                                     }
 
@@ -330,7 +339,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
                                     }
                                 });
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 System.out.println();
                             }
 
@@ -347,6 +356,6 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
     @Override
     public void showMessage(int type, String message) {
-        ToastUtil.showSnack(getThisContext(),message);
+        ToastUtil.showSnack(getThisContext(), message);
     }
 }

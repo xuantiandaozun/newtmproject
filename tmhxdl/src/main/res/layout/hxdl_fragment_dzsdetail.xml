@@ -29,18 +29,25 @@
             android:background="@color/hxdl_background01"
             >
         </View>
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/iv"
-            android:layout_width="@dimen/material_140"
-            android:layout_height="180dp"
+        <RelativeLayout
+            android:id="@+id/re_back"
+            android:layout_width="wrap_content"
             android:layout_marginLeft="@dimen/material_20"
-            android:scaleType="centerInside"
-            />
+            android:padding="@dimen/material_10"
+            android:layout_height="wrap_content">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/material_120"
+                android:layout_height="180dp"
+                android:scaleType="centerInside"
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/iv"
+            android:layout_toRightOf="@+id/re_back"
             android:textColor="@color/zp01hxdl_vjflt_textcolor03"
             android:layout_marginLeft="@dimen/dp_10"
             />
@@ -57,7 +64,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/iv"
+            android:layout_toRightOf="@+id/re_back"
             android:layout_below="@+id/tv_time"
             android:layout_marginTop="@dimen/dp_10"
             android:textColor="@color/zp01hxdl_vjflt_textcolor01"
@@ -66,7 +73,7 @@
         <recycler.coverflow.RecyclerCoverFlow
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_below="@+id/iv"
+            android:layout_below="@+id/re_back"
             android:layout_marginTop="@dimen/dp_10"
             android:visibility="gone"
             android:layout_height="match_parent">
@@ -95,5 +102,16 @@
         android:layout_height="@dimen/material_80"
         android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
+        />
+    <ImageView
+        android:id="@+id/iv_ad_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_ad"
+        android:background="@mipmap/icon_closed"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/material_10"
+        android:layout_marginTop="@dimen/material_10"
+        />
         />
 </RelativeLayout>

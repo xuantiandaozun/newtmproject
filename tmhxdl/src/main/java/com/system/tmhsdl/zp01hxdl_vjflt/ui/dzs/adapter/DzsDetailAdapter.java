@@ -2,6 +2,7 @@ package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -28,6 +30,7 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
     private Context mContext;
     private List<BookDetail.ImageListBean> image_list;
     private onItemClick clickCb;
+    private int selectPos;
 
     public DzsDetailAdapter(Context c, List<BookDetail.ImageListBean> mdata) {
         mContext = c;
@@ -61,6 +64,16 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
             });
 
         }
+        RelativeLayout re_back=holder.relativeLayout;
+        int themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(mContext));
+        if(position==selectPos){
+            re_back.setBackgroundColor(themeColor);
+            // re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
+
+        }else {
+            re_back.setBackgroundResource(R.color.hxdl_background04);
+            //  re_back.setPadding(0,0,0,0);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +84,10 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
                 }
             }
         });
+    }
+    public void setView(int position) {
+        this.selectPos=position;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -86,10 +103,13 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
+        RelativeLayout relativeLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.img);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.re_back);
+
         }
     }
 

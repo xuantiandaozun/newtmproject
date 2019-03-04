@@ -1,6 +1,8 @@
 package com.system.tianmayunxi.zp02yx_xzmbh.ui.integral;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -29,6 +31,7 @@ import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficCo
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.tianmayunxi.zp02yx_xzmbh.utils.GlideImageLoader;
 import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.tenma.ventures.bean.TMUser;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -63,6 +66,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
     private GoodsListBean.ListBean beans;
     private int themeColor;
     private int textcolor;
+    private TMUser tmUser;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -85,6 +89,8 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
 
     @Override
     protected void initDatas() {
+        tmUser = TMSharedPUtil.getTMUser(getContext());
+
         themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(getActivity()));
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
@@ -111,6 +117,13 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         TMBaseFragment fragment=null;
         int id = view.getId();
         if(id==R.id.tv_next){
+            String mobile = tmUser.getMobile();
+            if (TextUtils.isEmpty(mobile)) {
+                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
+                startActivity(intent);
+                return;
+            }
+
             int is_virtual = beans.getIs_virtual();
             if(is_virtual==0){
                 HashMap<String, String> param = new HashMap<>();
