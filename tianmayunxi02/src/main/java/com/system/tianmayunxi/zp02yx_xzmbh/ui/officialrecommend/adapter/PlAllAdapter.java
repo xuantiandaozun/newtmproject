@@ -29,10 +29,14 @@ public class PlAllAdapter extends BaseQuickAdapter<ArticMsgBean.ListBean, BaseVi
         SimpleDraweeView iv_head=helper.getView(R.id.iv_head);
         helper.addOnClickListener(R.id.btn_pl);
         String head_pic = item.getHead_pic();
-        if(!head_pic.contains("http")){
-            head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+        if(!TextUtils.isEmpty(head_pic)){
+            if(!head_pic.contains("http")){
+                head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+            }
+            iv_head.setImageURI(head_pic);
+        }else {
+            iv_head.setBackgroundResource(R.mipmap.default_head);
         }
-        iv_head.setImageURI(head_pic);
         LinearLayout re_pop=helper.getView(R.id.re_pop);
         RadiusTextView btn_next=helper.getView(R.id.btn_next);
         helper.addOnClickListener(R.id.btn_next);

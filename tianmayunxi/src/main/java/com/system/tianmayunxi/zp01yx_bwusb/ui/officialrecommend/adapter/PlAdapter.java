@@ -80,9 +80,10 @@ public class PlAdapter extends BaseQuickAdapter<ArticMsgBean.ListBean, BaseViewH
             if(!head_pic.contains("http")){
                 head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
             }
+            iv_head.setImageURI(head_pic);
+        }else {
+            iv_head.setBackgroundResource(R.mipmap.default_head);
         }
-
-        iv_head.setImageURI(head_pic);
         if(!TextUtils.isEmpty(item.getMember_nickname())){
             helper.setText(R.id.tv_theme,item.getMember_nickname());
         }

@@ -124,9 +124,12 @@ public class PlAllFragment extends MVPBaseFragment<OfficContract.View, OfficPres
             if(!head_pic.contains("http")){
                 head_pic=TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+beans.getHead_pic();
             }
+            iv_head.setImageURI(head_pic);
+
+        }else {
+            iv_head.setBackgroundResource(R.mipmap.default_head);
         }
 
-        iv_head.setImageURI(head_pic);
         tv_theme.setText(beans.getMember_nickname());
         tv_title.setText(beans.getContent());
         tv_time.setText(beans.getCreate_time());

@@ -77,8 +77,14 @@ public class PlListAdapter extends BaseQuickAdapter<ArticMsgBean.ListBean, BaseV
         });
 
         String head_pic = item.getHead_pic();
-
-        iv_head.setImageURI(head_pic);
+        if(!TextUtils.isEmpty(head_pic)){
+            if(!head_pic.contains("http")){
+                head_pic=TMSharedPUtil.getTMBaseConfig(mContext).getDomain()+ head_pic;
+            }
+            iv_head.setImageURI(head_pic);
+        }else {
+            iv_head.setBackgroundResource(R.mipmap.default_head);
+        }
         helper.addOnClickListener(R.id.btn_jubao);
         if(!TextUtils.isEmpty(item.getMember_nickname())){
             helper.setText(R.id.tv_theme,item.getMember_nickname());
