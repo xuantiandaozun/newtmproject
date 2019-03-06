@@ -40,7 +40,7 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
             }
         });
         mgrid.setLayoutManager(new GridLayoutManager(mContext,3));
-        mgrid.addItemDecoration(new com.library.flowlayout.SpaceItemDecoration(UEMethod.dp2px(mContext,5)));
+    //    mgrid.addItemDecoration(new com.library.flowlayout.SpaceItemDecoration(UEMethod.dp2px(mContext,5)));
         TieIvAdapter adapter = new TieIvAdapter(item.getImage());
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override

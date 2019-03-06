@@ -56,11 +56,21 @@ public class DynamicAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> 
         SimpleDraweeView user_head=helper.getView(R.id.user_head);
 
 
-        iv_head.setImageURI(item.getTheme_image());
-
         String head_pic = item.getHead_pic();
+        if(!TextUtils.isEmpty(head_pic)){
+            if(!head_pic.contains("http")){
+                String domain = TMSharedPUtil.getTMBaseConfig(mContext).getDomain();
+
+                head_pic=domain+head_pic;
+            }
+            user_head.setImageURI(head_pic);
+        }else {
+            user_head.setBackgroundResource(R.mipmap.default_head);
+        }
+
 
         user_head.setImageURI(head_pic);
+        iv_head.setImageURI(item.getTheme_image());
 
 
         if(!TextUtils.isEmpty(item.getTheme_title())){

@@ -26,7 +26,16 @@ public class MessageAdapter  extends BaseQuickAdapter<MessageBean.ListBean, Base
         ImageView iv_up=helper.getView(R.id.iv_up);
         SimpleDraweeView iv=helper.getView(R.id.iv);
         String head_pic = item.getHead_pic();
-        iv_head.setImageURI(head_pic);
+        if(!TextUtils.isEmpty(head_pic)){
+            if(!head_pic.contains("http")){
+                String domain = TMSharedPUtil.getTMBaseConfig(mContext).getDomain();
+
+                head_pic=domain+head_pic;
+            }
+            iv_head.setImageURI(head_pic);
+        }else {
+            iv_head.setBackgroundResource(R.mipmap.default_head);
+        }
         iv.setImageURI(item.getImage());
         if(!TextUtils.isEmpty(item.getMember_nickname())){
             helper.setText(R.id.tv_username,item.getMember_nickname());
