@@ -24,16 +24,15 @@
         android:layout_above="@+id/btn_next"
         android:layout_height="match_parent">
         <View
+            android:id="@+id/view_line"
             android:layout_width="match_parent"
             android:layout_height="@dimen/material_20"
-            android:background="@color/hxdl_background01"
             >
         </View>
         <RelativeLayout
             android:id="@+id/re_back"
             android:layout_width="wrap_content"
             android:layout_marginLeft="@dimen/material_20"
-            android:padding="@dimen/material_10"
             android:layout_height="wrap_content">
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/iv"

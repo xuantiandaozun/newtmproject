@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.system.myproject.utils.HandlerUtil;
 import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookDetail;
 import com.tenma.ventures.GlideApp;
@@ -87,7 +88,12 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
     }
     public void setView(int position) {
         this.selectPos=position;
-        notifyDataSetChanged();
+        HandlerUtil.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

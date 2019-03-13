@@ -33,10 +33,11 @@
     android:orientation="vertical">
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:background="#E7E7E7"
+        android:textColor="#333333"
         />
 
     <com.facebook.drawee.view.SimpleDraweeView

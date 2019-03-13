@@ -73,6 +73,8 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
     ImageView iv_ad_close;
     @BindView(R2.id.re_back)
     RelativeLayout re_back;
+    @BindView(R2.id.view_line)
+    View view_line;
     @Autowired(name = "params")
     public String params;
     private int width;
@@ -110,7 +112,7 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
         titleBar.setTitleMainTextColor(textcolor);
-        re_back.setBackgroundColor(themeColor);
+        view_line.setBackgroundColor(themeColor);
 
         titleBar.setTitleMainText("刊物详情")
                 .setLeftTextDrawable(R.mipmap.icon_nav_back)
