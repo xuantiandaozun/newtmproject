@@ -108,9 +108,9 @@ public class UltraPagerAdapter extends PagerAdapter {
             }
         });
     //    Picasso.with(context).load(images.get(position)).into(textView);
-        setControllerListener(textView,images.get(position),getScreenWidth(context));
+        setControllerListener(textView,images.get(position),getScreenWidth(context),getScreenHeight(context));
 
-      //  textView.setImageURI(images.get(position));
+  //     textView.setImageURI(images.get(position));
         linearLayout.setId(R.id.item_id);
 
         container.addView(linearLayout);
@@ -123,6 +123,13 @@ public class UltraPagerAdapter extends PagerAdapter {
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.widthPixels;
     }
+    public static int getScreenHeight(Context context) {
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
+    }
 
     /**
      * 通过imageWidth 的宽度，自动适应高度
@@ -130,7 +137,7 @@ public class UltraPagerAdapter extends PagerAdapter {
      * * @param imagePath  Uri
      * * @param imageWidth width
      */
-    public static void setControllerListener(final SimpleDraweeView simpleDraweeView, String imagePath, final int imageWidth) {
+    public static void setControllerListener(final SimpleDraweeView simpleDraweeView, String imagePath, int imageWidth, final int imageHeight) {
         final ViewGroup.LayoutParams layoutParams = simpleDraweeView.getLayoutParams();
         ControllerListener controllerListener = new BaseControllerListener<ImageInfo>() {
             @Override
@@ -141,9 +148,8 @@ public class UltraPagerAdapter extends PagerAdapter {
                 int height = imageInfo.getHeight();
                 int width = imageInfo.getWidth();
                 float v = (float) (imageWidth * height) / (float) width;
-                int i = SizeUtil.dp2px(440);
-                if(v> i){
-                      v=SizeUtil.dp2px(440);
+                if(v> imageHeight){
+                    v=imageHeight-SizeUtil.dp2px(40);
                     layoutParams.width =(int) (v *((float)width/(float)height));
                 }else {
                     layoutParams.width = imageWidth;
@@ -151,6 +157,7 @@ public class UltraPagerAdapter extends PagerAdapter {
                 }
 
                 layoutParams.height = (int) v;
+
                 simpleDraweeView.setLayoutParams(layoutParams);
             }
 

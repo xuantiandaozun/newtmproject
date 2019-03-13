@@ -7,6 +7,14 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:background="@color/background012"
     android:layout_height="match_parent">
+
+    <com.tmall.ultraviewpager.UltraViewPager
+        android:id="@+id/ultra_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/re_bottom"
+        android:layout_marginTop="@dimen/material_10"
+       />
     <LinearLayout
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
@@ -15,12 +23,12 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/material_20"
-          />
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/material_10"
-       >
+            >
             <ImageView
                 android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
@@ -73,17 +81,11 @@
                 />
         </RelativeLayout>
     </LinearLayout>
-    <com.tmall.ultraviewpager.UltraViewPager
-        android:id="@+id/ultra_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="440dp"
-        android:layout_marginTop="@dimen/material_10"
-        android:layout_below="@+id/titleBar" />
     <RelativeLayout
         android:id="@+id/iv_content"
         android:layout_width="match_parent"
         android:padding="@dimen/material_5"
-        android:layout_below="@+id/ultra_viewpager"
+        android:background="#801F2E6E"
         android:layout_above="@+id/re_bottom"
         android:layout_height="@dimen/material_50">
         <TextView

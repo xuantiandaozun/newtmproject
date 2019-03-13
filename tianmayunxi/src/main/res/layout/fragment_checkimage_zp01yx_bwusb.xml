@@ -7,20 +7,31 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:background="@color/background012"
     android:layout_height="match_parent">
+
+    <com.tmall.ultraviewpager.UltraViewPager
+        android:id="@+id/ultra_viewpager"
+        android:layout_marginTop="@dimen/material_10"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/re_bottom"
+
+        android:layout_height="match_parent"
+     />
     <LinearLayout
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
+        android:background="#801F2E6E"
+
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/material_20"
-          />
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/material_10"
-       >
+            >
             <ImageView
                 android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
@@ -73,19 +84,12 @@
                 />
         </RelativeLayout>
     </LinearLayout>
-    <com.tmall.ultraviewpager.UltraViewPager
-        android:id="@+id/ultra_viewpager"
-        android:layout_below="@+id/titleBar"
-        android:layout_marginTop="@dimen/material_10"
-        android:layout_width="match_parent"
-        android:layout_height="440dp"
-     />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_below="@+id/ultra_viewpager"
         android:padding="@dimen/material_5"
+        android:background="#801F2E6E"
         android:layout_above="@+id/re_bottom"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/material_60">
         <TextView
             android:id="@+id/tv_indicator"
             android:layout_width="wrap_content"
@@ -123,7 +127,7 @@
         android:background="@color/background09"
         android:padding="@dimen/material_5"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/material_40">
         <com.aries.ui.view.radius.RadiusTextView
             android:id="@+id/tv_content"
             android:layout_width="0dp"
