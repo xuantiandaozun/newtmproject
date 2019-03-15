@@ -51,6 +51,7 @@ public interface OfficContract {
         void getArticleListNoLogin(HashMap<String,Object> body);
         void addSubscription(RequestBody body);
         void unSubscribe(RequestBody body);
+        void getSignRule(RequestBody body);
 
         void homeRefresh(HashMap<String, Object> parms, HashMap<String, Object> parms2);
     }
@@ -80,6 +81,7 @@ public interface OfficContract {
         Observable<TMBaseResoultEntity<Object>> BindScore(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> loginscore(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> loginLog(RequestBody body);
+        Observable<TMBaseResoultEntity<Object>> getSignRule(RequestBody body);
 
 
         Observable<TMBaseResoultEntity<Object>> getMyMessage(HashMap<String,Object> body);

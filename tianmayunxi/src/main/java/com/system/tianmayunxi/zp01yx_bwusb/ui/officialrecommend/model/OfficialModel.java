@@ -230,6 +230,15 @@ public class OfficialModel implements OfficContract.Model{
     }
 
     @Override
+    public Observable<TMBaseResoultEntity<Object>> getSignRule(RequestBody body) {
+        return MainService.getService().getSignRule(body)
+                //在新线程中执行登录请求
+                .subscribeOn(Schedulers.newThread())
+                //在主线程中执行;
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
     public Observable<TMBaseResoultEntity<Object>> getMyMessage(HashMap<String,Object> body) {
         return MainService.getService().getMyMessage(body)
                 //在新线程中执行登录请求

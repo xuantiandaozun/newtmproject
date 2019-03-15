@@ -41,6 +41,7 @@ public interface OfficContract {
         void BindScore(RequestBody body);
         void loginscore(RequestBody body);
         void loginLog(RequestBody body);
+        void getSignRule(RequestBody body);
 
 
         void exchangeGoods(RequestBody body);
@@ -84,6 +85,7 @@ public interface OfficContract {
         Observable<TMBaseResoultEntity<Object>> BindScore(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> loginscore(RequestBody body);
         Observable<TMBaseResoultEntity<Object>> loginLog(RequestBody body);
+        Observable<TMBaseResoultEntity<Object>> getSignRule(RequestBody body);
 
 
         Observable<TMBaseResoultEntity<Object>> getMyMessage(HashMap<String, Object> body);

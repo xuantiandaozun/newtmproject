@@ -207,4 +207,10 @@ public interface OfficialService {
      */
     @POST("zp01yx_bwusb/api/login_log")
     Observable<TMBaseResoultEntity<Object>> loginLog(@Body  RequestBody body);
+    /**
+     *签到规则
+     * @return
+     */
+    @POST("zp01yx_bwusb/api/get_system")
+    Observable<TMBaseResoultEntity<Object>> getSignRule(@Body  RequestBody body);
 }

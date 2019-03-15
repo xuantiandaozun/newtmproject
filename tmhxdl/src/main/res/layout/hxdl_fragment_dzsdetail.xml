@@ -55,7 +55,7 @@
             android:layout_toRightOf="@+id/tv_time"
             android:layout_marginLeft="@dimen/material_10"
             android:textSize="@dimen/material_font_12"
-            android:textColor="@color/zp01hxdl_vjflt_textcolor04"
+            android:textColor="@color/black"
             android:layout_marginTop="@dimen/material_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -6,18 +6,28 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.gson.Gson;
 import com.system.myproject.base.MVPBaseFragment;
-import com.system.myproject.base.MVPBasePresenter;
+import com.system.myproject.utils.ToastUtil;
 import com.system.tianmayunxi.zp02yx_xzmbh.R;
 import com.system.tianmayunxi.zp02yx_xzmbh.R2;
 import com.system.tianmayunxi.zp02yx_xzmbh.Tmyx02RouterConfig;
+import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
+import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.contract.OfficContract;
+import com.system.tianmayunxi.zp02yx_xzmbh.ui.officialrecommend.presenter.OfficPresenter;
 import com.system.uilibrary.views.titlebar.TitleBarView;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 import butterknife.BindView;
+import okhttp3.RequestBody;
 
 @Route(path = Tmyx02RouterConfig.TMYX02_SIGNRULE)
-public class SignRuleFragment extends MVPBaseFragment {
+public class SignRuleFragment extends MVPBaseFragment <OfficContract.View, OfficPresenter>
+        implements OfficContract.View{
     @BindView(R2.id.titleBar)
     TitleBarView titleBar;
     @BindView(R2.id.tv_content)
@@ -26,8 +36,8 @@ public class SignRuleFragment extends MVPBaseFragment {
     private int textcolor;
 
     @Override
-    protected MVPBasePresenter createPresenter() {
-        return null;
+    protected OfficPresenter createPresenter() {
+        return new OfficPresenter();
     }
 
     @Override
@@ -83,5 +93,59 @@ public class SignRuleFragment extends MVPBaseFragment {
                 "\t<span class=\"prop-font-content\">5. 若连续签到中断, 签到将重新计算, 不可补签. </span><br />\n" +
                 "<span class=\"prop-font-content\"></span>\n" +
                 "</p>"));
+        getSignRule();
+    }
+    private void getSignRule() {
+        HashMap<String, Object> parms = new HashMap<>();
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.getSignRule(body);
+    }
+
+    @Override
+    public void onFaild() {
+
+    }
+
+    @Override
+    public void callBack(EventCallBackBean bean) {
+        int eventNumber = bean.getEventNumber();
+        HashMap<String, Object> eventData = bean.getEventData();
+        Set<String> keySet = eventData.keySet();
+        Iterator<String> iterator = keySet.iterator();
+        switch (eventNumber) {
+            case EventCallBackBean.REFRESH:
+                while (iterator.hasNext()) {
+                    String next = iterator.next();
+                    Object object = eventData.get(next);
+                    switch (next) {
+                        case "":
+                            break;
+                    }
+                }
+                break;
+            case EventCallBackBean.CLOSE:
+                break;
+            case EventCallBackBean.WHITEDATA:
+                while (iterator.hasNext()) {
+                    String next = iterator.next();
+                    Object object = eventData.get(next);
+                    switch (next) {
+                        case "getSignRule":
+                            tv_content.setText((String)object);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void showMessage(int type, String message) {
+        ToastUtil.showSnack(getThisContext(),message);
     }
 }
