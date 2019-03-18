@@ -311,7 +311,7 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                                 }
                             }
                             iv.setImageURI(listBean.getImage());
-                            tv_money.setText(detail.getPrice());
+                            tv_money.setText("￥"+detail.getPrice());
                             tv_name.setText(detail.getTitle());
                             List<BookDetail.ImageListBean> image_list = detail.getImage_list();
                             if(image_list!=null&&image_list.size()!=0){

@@ -69,34 +69,6 @@ public class SignRuleFragment extends MVPBaseFragment<OfficContract.View, OfficP
                         pop();
                     }
                 });
-        tv_content.setText(Html.fromHtml("<p>\n" +
-                "\t<span class=\"prop-font-content\">1. 每日24点前完成签到, 可连续获得累加积分.<br />\n" +
-                "</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">2. 连续签到规则: 签到第一天可获得2积分、第二天可</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">&nbsp;&nbsp;&nbsp; 获得4积分, 以此类推, 第五天可获得10积分.</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">3. 签到五天为一周期, 从连续第六天起, 后续每天不间\n" +
-                "断</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">&nbsp;&nbsp;&nbsp; 签到均可获得10积分.</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">4. 额外奖励: 连续签到7天为一周期, 第7天签到奖励翻 <br />\n" +
-                "</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">&nbsp;&nbsp;&nbsp; 倍.&nbsp;</span>\n" +
-                "</p>\n" +
-                "<p>\n" +
-                "\t<span class=\"prop-font-content\">5. 若连续签到中断, 签到将重新计算, 不可补签. </span><br />\n" +
-                "<span class=\"prop-font-content\"></span>\n" +
-                "</p>"));
         getSignRule();
     }
     private void getSignRule() {
