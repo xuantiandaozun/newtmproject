@@ -338,7 +338,7 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
         } else if (view.getId() == R.id.tv_share||view.getId()==R.id.iv_share) {
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
-            linkShare.setThumb(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+articleDetail.getTheme_image());
+            linkShare.setThumb(articleDetail.getTheme_image());
             linkShare.setTitle(articleDetail.getTitle());
             String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 

@@ -137,7 +137,7 @@ public class MySubscriptionFragment extends BaseFragment<OfficContract.View, Off
                         }else if(view.getId()==R.id.tv_share){
                             TMLinkShare linkShare = new TMLinkShare();
                             linkShare.setDescription(item2.getContent());
-                            linkShare.setThumb(TMSharedPUtil.getTMBaseConfig(getContext()).getDomain()+item2.getTheme_image());
+                            linkShare.setThumb(item2.getTheme_image());
                             linkShare.setTitle(item2.getTitle());
                             String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 
