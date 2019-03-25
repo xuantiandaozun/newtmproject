@@ -161,7 +161,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         }else if(id==R.id.tv_share){
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
-            linkShare.setThumb(articleDetail.getTheme_image());
+            linkShare.setThumb(articleDetail.getImages().get(0).getImage());
             linkShare.setTitle(articleDetail.getTitle());
             String domain = TMSharedPUtil.getTMBaseConfig(getContext()).getDomain();
 
