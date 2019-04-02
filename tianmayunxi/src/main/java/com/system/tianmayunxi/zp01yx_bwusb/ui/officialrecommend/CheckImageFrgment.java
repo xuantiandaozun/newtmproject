@@ -60,6 +60,8 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     TextView tv_indicator;
     @BindView(R2.id.tv_dy)
     TextView tv_dy;
+    @BindView(R2.id.iv_content)
+    TextView iv_content;
     @BindView(R2.id.titleBar)
     LinearLayout titleBar;
     @BindView(R2.id.tv_addstar)
@@ -73,6 +75,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     private ArticleDetail articleDetail;
     private int textcolor;
     private double star_id;
+    private boolean is_sub;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -115,6 +118,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             }
         });
         tv_indicator.setText("1/"+image.size());
+        iv_content.setText(beans.getContent());
         ultraViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -141,7 +145,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.getArticle(parms2);
     }
 
-    @OnClick({R2.id.iv_pl,R2.id.iv_jf,R2.id.tv_content, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl,R2.id.iv_more,R2.id.iv_jf,R2.id.tv_content, R2.id.tv_share,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
@@ -158,7 +162,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             } else {
                 getActivity().finish();
             }
-        }else if(id==R.id.tv_share){
+        }else if(id==R.id.tv_share||id==R.id.iv_more){
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
             linkShare.setThumb(articleDetail.getImages().get(0).getImage());
@@ -174,7 +178,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             TMBaseFragment parentFragment = (TMBaseFragment) getParentFragment();
             start(fragment);
         }else if(view.getId()==R.id.tv_dy){
-            addSubscription(tid);
+            if(!is_sub){
+                addSubscription(tid);
+            }else {
+                unSubscription(tid);
+            }
         }else if(view.getId()==R.id.iv_back){
             if(getPreFragment()!=null){
                 pop();
@@ -188,6 +196,13 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                 deleteStar();
             }
         }
+    }
+    private void unSubscription(int id) {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("tid",id+"");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.unSubscribe(body);
     }
     private void addStar() {
         TMUser tmUser = TMSharedPUtil.getTMUser(getContext());
@@ -310,14 +325,16 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                             break;
                         case "isSub":
                             JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_sub = jsonObject.get("is_sub").getAsBoolean();
-                            if(is_sub){
-                                tv_dy.setVisibility(View.GONE);
-                            }else {
-                                tv_dy.setVisibility(View.VISIBLE);
+                            is_sub = jsonObject.get("is_sub").getAsBoolean();
+                            if (is_sub) {
+                                tv_dy.setText("已订阅");
+                            } else {
+                                tv_dy.setText("未订阅");
+
                             }
                             break;
                         case "addSubscription":
+                        case "unSubscribe":
                             isSub(tid);
                             break;
                         case "checkIsStar":

@@ -1,10 +1,16 @@
 package com.system.tianmayunxi.zp01yx_bwusb.ui.alltheme.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.aries.ui.view.radius.RadiusRelativeLayout;
 import com.aries.ui.view.radius.RadiusTextView;
 import com.aries.ui.view.radius.delegate.RadiusTextViewDelegate;
+import com.aries.ui.view.radius.delegate.RadiusViewDelegate;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -28,18 +34,26 @@ public class ThemeAdapter extends BaseQuickAdapter<AllThemBean.ListBean, BaseVie
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_title,item.getTitle());
         }
-        RadiusTextView statue=helper.getView(R.id.tv_statue);
+        RadiusRelativeLayout statue=helper.getView(R.id.tv_statue);
+        ImageView iv_add=helper.getView(R.id.iv_add);
+        TextView tv_dy=helper.getView(R.id.tv_dy);
         statue.setSelected(false);
-        RadiusTextViewDelegate delegate = statue.getDelegate();
+        RadiusViewDelegate delegate = statue.getDelegate();
         helper.addOnClickListener(R.id.tv_statue);
         if(item.isIs_sub()){
-            statue.setText("已订阅");
+            tv_dy.setText("取消订阅");
+            iv_add.setVisibility(View.GONE);
+            delegate.setBackgroundColor(Color.parseColor("#ffffff"));
+            tv_dy.setTextColor(Color.parseColor("#000000"));
 
-            delegate.setLeftSelectedDrawable(null);
-            delegate.setLeftDrawable(null);
         }else {
-            statue.setText("订阅");
-            delegate.setLeftDrawable(R.mipmap.icon_dy1);
+            tv_dy.setText("订阅");
+            delegate.setBackgroundColor(Color.parseColor("#3D4779"));
+            iv_add.setVisibility(View.VISIBLE);
+
+            tv_dy.setTextColor(Color.parseColor("#ffffff"));
+
+
         }
 
     }

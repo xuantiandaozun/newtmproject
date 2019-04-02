@@ -60,6 +60,8 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     TextView tv_indicator;
     @BindView(R2.id.tv_dy)
     TextView tv_dy;
+    @BindView(R2.id.tv_content)
+    TextView tv_content;
     @BindView(R2.id.titleBar)
     LinearLayout titleBar;
     @BindView(R2.id.tv_addstar)
@@ -116,6 +118,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             }
         });
         tv_indicator.setText("1/"+image.size());
+        tv_content.setText(beans.getContent());
         ultraViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

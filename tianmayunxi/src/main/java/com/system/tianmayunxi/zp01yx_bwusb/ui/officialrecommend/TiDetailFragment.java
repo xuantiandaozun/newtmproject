@@ -3,11 +3,11 @@ package com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,6 +39,7 @@ import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ArticMsgBea
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.bean.ArticleDetail;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.contract.OfficContract;
 import com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.presenter.OfficPresenter;
+import com.system.tianmayunxi.zp01yx_bwusb.views.DividerItemDecoration;
 import com.tenma.ventures.bean.TMUser;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.tenma.ventures.share.bean.TMLinkShare;
@@ -202,6 +203,21 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                 }
             }
         });
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fragment_empty_zp01yx_view, null, false);
+        inflate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TMBaseFragment fragment = null;
+
+                HashMap<String, String> param = new HashMap<>();
+                param.put("id", id);
+                fragment = (TMBaseFragment) ARouter.getInstance().build(TmyxRouterConfig.TMYX_PLLIST)
+                        .withString("params", GsonUtil.GsonString(param))
+                        .navigation();
+                start(fragment);
+            }
+        });
+        this.adapter.setEmptyView(inflate);
         pl_mlist.setAdapter(this.adapter);
 
     }

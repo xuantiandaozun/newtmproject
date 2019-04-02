@@ -145,8 +145,8 @@ public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, All
             @Override
             public void onClick(View v) {
                 int size = mAdapter.getData().size();
-                if(size<10){
-                    int num=10-size;
+                if(size<20){
+                    int num=20-size;
                     new PhotoPickConfig.Builder(getActivity()).pickMode(PhotoPickConfig.MODE_MULTIP_PICK) //多选，这里有单选和多选
                             .maxPickSize(num) //最多可选15张
                             .showCamera(true) //是否展示拍照icon,默认展示
@@ -165,7 +165,7 @@ public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, All
                                         mdata.add(entity);
                                     }
                                     mAdapter.addData(mdata);
-                                    number.setText(mAdapter.getData().size()+"/10");
+                                    number.setText(mAdapter.getData().size()+"/20");
 
                                 }
                             }) //设置数据回调，如果不想在Activity通过onActivityResult()获取回传的数据，可实现此接口
@@ -181,7 +181,7 @@ public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, All
         mAdapter.setListener(new AddImagePhotoAdapter.onRemoveListener() {
             @Override
             public void onListener() {
-                number.setText(mAdapter.getData().size()+"/10");
+                number.setText(mAdapter.getData().size()+"/20");
             }
         });
         mAdapter.addFooterView(view);

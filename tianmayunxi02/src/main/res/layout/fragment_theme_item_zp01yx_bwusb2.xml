@@ -23,27 +23,45 @@
         android:textColor="@color/textcolor02"
         android:layout_marginTop="@dimen/material_5"
      />
-    <com.aries.ui.view.radius.RadiusTextView
+    <com.aries.ui.view.radius.RadiusRelativeLayout
         android:id="@+id/tv_statue"
         android:layout_width="@dimen/material_70"
         android:layout_height="wrap_content"
-        android:gravity="center"
-
-        android:paddingLeft="@dimen/material_8"
-        android:paddingRight="@dimen/material_8"
-        android:paddingTop="@dimen/dp_4"
-        android:paddingBottom="@dimen/dp_4"
+        android:padding="@dimen/material_2"
         android:textSize="@dimen/material_font_12"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_10"
         rv:rv_radiusHalfHeightEnable="true"
 
         rv:rv_backgroundColor="@color/blue_primary"
-
-
-        rv:rv_leftSelectedDrawable="#ff0900"
-
         rv:rv_textColor="@color/white"
+        rv:rv_strokeColor="@color/blue_primary"
+        rv:rv_strokeWidth="@dimen/material_1"
 
-        />
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_dy1"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/tv_dy"
+                android:layout_marginRight="@dimen/material_2"
+                />
+            <TextView
+                android:id="@+id/tv_dy"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/material_font_12"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </com.aries.ui.view.radius.RadiusRelativeLayout>
 </LinearLayout>
