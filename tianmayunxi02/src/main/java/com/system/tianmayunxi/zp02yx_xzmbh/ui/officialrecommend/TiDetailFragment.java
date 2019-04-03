@@ -472,11 +472,12 @@ public class TiDetailFragment extends MVPBaseFragment<OfficContract.View, OfficP
                             }
                             String theme_title1 = articleDetail.getTheme_title();
                             if (!TextUtils.isEmpty(theme_title1)) {
-                                tv_nickname.setText(theme_title1);
                             }
                             String member_nickname = articleDetail.getMember_nickname();
                             if (!TextUtils.isEmpty(member_nickname)) {
                                 tv_username.setText(member_nickname);
+                                tv_nickname.setText(member_nickname);
+
                             }
                             String content = articleDetail.getContent();
                             if (!TextUtils.isEmpty(content)) {

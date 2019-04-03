@@ -1,14 +1,18 @@
 package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,6 +36,7 @@ import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssDetail;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.presenter.DzsPresenter;
 import com.system.uilibrary.views.titlebar.TitleBarView;
+import com.tenma.ventures.bean.TMUser;
 import com.tenma.ventures.bean.utils.TMPayUtil;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
@@ -175,8 +180,39 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         if (view.getId() == R.id.btn_next) {
             String tmToken = TMSharedPUtil.getTMToken(getContext());
             if (TextUtils.isEmpty(tmToken)) {
-                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
-                getActivity().startActivity(intent);
+                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.custom_info_hxdl_bwusb, null, false);
+                Dialog loadingDialog = new Dialog(getContext(), R.style.MyDialogStyle);
+                RelativeLayout layout = (RelativeLayout)inflate.findViewById(R.id.re_main);
+                TextView tv_next = (TextView)inflate.findViewById(R.id.tv_next);
+                tv_next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
+                        getActivity().startActivity(intent);
+                        loadingDialog.dismiss();
+                    }
+                });
+                TextView tv_cancel = (TextView)inflate.findViewById(R.id.tv_cancel);
+                tv_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        loadingDialog.dismiss();
+                    }
+                });
+                loadingDialog.setCancelable(true);
+                loadingDialog.setCanceledOnTouchOutside(true);
+                loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(-1, -1));
+                Window window = loadingDialog.getWindow();
+                android.view.WindowManager.LayoutParams lp = window.getAttributes();
+                lp.width = -1;
+                lp.height = -2;
+                window.setGravity(17);
+                window.setAttributes(lp);
+                window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
+                loadingDialog.show();
+
+
+
                 return;
             }
             if (!is_buy) {
@@ -192,52 +228,6 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
 
                         }
                     });
-                 /*   View inflate = LayoutInflater.from(getThisContext()).inflate(R.layout.custom_pay, null, false);
-                    Dialog loadingDialog = new Dialog(getContext(), com.system.uilibrary.R.style.MyDialogStyle);
-                    RelativeLayout layout = (RelativeLayout)inflate.findViewById(R.id.re_main);
-                    ImageView close = (ImageView) inflate.findViewById(R.id.iv_close);
-                    ImageView iv = (ImageView) inflate.findViewById(R.id.iv);
-                    TextView tv_name = (TextView) inflate.findViewById(R.id.tv_name);
-                    TextView tv_price = (TextView) inflate.findViewById(R.id.tv_price);
-                    TextView tv_wx = (TextView) inflate.findViewById(R.id.tv_wx);
-                    TextView tv_zfb = (TextView) inflate.findViewById(R.id.tv_zfb);
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            loadingDialog.dismiss();
-                        }
-                    });
-                    tv_wx.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            getPay(2);
-                            loadingDialog.dismiss();
-                        }
-                    });
-                    tv_zfb.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            getPay(1);
-                            loadingDialog.dismiss();
-                        }
-                    });
-
-                    tv_name.setText(listBean.getTitle());
-                    tv_price.setText("￥"+detail.getPrice());
-                    Glide.with(getContext()).load(TMSharedPUtil.getTMBaseConfig(mcontext).getDomain()+listBean.getImage()).into(iv);
-
-
-                    loadingDialog.setCancelable(true);
-                    loadingDialog.setCanceledOnTouchOutside(true);
-                    loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(-1, -1));
-                    Window window = loadingDialog.getWindow();
-                    android.view.WindowManager.LayoutParams lp = window.getAttributes();
-                    lp.width = -1;
-                    lp.height = -2;
-                    window.setGravity(17);
-                    window.setAttributes(lp);
-                    window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
-                    loadingDialog.show();*/
                 }
 
             } else {
@@ -314,8 +304,13 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                             tv_money.setText("￥" + detail.getPrice());
                             tv_name.setText(detail.getTitle());
                             List<InssDetail.ImageListBean> image_list = detail.getImage_list();
-                            if (image_list != null && image_list.size() != 0) {
-
+                            if(image_list==null){
+                                image_list=new ArrayList<>();
+                            }
+                            if (image_list != null ) {
+                                InssDetail.ImageListBean element = new InssDetail.ImageListBean();
+                                element.setImage(listBean.getImage());
+                                image_list.add(0, element);
                                 mlist.setVisibility(View.VISIBLE);
                                 adapter.setNewDatas(image_list);
 

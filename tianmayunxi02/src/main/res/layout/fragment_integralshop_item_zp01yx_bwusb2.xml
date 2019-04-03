@@ -35,7 +35,7 @@
             android:layout_centerVertical="true"
             />
         <com.aries.ui.view.radius.RadiusTextView
-            android:id="@+id/rtv_selectRadius"
+            android:id="@+id/btn_yuehuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

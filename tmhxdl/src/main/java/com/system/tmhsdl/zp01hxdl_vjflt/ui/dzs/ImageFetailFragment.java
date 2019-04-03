@@ -98,17 +98,16 @@ public class ImageFetailFragment extends MVPBaseFragment<DzsContract.View, DzsPr
         mainList.setAdapter(adapter);
         PagerSnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(mainList);
-        adapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-                bottomList.setVisibility(View.VISIBLE);
-                return true;
-            }
-        });
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                bottomList.setVisibility(View.GONE);
+                int visibility = bottomList.getVisibility();
+                if(visibility==View.VISIBLE){
+                    bottomList.setVisibility(View.GONE);
+                }else {
+                    bottomList.setVisibility(View.VISIBLE);
+
+                }
             }
         });
         mainList.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -119,6 +118,7 @@ public class ImageFetailFragment extends MVPBaseFragment<DzsContract.View, DzsPr
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
                 super.onScrolled(recyclerView, dx, dy);
                 LinearLayoutManager l = (LinearLayoutManager)recyclerView.getLayoutManager();
                 int adapterNowPos = l.findFirstVisibleItemPosition();

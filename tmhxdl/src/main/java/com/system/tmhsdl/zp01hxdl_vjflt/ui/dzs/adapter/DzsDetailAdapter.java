@@ -67,7 +67,7 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
         }
         RelativeLayout re_back=holder.relativeLayout;
         int themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(mContext));
-        if(position==selectPos){
+        if(position==0){
             re_back.setBackgroundColor(themeColor);
             // re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
 

@@ -31,6 +31,7 @@ import com.system.tmhsdl.zp01hxdl_vjflt.bean.EventCallBackBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.adapter.DzsDetailAdapter;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookBean;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookDetail;
+import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssDetail;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.contract.DzsContract;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.presenter.DzsPresenter;
 import com.system.uilibrary.views.titlebar.TitleBarView;
@@ -314,7 +315,13 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                             tv_money.setText("￥"+detail.getPrice());
                             tv_name.setText(detail.getTitle());
                             List<BookDetail.ImageListBean> image_list = detail.getImage_list();
-                            if(image_list!=null&&image_list.size()!=0){
+                            if(image_list==null){
+                                image_list=new ArrayList<>();
+                            }
+                            if(image_list!=null){
+                                BookDetail.ImageListBean element = new BookDetail.ImageListBean();
+                                element.setImage(listBean.getImage());
+                                image_list.add(0, element);
                                 mlist.setVisibility(View.VISIBLE);
                                 adapter.setNewDatas(image_list);
 

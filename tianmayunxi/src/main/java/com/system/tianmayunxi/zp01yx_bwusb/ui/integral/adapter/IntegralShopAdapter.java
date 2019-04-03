@@ -38,7 +38,7 @@ public class IntegralShopAdapter extends BaseQuickAdapter<GoodsListBean.ListBean
             helper.setText(R.id.tv_name,item.getGoods_name());
         }
         if(!TextUtils.isEmpty(item.getScore()+"")){
-            helper.setText(R.id.tv_price,item.getScore()+"");
+            helper.setText(R.id.tv_price,"￥"+item.getScore()+"");
         }
 
     }

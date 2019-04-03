@@ -75,6 +75,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
     private ArticleDetail articleDetail;
     private int textcolor;
     private double star_id;
+    private boolean is_sub;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -215,7 +216,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         mPresenter.deleteStar(body);
     }
 
-    @OnClick({R2.id.iv_pl,R2.id.ret_circle, R2.id.tv_share,R2.id.iv_jf,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
+    @OnClick({R2.id.iv_pl,R2.id.iv_more,R2.id.ret_circle, R2.id.tv_share,R2.id.iv_jf,R2.id.iv_back,R2.id.tv_dy,R2.id.tv_addstar})
     public void onClick(View view) {
         TMBaseFragment fragment = null;
         int id = view.getId();
@@ -232,7 +233,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             }else {
                 getActivity().finish();
             }
-        }else if(id==R.id.tv_share){
+        }else if(id==R.id.tv_share||id==R.id.iv_more){
             TMLinkShare linkShare = new TMLinkShare();
             linkShare.setDescription(articleDetail.getContent());
             linkShare.setThumb(articleDetail.getImages().get(0).getImage());
@@ -243,7 +244,11 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
             TMShareUtil.getInstance(getContext()).shareLink(linkShare);
 
         }else if(view.getId()==R.id.tv_dy){
-            addSubscription(tid);
+            if(!is_sub){
+                addSubscription(tid);
+            }else {
+                unSubscription(tid);
+            }
         } else if (view.getId() == R.id.iv_jf) {
             fragment = (TMBaseFragment) ARouter.getInstance().build(Tmyx02RouterConfig.TMYX02_LQJF)
                     .navigation();
@@ -269,6 +274,13 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
         String value = new Gson().toJson(parms);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
         mPresenter.addSubscription(body);
+    }
+    private void unSubscription(int id) {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("tid",id+"");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.unSubscribe(body);
     }
     @Override
     public void onFaild() {
@@ -316,14 +328,16 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
                             break;
                         case "isSub":
                             JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
-                            boolean is_sub = jsonObject.get("is_sub").getAsBoolean();
-                            if(is_sub){
-                                tv_dy.setVisibility(View.GONE);
-                            }else {
-                                tv_dy.setVisibility(View.VISIBLE);
+                            is_sub = jsonObject.get("is_sub").getAsBoolean();
+                            if (is_sub) {
+                                tv_dy.setText("已订阅");
+                            } else {
+                                tv_dy.setText("未订阅");
+
                             }
                             break;
                         case "addSubscription":
+                        case "unSubscribe":
                             isSub(tid);
                             break;
                         case "checkIsStar":

@@ -15,6 +15,8 @@ import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.InssBean;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DYAdapter extends BaseQuickAdapter<InssBean.ListBean, BaseViewHolder> {
@@ -35,6 +37,22 @@ public class DYAdapter extends BaseQuickAdapter<InssBean.ListBean, BaseViewHolde
         }
         int themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(mContext));
         re_back.setBackgroundColor(themeColor);
+        int create_time = item.getCreate_time();
+        if(!TextUtils.isEmpty(create_time+"")){
+            String yyyyMMdd = timeStamp2Date(create_time+"", "yyyyMMdd");
+            helper.setText(R.id.tv_number,yyyyMMdd);
+
+        }
+    }
+    public  String timeStamp2Date(String seconds,String format) {
+        if(seconds == null || seconds.isEmpty() || seconds.equals("null")){
+            return "";
+        }
+        if(format == null || format.isEmpty()){
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(new Date(Long.valueOf(seconds+"000")));
     }
 
 }

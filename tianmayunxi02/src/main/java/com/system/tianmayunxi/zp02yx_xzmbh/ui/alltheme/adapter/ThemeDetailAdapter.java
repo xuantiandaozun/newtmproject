@@ -54,6 +54,7 @@ public class ThemeDetailAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHold
         SimpleDraweeView iv_head=helper.getView(R.id.iv_head);
         helper.addOnClickListener(R.id.mlist);
         helper.addOnClickListener(R.id.tv_share);
+        helper.addOnClickListener(R.id.tv_up);
 
         iv_head.setImageURI(item.getTheme_image());
         SimpleDraweeView user_head=helper.getView(R.id.user_head);

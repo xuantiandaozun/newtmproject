@@ -50,6 +50,15 @@ public class InssBean {
         private String image;
         private String issn;
         private String title;
+        private int create_time;
+
+        public int getCreate_time() {
+            return create_time;
+        }
+
+        public void setCreate_time(int create_time) {
+            this.create_time = create_time;
+        }
 
         public int getId() {
             return id;

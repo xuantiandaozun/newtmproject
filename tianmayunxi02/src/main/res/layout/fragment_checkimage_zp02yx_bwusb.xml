@@ -27,13 +27,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/material_10"
+            android:paddingTop="@dimen/material_10"
+            android:paddingBottom="@dimen/material_10"
             >
             <ImageView
                 android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/icon_nav_back"
+                android:paddingTop="@dimen/material_5"
+                android:paddingRight="@dimen/material_15"
+                android:paddingBottom="@dimen/material_5"
+                android:paddingLeft="@dimen/material_10"
+                android:src="@mipmap/icon_nav_back"
+                android:scaleType="centerInside"
                 android:layout_centerVertical="true"
                 />
             <com.facebook.drawee.view.SimpleDraweeView
@@ -64,8 +70,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/iv_more"
                 android:layout_marginRight="@dimen/material_5"
-                android:visibility="gone"
-                android:layout_alignParentRight="true"
+                android:visibility="visible"
                 android:textColor="@color/textcolor09"
                 android:textSize="@dimen/material_font_13"
                 />
@@ -74,7 +79,7 @@
                 android:layout_width="@dimen/material_25"
                 android:layout_height="@dimen/material_25"
                 android:scaleType="centerInside"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:src="@mipmap/icon_nav_more"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
