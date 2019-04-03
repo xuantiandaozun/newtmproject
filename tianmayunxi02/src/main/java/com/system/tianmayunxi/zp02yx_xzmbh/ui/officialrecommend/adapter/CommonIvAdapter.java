@@ -21,7 +21,7 @@ public class CommonIvAdapter extends BaseQuickAdapter<CommonSeeBean.ListBean, Ba
     protected void convert(BaseViewHolder helper, CommonSeeBean.ListBean item) {
         SimpleDraweeView iv=helper.getView(R.id.iv);
         if(!TextUtils.isEmpty(item.getTitle())){
-            helper.setText(R.id.tv_title,item.getTitle());
+            helper.setText(R.id.tv_title,"#"+item.getTitle()+"#");
         }
         String uriString =item.getImage();
         iv.setImageURI(uriString);

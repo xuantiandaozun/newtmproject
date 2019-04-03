@@ -129,7 +129,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
                 }
 
                 if(!TextUtils.isEmpty(tieZiBean.getTheme_title())){
-                    helper.setText(R.id.tv_theme,tieZiBean.getTheme_title());
+                    helper.setText(R.id.tv_theme,"#"+tieZiBean.getTheme_title()+"#");
                 }
                 if(!TextUtils.isEmpty(tieZiBean.getTitle())){
                     helper.setText(R.id.tv_title,tieZiBean.getTitle());

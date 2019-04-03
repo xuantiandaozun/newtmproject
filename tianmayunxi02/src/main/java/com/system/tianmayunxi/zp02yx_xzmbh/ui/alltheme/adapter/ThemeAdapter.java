@@ -31,7 +31,7 @@ public class ThemeAdapter extends BaseQuickAdapter<AllThemBean.ListBean, BaseVie
         simpleDraweeView.setImageURI(item.getImage());
 
         if(!TextUtils.isEmpty(item.getTitle())){
-            helper.setText(R.id.tv_title,item.getTitle());
+            helper.setText(R.id.tv_title,"#"+item.getTitle()+"#");
         }
         RadiusRelativeLayout statue=helper.getView(R.id.tv_statue);
         ImageView iv_add=helper.getView(R.id.iv_add);

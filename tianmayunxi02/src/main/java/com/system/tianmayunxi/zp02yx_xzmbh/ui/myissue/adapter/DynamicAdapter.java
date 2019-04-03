@@ -71,7 +71,7 @@ public class DynamicAdapter extends BaseQuickAdapter<TieZiBean, BaseViewHolder> 
 
 
         if(!TextUtils.isEmpty(item.getTheme_title())){
-            helper.setText(R.id.tv_theme,item.getTheme_title());
+            helper.setText(R.id.tv_theme,"#"+item.getTheme_title()+"#");
         }
         if(!TextUtils.isEmpty(item.getTitle())){
             helper.setText(R.id.tv_title,item.getTitle());

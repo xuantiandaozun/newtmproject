@@ -18,7 +18,7 @@ public class ThemeListAdapter  extends BaseQuickAdapter<CommonSeeBean.ListBean, 
     @Override
     protected void convert(BaseViewHolder helper, CommonSeeBean.ListBean item) {
         if(!TextUtils.isEmpty(item.getTitle())){
-            helper.setText(R.id.tv_title,item.getTitle());
+            helper.setText(R.id.tv_title,"#"+item.getTitle()+"#");
         }
     }
 }
