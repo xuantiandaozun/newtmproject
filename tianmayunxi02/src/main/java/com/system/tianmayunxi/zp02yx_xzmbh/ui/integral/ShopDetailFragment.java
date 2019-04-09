@@ -117,12 +117,7 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
         TMBaseFragment fragment=null;
         int id = view.getId();
         if(id==R.id.tv_next){
-            String mobile = tmUser.getMobile();
-            if (TextUtils.isEmpty(mobile)) {
-                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
-                startActivity(intent);
-                return;
-            }
+
 
             int is_virtual = beans.getIs_virtual();
             if(is_virtual==0){
@@ -133,6 +128,12 @@ public class ShopDetailFragment extends MVPBaseFragment<OfficContract.View, Offi
                         .navigation();
                 start(fragment);
             }else {
+                String mobile = tmUser.getMobile();
+                if (TextUtils.isEmpty(mobile)) {
+                    Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
+                    startActivity(intent);
+                    return;
+                }
                 exchangeShop();
             }
 

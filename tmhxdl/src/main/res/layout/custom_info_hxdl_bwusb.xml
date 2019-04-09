@@ -20,6 +20,7 @@
             android:textSize="@dimen/material_font_12"
             android:background="@color/white"
             android:gravity="center"
+            android:textColor="@color/black"
             android:layout_marginTop="30dp"
             android:text="需要登录后才可购买，是否登录？"/>
         <View

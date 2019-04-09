@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -14,6 +16,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -49,6 +52,7 @@ import java.util.List;
 import java.util.Set;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import okhttp3.RequestBody;
 
 import static com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.adapter.officAdapter.DATA_TYPE1;
@@ -57,8 +61,6 @@ import static com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend.adapter.o
 @Route(path = TmyxRouterConfig.TMYX_THEMEDETAIL)
 public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, OfficPresenter>
         implements OfficContract.View, OnRefreshListener, OnLoadMoreListener {
-    @BindView(R2.id.titleBar)
-    TitleBarView titleBar;
     @BindView(R2.id.mlist)
     RecyclerView mlist;
     @BindView(R2.id.iv)
@@ -69,12 +71,22 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
     TextView tv_content;
     @BindView(R2.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
+    @BindView(R2.id.tv_title)
+    TextView tv_title;
+    @BindView(R2.id.titleBar)
+    LinearLayout titleBar;
+    @BindView(R2.id.tv_dy)
+    TextView tv_dy;
+    @BindView(R2.id.iv_back)
+    ImageView iv_back;
     @Autowired(name = "params")
     public String params;
     private ThemeDetailAdapter adapter;
     private AllThemBean.ListBean listBean;
     private int themeColor;
     private int textcolor;
+    private boolean is_sub;
+    private int tid;
 
     @Override
     protected OfficPresenter createPresenter() {
@@ -100,22 +112,21 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
         themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(getActivity()));
         textcolor = Color.parseColor(TMSharedPUtil.getTMTitleTextColor(getActivity()));
         titleBar.setBackgroundColor(themeColor);
-        titleBar.setTitleMainTextColor(textcolor);
 
-        titleBar.setTitleMainText(listBean.getTitle())
-                .setLeftTextDrawable(R.mipmap.icon_nav_back)
-                .setOnLeftTextClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(getPreFragment()!=null){
-                            pop();
-                        }else {
-                            getActivity().finish();
-                        }
-                    }
-                });
+        titleBar.setBackgroundColor(themeColor);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(getPreFragment()!=null){
+                    pop();
+                }else {
+                    getActivity().finish();
+                }
+            }
+        });
+
         iv.setImageURI(listBean.getImage());
-        tv_name.setText(listBean.getTitle());
+        tv_name.setText("#"+listBean.getTitle()+"#");
         mlist.setLayoutManager(new LinearLayoutManager(getThisContext()));
         mlist.addItemDecoration(new VerticalSpaceItemDecoration(UEMethod.dp2px(getThisContext(),5)));
         adapter = new ThemeDetailAdapter(new ArrayList<>());
@@ -190,6 +201,38 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
         getOneTheme();
         refreshLayout.setOnRefreshListener(this);
         refreshLayout.setOnLoadMoreListener(this);
+
+    }
+    @OnClick({R2.id.tv_dy})
+    public void onClick(View view) {
+        TMBaseFragment fragment = null;
+        int id = view.getId();
+        if(view.getId()==R.id.tv_dy){
+            if(!is_sub){
+                addSubscription(tid);
+            }else {
+                unSubscription(tid);
+            }
+        }
+    }
+    private void addSubscription(int id) {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("tid",id+"");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.addSubscription(body);
+    }
+    private void unSubscription(int id) {
+        HashMap<String, String> parms = new HashMap<>();
+        parms.put("tid",id+"");
+        String value = new Gson().toJson(parms);
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), value);
+        mPresenter.unSubscribe(body);
+    }
+    private void isSub(int tid) {
+        HashMap<String, Object> parms = new HashMap<>();
+        parms.put("tid", tid);
+        mPresenter.isSub(parms);
     }
     @Override
     public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -275,6 +318,19 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                         case "oneTheme":
                             OneThemeBean oneThemeBean = GsonUtil.GsonToBean(object, OneThemeBean.class);
                             tv_content.setText(oneThemeBean.getContent());
+                            tid = oneThemeBean.getId();
+                            isSub(tid);
+
+                            break;
+                        case "isSub":
+                            JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
+                            is_sub = jsonObject.get("is_sub").getAsBoolean();
+                            if (is_sub) {
+                                tv_dy.setText("已订阅");
+                            } else {
+                                tv_dy.setText("未订阅");
+
+                            }
                             break;
                         default:
                             break;

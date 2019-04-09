@@ -71,11 +71,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         int themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(mContext));
         if(position==0){
             re_back.setBackgroundColor(themeColor);
-           // re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
+            re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
 
         }else {
             re_back.setBackgroundResource(R.color.hxdl_background04);
-          //  re_back.setPadding(0,0,0,0);
+            re_back.setPadding(0,0,0,0);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +106,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             @Override
             public void run() {
                 notifyDataSetChanged();
-
             }
         });
     }

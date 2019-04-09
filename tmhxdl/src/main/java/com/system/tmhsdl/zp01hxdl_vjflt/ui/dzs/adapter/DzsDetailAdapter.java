@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.system.myproject.utils.HandlerUtil;
+import com.system.myproject.utils.SizeUtil;
 import com.system.tmhsdl.zp01hxdl_vjflt.R;
 import com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs.bean.BookDetail;
 import com.tenma.ventures.GlideApp;
@@ -69,11 +70,11 @@ public class DzsDetailAdapter extends RecyclerView.Adapter<DzsDetailAdapter.View
         int themeColor = Color.parseColor(TMSharedPUtil.getTMThemeColor(mContext));
         if(position==0){
             re_back.setBackgroundColor(themeColor);
-            // re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
+             re_back.setPadding(SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10),SizeUtil.dp2px(10));
 
         }else {
             re_back.setBackgroundResource(R.color.hxdl_background04);
-            //  re_back.setPadding(0,0,0,0);
+              re_back.setPadding(0,0,0,0);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

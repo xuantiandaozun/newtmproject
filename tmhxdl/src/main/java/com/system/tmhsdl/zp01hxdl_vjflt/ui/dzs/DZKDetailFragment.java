@@ -294,7 +294,7 @@ public class DZKDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                             } else {
                                 String tmToken = TMSharedPUtil.getTMToken(getContext());
                                 if (TextUtils.isEmpty(tmToken)) {
-                                    btn_next.setText("请登录");
+                                    btn_next.setText("购买(如已订阅，请先登录)");
                                 } else {
                                     btn_next.setText("购买");
                                 }

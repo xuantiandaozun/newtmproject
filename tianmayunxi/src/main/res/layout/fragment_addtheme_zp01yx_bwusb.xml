@@ -90,6 +90,7 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:singleLine="true"
+            android:maxLength="30"
             android:background="@color/white"
             android:padding="@dimen/material_10"
             android:textSize="@dimen/material_font_12"

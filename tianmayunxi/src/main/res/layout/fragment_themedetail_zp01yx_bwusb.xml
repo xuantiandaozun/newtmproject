@@ -5,18 +5,80 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.system.uilibrary.views.titlebar.TitleBarView
+    <LinearLayout
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentTop="true"
-        android:background="?attr/primary"
-        app:title_actionTextColor="@color/white"
-        app:title_dividerColor="?attr/primary"
-        app:title_leftTextColor="@color/white"
-        app:title_rightTextColor="@color/white"
-        app:title_titleMainTextColor="@color/white"
-        app:title_titleSubTextColor="@color/white" />
+        android:background="#801F2E6E"
+
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_20"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/material_10"
+            android:paddingBottom="@dimen/material_10"
+            >
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/material_5"
+                android:paddingRight="@dimen/material_15"
+                android:paddingLeft="@dimen/material_10"
+                android:paddingBottom="@dimen/material_5"
+                android:src="@mipmap/icon_nav_back"
+                android:scaleType="centerInside"
+                android:layout_centerVertical="true"
+                />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/head"
+                android:layout_width="@dimen/material_25"
+                android:layout_height="@dimen/material_25"
+                android:layout_toLeftOf="@+id/tv_title"
+                android:layout_marginRight="@dimen/material_5"
+                fresco:roundAsCircle="true"
+                />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:maxWidth="@dimen/material_200"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:id="@+id/tv_dy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订阅"
+                android:drawablePadding="@dimen/material_5"
+                android:drawableLeft="@mipmap/icon_dy"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/iv_more"
+                android:layout_marginRight="@dimen/material_5"
+                android:visibility="visible"
+                android:textColor="@color/textcolor09"
+                android:textSize="@dimen/material_font_13"
+                />
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="@dimen/material_25"
+                android:layout_height="@dimen/material_25"
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                android:src="@mipmap/icon_nav_more"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

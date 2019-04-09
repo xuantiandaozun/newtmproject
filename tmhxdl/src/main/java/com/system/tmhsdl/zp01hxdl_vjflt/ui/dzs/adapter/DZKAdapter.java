@@ -40,7 +40,7 @@ public class DZKAdapter  extends BaseQuickAdapter<InssBean.ListBean, BaseViewHol
         re_back.setBackgroundColor(themeColor);
         int create_time = item.getCreate_time();
         if(!TextUtils.isEmpty(create_time+"")){
-            String yyyyMMdd = timeStamp2Date(create_time+"", "yyyyMMdd");
+            String yyyyMMdd = timeStamp2Date(create_time+"", "yyyy-MM-dd");
             helper.setText(R.id.tv_number,yyyyMMdd);
 
         }

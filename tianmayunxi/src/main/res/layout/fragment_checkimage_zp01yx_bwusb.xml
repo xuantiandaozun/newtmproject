@@ -109,6 +109,7 @@
             android:layout_toRightOf="@+id/tv_indicator"
             android:textColor="@color/white"
             android:layout_marginLeft="@dimen/material_10"
+            android:scrollbars="horizontal"
             android:textSize="@dimen/material_font_12"
             android:layout_height="wrap_content" />
     </RelativeLayout>

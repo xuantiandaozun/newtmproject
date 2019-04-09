@@ -10,4 +10,11 @@
         android:layout_marginTop="@dimen/material_10"
         android:layout_gravity="center_horizontal"
         android:background="@mipmap/icon_soft_zp02yx"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_5"
+        android:layout_gravity="center_horizontal"
+        android:text="暂无评论，去抢沙发！"
+        />
 </LinearLayout>

@@ -171,7 +171,7 @@ public class AddThemeFragment extends MVPBaseFragment<AllThemeContract.View, All
                             }) //设置数据回调，如果不想在Activity通过onActivityResult()获取回传的数据，可实现此接口
                             .build();
                 }else {
-                    ToastUtil.showSnack(getContext(),"最多只能选10张图片");
+                    ToastUtil.showSnack(getContext(),"最多只能选20张图片");
                 }
 
             }

@@ -2,6 +2,7 @@ package com.system.tianmayunxi.zp01yx_bwusb.ui.officialrecommend;
 
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -104,7 +105,7 @@ public class CheckImageFrgment extends MVPBaseFragment <OfficContract.View, Offi
 
         titleBar.setBackgroundColor(themeColor);
         tv_title.setTextColor(textcolor);
-
+        iv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
         head.setImageURI(beans.getTheme_image());
         tv_title.setText(beans.getTheme_title());
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);

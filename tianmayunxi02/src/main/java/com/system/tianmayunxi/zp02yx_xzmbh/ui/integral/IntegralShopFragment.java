@@ -108,12 +108,7 @@ public class IntegralShopFragment extends MVPBaseFragment <OfficContract.View, O
                         public void onClick(View v) {
                             TMUser tmUser = TMSharedPUtil.getTMUser(getContext());
 
-                            String mobile = tmUser.getMobile();
-                            if (TextUtils.isEmpty(mobile)) {
-                                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
-                                startActivity(intent);
-                                return;
-                            }
+
 
                             int is_virtual = beans.getIs_virtual();
                             if(is_virtual==0){
@@ -124,6 +119,13 @@ public class IntegralShopFragment extends MVPBaseFragment <OfficContract.View, O
                                         .navigation();
                                 start(fragment);
                             }else {
+                                String mobile = tmUser.getMobile();
+                                if (TextUtils.isEmpty(mobile)) {
+                                    Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.bindingMobile");
+                                    startActivity(intent);
+                                    return;
+                                }
+
                                 exchangeShop(beans);
                             }
 

@@ -1,14 +1,18 @@
 package com.system.tmhsdl.zp01hxdl_vjflt.ui.dzs;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -178,8 +182,39 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
         if(view.getId()==R.id.btn_next){
             String tmToken = TMSharedPUtil.getTMToken(getContext());
             if(TextUtils.isEmpty(tmToken)){
-                Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
-                getActivity().startActivity(intent);
+                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.custom_info_hxdl_bwusb, null, false);
+                Dialog loadingDialog = new Dialog(getContext(), R.style.MyDialogStyle);
+                RelativeLayout layout = (RelativeLayout)inflate.findViewById(R.id.re_main);
+                TextView tv_next = (TextView)inflate.findViewById(R.id.tv_next);
+                tv_next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity().getPackageName() + ".usercenter.login");
+                        getActivity().startActivity(intent);
+                        loadingDialog.dismiss();
+                    }
+                });
+                TextView tv_cancel = (TextView)inflate.findViewById(R.id.tv_cancel);
+                tv_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        loadingDialog.dismiss();
+                    }
+                });
+                loadingDialog.setCancelable(true);
+                loadingDialog.setCanceledOnTouchOutside(true);
+                loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(-1, -1));
+                Window window = loadingDialog.getWindow();
+                android.view.WindowManager.LayoutParams lp = window.getAttributes();
+                lp.width = -1;
+                lp.height = -2;
+                window.setGravity(17);
+                window.setAttributes(lp);
+                window.setWindowAnimations(com.system.uilibrary.R.style.PopWindowAnimStyle);
+                loadingDialog.show();
+
+
+
                 return;
             }
             if(!is_buy){
@@ -306,7 +341,7 @@ public class DZSDetailFragment extends MVPBaseFragment<DzsContract.View, DzsPres
                             }else {
                                 String tmToken = TMSharedPUtil.getTMToken(getContext());
                                 if(TextUtils.isEmpty(tmToken)){
-                                    btn_next.setText("请登录");
+                                    btn_next.setText("购买(如已订阅，请先登录)");
                                 }else {
                                     btn_next.setText("购买");
                                 }

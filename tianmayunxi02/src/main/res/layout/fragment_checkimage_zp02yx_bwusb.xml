@@ -86,6 +86,19 @@
                 />
         </RelativeLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/iv_jf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img_tip_jf"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/dp_10"
+        android:layout_above="@+id/iv_content"
+        android:textSize="@dimen/material_font_13"
+        android:paddingLeft="@dimen/material_30"
+        android:text="领取积分"
+        />
     <RelativeLayout
         android:id="@+id/iv_content"
         android:layout_width="match_parent"
@@ -106,24 +119,12 @@
             android:layout_width="match_parent"
             android:layout_toRightOf="@+id/tv_indicator"
             android:textColor="@color/white"
+            android:scrollbars="horizontal"
             android:layout_marginLeft="@dimen/material_10"
             android:textSize="@dimen/material_font_12"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-    <TextView
-        android:id="@+id/iv_jf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/img_tip_jf"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/white"
-        android:paddingTop="@dimen/dp_10"
-        android:layout_above="@+id/re_bottom"
-        android:layout_marginBottom="@dimen/material_20"
-        android:textSize="@dimen/material_font_13"
-        android:paddingLeft="@dimen/material_30"
-        android:text="领取积分"
-        />
+
     <LinearLayout
         android:id="@+id/re_bottom"
         android:layout_width="match_parent"
