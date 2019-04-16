@@ -322,6 +322,10 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
                             isSub(tid);
 
                             break;
+                        case "addSubscription":
+                        case "unSubscribe":
+                            isSub(tid);
+                            break;
                         case "isSub":
                             JsonObject jsonObject = GsonUtil.GsonToBean(object, JsonObject.class);
                             is_sub = jsonObject.get("is_sub").getAsBoolean();

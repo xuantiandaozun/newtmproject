@@ -87,6 +87,7 @@ public class officAdapter  extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
             case DATA_TYPE2:
                 TieZiBean tieZiBean = (TieZiBean) item;
                 RecyclerView mgrid=helper.getView(R.id.mlist);
+                mgrid.setNestedScrollingEnabled(false);
                 mgrid.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {

@@ -49,6 +49,8 @@
                 android:layout_centerInParent="true"
                 android:maxWidth="@dimen/material_200"
                 android:lines="1"
+                android:textSize="@dimen/material_font_16"
+                android:text="主题信息"
                 android:ellipsize="end"
                 android:textColor="@color/white"
                 />
@@ -62,7 +64,8 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/iv_more"
                 android:layout_marginRight="@dimen/material_5"
-                android:visibility="visible"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
                 android:textColor="@color/textcolor09"
                 android:textSize="@dimen/material_font_13"
                 />
@@ -71,7 +74,7 @@
                 android:layout_width="@dimen/material_25"
                 android:layout_height="@dimen/material_25"
                 android:scaleType="centerInside"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:src="@mipmap/icon_nav_more"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"

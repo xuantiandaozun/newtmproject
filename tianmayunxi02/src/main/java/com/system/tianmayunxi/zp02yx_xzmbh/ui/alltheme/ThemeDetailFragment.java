@@ -101,7 +101,7 @@ public class ThemeDetailFragment extends MVPBaseFragment<OfficContract.View, Off
         titleBar.setBackgroundColor(themeColor);
         titleBar.setTitleMainTextColor(textcolor);
 
-        titleBar.setTitleMainText(listBean.getTitle())
+        titleBar.setTitleMainText("主题信息")
                 .setLeftTextDrawable(R.mipmap.icon_nav_back)
                 .setOnLeftTextClickListener(new View.OnClickListener() {
                     @Override

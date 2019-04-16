@@ -1271,6 +1271,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
                             eventData.put("addSubscription", data.getData());
+                            getView().showMessage(0, data.getMessage());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());
@@ -1308,6 +1309,7 @@ public class OfficPresenter extends MVPBasePresenter<OfficContract.View> impleme
                             bean.setEventNumber(EventCallBackBean.WHITEDATA);
                             HashMap<String, Object> eventData = bean.getEventData();
                             eventData.put("unSubscribe", data.getData());
+                            getView().showMessage(0, data.getMessage());
                             getView().callBack(bean);
                         } else {
                             getView().showMessage(0, data.getMessage());
