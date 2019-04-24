@@ -7,6 +7,7 @@ import com.system.tianmayunxi.zp02yx_xzmbh.bean.EventCallBackBean;
 import com.system.tianmayunxi.zp02yx_xzmbh.bean.TMBaseResoultEntity;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.contract.AllThemeContract;
 import com.system.tianmayunxi.zp02yx_xzmbh.ui.alltheme.model.AllThemeModel;
+import com.system.uilibrary.dialog.DialogsTools;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -192,6 +193,8 @@ public class AllThemePresenter extends MVPBasePresenter<AllThemeContract.View> i
 
             @Override
             public void onSuccess(TMBaseResoultEntity<Object> data) {
+                DialogsTools.getInstance().closeDialog();
+
                 if (data != null)
                     if (isViewAttached()) {
                         if (data.getError_code() == 200) {
